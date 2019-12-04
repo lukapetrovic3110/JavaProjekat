@@ -3,6 +3,7 @@ package view;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -14,10 +15,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
-import com.sun.glass.events.KeyEvent;
-
 public class MainWindow  extends JFrame
 {
+	private static final long serialVersionUID = 7661406785264865341L;
 	private static MainWindow instance = null;
 
 	public static MainWindow getInstance() 
