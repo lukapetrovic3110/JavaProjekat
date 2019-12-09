@@ -46,48 +46,6 @@ public class MainWindow  extends JFrame
 	}
 	
 	
-	private void SetMenuBar() //postavlja menu bar
-	{
-		JMenuBar menuBar = new JMenuBar();//linija
-	    // Menu
-	    JMenu fileNew = new JMenu("File");
-	    JMenu fileEdit = new JMenu("Edit");
-	    JMenu fileHelp = new JMenu("Help");
-	    // Menu Item (Drop down menus)
-	    JMenuItem item1 = new JMenuItem("New", KeyEvent.VK_T);
-	    JMenuItem item2 = new JMenuItem("Close");
-	    JMenuItem item3 = new JMenuItem("Edit");
-	    JMenuItem item4 = new JMenuItem("Delete");
-	    JMenuItem item5 = new JMenuItem("Help");
-	    JMenuItem item6 = new JMenuItem("About");
-	    try 
-	    {
-			ImageIcon imageIcon=new ImageIcon(ImageIO.read(getClass().getResourceAsStream("menuBarAddIcon.png")));
-			item1.setIcon(imageIcon);
-		} 
-	    catch (IOException e) 
-	    {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	    KeyStroke ctrlNKeyStroke = KeyStroke.getKeyStroke("control N");
-	    item1.setAccelerator(ctrlNKeyStroke);
-	    
-	    fileNew.add(item1);
-	    fileNew.add(item2);
-	    fileEdit.add(item3);
-	    fileEdit.add(item4);
-	    fileHelp.add(item5);
-	    fileHelp.add(item6);
-	    
-	    menuBar.add(fileNew);
-	    menuBar.add(fileEdit);
-	    menuBar.add(fileHelp);
-	    
-	    setJMenuBar(menuBar); //od moje aplikacije menu bar setujem na ovaj novi menu bar koji sam napravila
-	}
-	
-	
 	
 	
 }
