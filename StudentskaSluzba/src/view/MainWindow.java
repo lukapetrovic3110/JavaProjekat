@@ -3,17 +3,17 @@ package view;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
+//import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
+//import java.io.IOException;
 
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
+//import javax.imageio.ImageIO;
+//import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.KeyStroke;
+//import javax.swing.JMenu;
+//import javax.swing.JMenuBar;
+//import javax.swing.JMenuItem;
+//import javax.swing.KeyStroke;
 
 public class MainWindow  extends JFrame
 {
@@ -35,12 +35,18 @@ public class MainWindow  extends JFrame
 		Dimension screenDimension = Toolkit.getDefaultToolkit().getScreenSize();
 		setSize(screenDimension.width / 2, screenDimension.height / 2);
 		setLocationRelativeTo(null);
-		SetMenuBar();
+		//SetMenuBar();
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
 		Image icon = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB_PRE);
 		this.setIconImage(icon);
 
+		StatusBar statusBar = new StatusBar(this);
+		statusBar.DrawStatusBar();
+		
+		MenuBar menuBar = new MenuBar(this);
+		menuBar.SetMenuBar();
+		
 		
 		setVisible(true); //poslednja metoda koja se poziva
 	}
