@@ -2,14 +2,19 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 import javax.swing.border.BevelBorder;
 
 public class StatusBar extends JPanel
@@ -27,30 +32,39 @@ public class StatusBar extends JPanel
 		this.setBorder(new BevelBorder(BevelBorder.LOWERED));
 		frame.add(this, BorderLayout.SOUTH);
 		this.setPreferredSize(new Dimension(frame.getWidth(), 30));
-		this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+		this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 	
-		JLabel headerLabel = new JLabel("Studentska Sluzba", SwingConstants.LEFT);
-		headerLabel.setHorizontalAlignment(JLabel.LEFT);
-		this.add(headerLabel, 0);
+		JLabel headerLabel = new JLabel("Studentska Sluzba");
+		this.add(headerLabel);
 		
-		String vreme = new SimpleDateFormat("HH:mm").format(Calendar.getInstance().getTime());
-		JLabel timeLabel = new JLabel(vreme, SwingConstants.RIGHT);
-		timeLabel.setHorizontalAlignment(JLabel.RIGHT);
-		this.add(timeLabel, 1);
+		this.add(Box.createHorizontalGlue());
 		
-		String datum = new SimpleDateFormat("dd.MM.YYYY").format(Calendar.getInstance().getTime());
-		JLabel dateTimeLabel = new JLabel(datum, SwingConstants.RIGHT);
-		dateTimeLabel.setHorizontalAlignment(JLabel.RIGHT);
-		this.add(dateTimeLabel, 2);
 		
-		//String datum = new SimpleDateFormat("HH:mm dd.MM.YYYY").format(Calendar.getInstance().getTime());
-		//JLabel dateTimeLabel = new JLabel(datum, SwingConstants.RIGHT);
-		//dateTimeLabel.setHorizontalAlignment(JLabel.RIGHT);
-		//this.add(dateTimeLabel, 1);
+		JLabel timeLabel = new JLabel();
 		
-		//VREME: https://books.google.rs/books?id=3Qtf7mDvtbMC&pg=PA148&lpg=PA148&dq=how+to+position+
-		//jlabel+in+status+bar&source=bl&ots=--Se2euqji&sig=ACfU3U1ru8bZgDz9rKUeUgrtNAoM_l-HtQ&hl=en&sa=X&ved=2
-		//ahUKEwict7nmv7rmAhXD-6QKHb6fDlQQ6AEwCXoECAkQAQ#v=onepage&q=how%20to%20position%20jlabel%20in%20status%20bar&f=false
+		
+		
+		Timer timee = new javax.swing.Timer(1000, new ActionListener() {
+			 
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                java.util.Date now = new java.util.Date();
+				String ss=DateFormat.getTimeInstance().format(now);
+				//ss=ss.substring(0, ss.length() - 2); ne zelim PM
+                timeLabel.setText(ss+"   ");
+ 
+            }
+        });
+        timee.start();
+		
+        this.add(timeLabel);
+		
+		
+		String datum = new SimpleDateFormat("dd.MM.YYYY.").format(Calendar.getInstance().getTime());
+		JLabel dateTimeLabel = new JLabel(datum);
+		this.add(dateTimeLabel);
+		
+	
 		
 		//frame.setVisible(true);
 	}
