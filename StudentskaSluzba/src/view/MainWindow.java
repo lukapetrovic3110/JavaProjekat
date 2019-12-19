@@ -58,7 +58,10 @@ public class MainWindow extends JFrame
 		ToolBar toolBar = new ToolBar(this);
 		toolBar.setToolBar();
 		
-		setVisible(true); //poslednja metoda koja se poziva
+		TabbedPane tabbedPane = new TabbedPane(this);
+		tabbedPane.setTabbedPane();
+		
+		setVisible(true);
 	}
 	
 }
