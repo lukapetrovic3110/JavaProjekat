@@ -68,6 +68,11 @@ public class MainWindow extends JFrame
 		//d.setVisible(true);
 		AboutDialog h=new AboutDialog(this,true);
 		h.setVisible(true);
+
+		TabbedPane tabbedPane = new TabbedPane(this);
+		tabbedPane.setTabbedPane();
+		
+		setVisible(true);
 	}
 	
 }
