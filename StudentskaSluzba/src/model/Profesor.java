@@ -1,22 +1,47 @@
 package model;
 import java.util.ArrayList;
-
 /**
  * @author ra25-2017
  */
-
 public class Profesor {
+	
+	public enum titule { DIPLOMIRANIINZENJER, MAGISTAR, DOKTORNAUKA; }
+	
+	public enum zvanja { ASISTENT, VANREDNIPROFESOR, DOCENT, REDOVNIPROFESOR, DEKAN;}
+	
 	private String ime;
 	private String prezime;
 	private String datum_rodjenja;
 	private String adresa_stanovanja;
-	private String kontakt_telefona;
+	private String kontakt_telefona; // zbor unosa ***/***-**-** npr. 064/344-33-45
 	private String e_mail;
 	private String adresa_kancelarije;
 	private int br_licne;
-	private String titula;
-	private String zvanje;
-	private ArrayList<Predmet> skisak_predmeta;
+	private titule titula;
+	private zvanja zvanje;
+	private ArrayList<Predmet> spisak_predmeta;
+	
+	public Profesor() {}
+	
+	public Profesor(String ime, String prezime, String datum_rodjenja,
+			       String adresa_stanovanja, String kontakt_telefon, String e_mail,
+			       String adresa_kancelarije, int br_licne, titule titula, zvanja zvanje, 
+			       ArrayList<Predmet> spisak_predmeta
+			   	 ) 
+	{
+		super();
+		this.ime = ime;
+		this.prezime = prezime;
+		this.datum_rodjenja = datum_rodjenja;
+		this.adresa_stanovanja = adresa_stanovanja;
+		this.kontakt_telefona = kontakt_telefon;
+		this.e_mail = e_mail;
+		this.adresa_kancelarije = adresa_kancelarije;
+		this.br_licne = br_licne;
+		this.titula = titula;
+		this.zvanje = zvanje;
+		this.setSpisakpredmeta(spisak_predmeta);
+	}
 	
 	public String getIme() {
 		return ime;
@@ -24,60 +49,62 @@ public class Profesor {
 	public void setIme(String ime) {
 		this.ime = ime;
 	}
-	public String getDatum_rodjenja() {
+	public String getDatumrodjenja() {
 		return datum_rodjenja;
 	}
-	public void setDatum_rodjenja(String datum_rodjenja) {
+	public void setDatumrodjenja(String datum_rodjenja) {
 		this.datum_rodjenja = datum_rodjenja;
 	}
-	public String getAdresa_stanovanja() {
+	public String getAdresastanovanja() {
 		return adresa_stanovanja;
 	}
-	public void setAdresa_stanovanja(String adresa_stanovanja) {
+	public void setAdresastanovanja(String adresa_stanovanja) {
 		this.adresa_stanovanja = adresa_stanovanja;
 	}
-	public String getKontakt_telefona() {
+	public String getKontakttelefona() {
 		return kontakt_telefona;
 	}
-	public void setKontakt_telefona(String kontakt_telefona) {
+	public void setKontakttelefona(String kontakt_telefona) {
 		this.kontakt_telefona = kontakt_telefona;
 	}
-	public String getE_mail() {
+	public String getEmail() {
 		return e_mail;
 	}
-	public void setE_mail(String e_mail) {
+	public void setEmail(String e_mail) {
 		this.e_mail = e_mail;
 	}
-	public String getAdresa_kancelarije() {
+	public String getAdresakancelarije() {
 		return adresa_kancelarije;
 	}
-	public void setAdresa_kancelarije(String adresa_kancelarije) {
+	public void setAdresakancelarije(String adresa_kancelarije) {
 		this.adresa_kancelarije = adresa_kancelarije;
 	}
-	public int getBr_licne() {
+	public int getBrlicne() {
 		return br_licne;
 	}
-	public void setBr_licne(int br_licne) {
+	public void setBrlicne(int br_licne) {
 		this.br_licne = br_licne;
 	}
-	public String getTitula() {
+	public titule getTitula() {
 		return titula;
 	}
-	public void setTitula(String titula) {
+	public void setTitula(titule titula) {
 		this.titula = titula;
 	}
-	public String getZvanje() {
+	public zvanja getZvanje() {
 		return zvanje;
 	}
-	public void setZvanje(String zvanje) {
+	public void setZvanje(zvanja zvanje) {
 		this.zvanje = zvanje;
 	}
-	public ArrayList<Predmet> getSkisak_predmeta() {
-		return skisak_predmeta;
+	public ArrayList<Predmet> getSpisakpredmeta() {
+		return spisak_predmeta;
 	}
-	public void setSkisak_predmeta(ArrayList<Predmet> skisak_predmeta) {
-		this.skisak_predmeta = skisak_predmeta;
+	
+	public void setSpisakpredmeta(ArrayList<Predmet> spisak_predmeta) {
+		this.spisak_predmeta = spisak_predmeta;
 	}
+	
 	public String getPrezime() {
 		return prezime;
 	}
@@ -90,6 +117,8 @@ public class Profesor {
 		return "Profesor [ime=" + ime + ", prezime=" + prezime + ", datum_rodjenja=" + datum_rodjenja
 				+ ", adresa_stanovanja=" + adresa_stanovanja + ", kontakt_telefona=" + kontakt_telefona + ", e_mail="
 				+ e_mail + ", adresa_kancelarije=" + adresa_kancelarije + ", br_licne=" + br_licne + ", titula="
-				+ titula + ", zvanje=" + zvanje + ", skisak_predmeta=" + skisak_predmeta + "]";
+				+ titula + ", zvanje=" + zvanje + ", skisak_predmeta=" + spisak_predmeta + "]";
 	}
+
+	
 }
