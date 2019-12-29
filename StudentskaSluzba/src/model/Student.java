@@ -10,21 +10,23 @@ public class Student {
 	private String prezime;
 	private String datumr;
 	private String adresa;
-	private int tel;
+	private String tel;
 	private String email;
 	private String brindeksa;
 	private String datumu;
 	private String godinastud;
-	private float prosek;
+	private double prosek;
 	
 	private  status s;
-	private ArrayList<String> lista=new ArrayList<String>();
+	//private ArrayList<String> lista=new ArrayList<String>();
 	
 	public Student() {}
 	
 	public Student(String ime, String prezime, String datumr, 
-			String adresa, int tel, String email, String brindeksa,
-			String datumu, String godinastud, float prosek,status s,ArrayList <String> lista) {
+			String adresa, String tel, String email, String brindeksa,
+			String datumu, String godinastud, double prosek,status s
+			//,ArrayList <String> lista
+			){
 		super();
 		this.ime = ime;
 		this.prezime = prezime;
@@ -38,7 +40,7 @@ public class Student {
 		this.prosek=prosek;
 		
 		this.s=s;
-		this.lista=lista;
+	//	this.lista=lista;
 	}
 
 	public String getIme() {
@@ -73,11 +75,11 @@ public class Student {
 		this.adresa = adresa;
 	}
 
-	public int getTel() {
+	public String getTel() {
 		return tel;
 	}
 
-	public void setTel(int tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 
@@ -113,11 +115,11 @@ public class Student {
 		this.godinastud = godinastud;
 	}
 
-	public float getProsek() {
+	public double getProsek() {
 		return prosek;
 	}
 
-	public void setProsek(float prosek) {
+	public void setProsek(double prosek) {
 		this.prosek = prosek;
 	}
 
@@ -129,13 +131,13 @@ public class Student {
 		this.s = s;
 	}
 
-	public ArrayList<String> getLista() {
+	/*public ArrayList<String> getLista() {
 		return lista;
 	}
 
 	public void setLista(ArrayList<String> lista) {
 		this.lista = lista;
-	}
+	}*/
 	
 	
 
