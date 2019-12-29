@@ -25,7 +25,7 @@ public class Profesor {
 	
 	public Profesor(String ime, String prezime, String datum_rodjenja,
 			       String adresa_stanovanja, String kontakt_telefon, String e_mail,
-			       String adresa_kancelarije, int br_licne, titule titula, zvanja zvanje, 
+			       String adresa_kancelarije, long br_licne, titule titula, zvanja zvanje, 
 			       ArrayList<Predmet> spisak_predmeta
 			   	 ) 
 	{
@@ -82,7 +82,7 @@ public class Profesor {
 	public long getBrlicne() {
 		return br_licne;
 	}
-	public void setBrlicne(int br_licne) {
+	public void setBrlicne(long br_licne) {
 		this.br_licne = br_licne;
 	}
 	public titule getTitula() {
