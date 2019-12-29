@@ -64,6 +64,15 @@ public class ToolBar extends JToolBar{
 		JButton btnDelete = new JButton();
 		btnDelete.setMargin(new Insets(0, 0, 0, 0));
 		btnDelete.setPreferredSize(new Dimension(35,35));
+//		btnDelete.addActionListener(new ActionListener() {
+//			
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				// TODO Auto-generated method stub
+//				OptionPaneBrisanjePredmeta op = new OptionPaneBrisanjePredmeta();
+//			}
+//		});
+		
 		btnDelete.setToolTipText("Obrisi");
 		
 		try {

@@ -24,8 +24,6 @@ public class TabbedPane extends JTabbedPane
 	
 	public void setTabbedPane()
 	{
-		//JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		
 		PanelStudenti panelStudenti = new PanelStudenti();
 		this.addTab("Studenti", null, panelStudenti, null);
 		
@@ -34,6 +32,8 @@ public class TabbedPane extends JTabbedPane
 		
 		PanelPredmeti panelPredmeti = new PanelPredmeti();
 		this.addTab("Predmeti", null, panelPredmeti, null);
+		
+		System.out.println(this.getSelectedIndex());
 		
 		frame.getContentPane().add(this);
 	}
