@@ -1,18 +1,8 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.Image;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.WindowConstants;
 
 public class BrisanjeStudenta extends JDialog{
 	
@@ -30,7 +20,7 @@ public class BrisanjeStudenta extends JDialog{
 		Image ii = i4.getScaledInstance(10, 10, Image.SCALE_SMOOTH);*/
 		
 		setLocationRelativeTo(parentFrame);
-		int n = JOptionPane.showOptionDialog(parentFrame,
+		JOptionPane.showOptionDialog(parentFrame,
 		"Da li ste sigurni da zelite obrisati studenta?",
 		"Brisanje studenta",
 		JOptionPane.YES_NO_CANCEL_OPTION,
@@ -42,6 +32,4 @@ public class BrisanjeStudenta extends JDialog{
 			
 		
 		//zasto ostane mali prozor gore desno?
-
-	
 }

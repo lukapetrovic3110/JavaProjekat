@@ -4,8 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.Box;
@@ -20,11 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.WindowConstants;
-
-import javafx.scene.control.ComboBox;
 
 public class DodavanjeStudenta extends JDialog {
 	private static final long serialVersionUID = 3591599721565020284L;
@@ -38,7 +32,7 @@ public class DodavanjeStudenta extends JDialog {
 	private JLabel godinastud;
 	private JLabel samo1;
 	private JLabel budzet1;
-	private JComboBox god2;
+	private JComboBox<String> god2;
 	private JRadioButton samo;
 	private JRadioButton budzet;
 
@@ -139,10 +133,10 @@ public class DodavanjeStudenta extends JDialog {
 		godinastud.setPreferredSize(dim);
 		     
 		
-		ComboBoxModel god1=new DefaultComboBoxModel(new String[] {"I (PRVA)",
+		ComboBoxModel<String> god1=new DefaultComboBoxModel<String>(new String[] {"I (PRVA)",
 				"II (DRUGA)", "III (TRECA)", "IV (CETVRTA)" });
 
-		god2=new JComboBox();
+		god2=new JComboBox<String>();
 		God.add(godinastud);
 		God.add(god2);
 		god2.setModel(god1);

@@ -6,8 +6,6 @@ import java.awt.Dimension;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-
-import sun.swing.SwingAccessor.JLightweightFrameAccessor;
 import javax.swing.ScrollPaneConstants;
 
 

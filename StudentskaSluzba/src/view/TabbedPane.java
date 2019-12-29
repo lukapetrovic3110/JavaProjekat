@@ -1,7 +1,5 @@
 package view;
 
-import java.awt.Color;
-
 /**
  *  @author ra25-2017
  */

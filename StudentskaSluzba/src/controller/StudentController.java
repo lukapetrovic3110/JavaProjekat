@@ -1,7 +1,5 @@
 package controller;
 
-import model.Student;
-
 public class StudentController {
 	
 	public int getBrojStudenata() {
