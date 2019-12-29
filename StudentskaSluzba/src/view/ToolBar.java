@@ -3,6 +3,8 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -71,6 +73,36 @@ public class ToolBar extends JToolBar{
 		}
 		
 		this.add(btnDelete);
+		
+		this.addSeparator();
+		
+		JButton btnNew2 = new JButton();
+		btnNew2.setMargin(new Insets(0, 0, 0, 0));
+		btnNew2.setPreferredSize(new Dimension(35,35));
+		btnNew2.setToolTipText("Dodaj");
+		try {
+			btnNew2.setIcon(new ImageIcon(ImageIO.read(getClass().getResourceAsStream("icon_add.png"))));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		btnNew2.setVisible(true);
+		this.add(btnNew2);
+		
+		this.addSeparator();
+		
+		JButton btnNew3 = new JButton();
+		btnNew3.setMargin(new Insets(0, 0, 0, 0));
+		btnNew3.setPreferredSize(new Dimension(35,35));
+		btnNew3.setToolTipText("Dodaj");
+		try {
+			btnNew3.setIcon(new ImageIcon(ImageIO.read(getClass().getResourceAsStream("icon_add_prof.png"))));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		btnNew3.setVisible(true);
+		this.add(btnNew3);
 		
 		this.add(Box.createHorizontalStrut(frame.getWidth()/8));
 		
