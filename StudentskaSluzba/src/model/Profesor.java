@@ -16,7 +16,7 @@ public class Profesor {
 	private String kontakt_telefona; // zbor unosa ***/***-**-** npr. 064/344-33-45
 	private String e_mail;
 	private String adresa_kancelarije;
-	private int br_licne;
+	private long br_licne;
 	private titule titula;
 	private zvanja zvanje;
 	private ArrayList<Predmet> spisak_predmeta;
@@ -79,7 +79,7 @@ public class Profesor {
 	public void setAdresakancelarije(String adresa_kancelarije) {
 		this.adresa_kancelarije = adresa_kancelarije;
 	}
-	public int getBrlicne() {
+	public long getBrlicne() {
 		return br_licne;
 	}
 	public void setBrlicne(int br_licne) {
