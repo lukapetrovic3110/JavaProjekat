@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.Color;
+
 /**
  *  @author ra25-2017
  */
@@ -33,8 +35,7 @@ public class TabbedPane extends JTabbedPane
 		PanelPredmeti panelPredmeti = new PanelPredmeti();
 		this.addTab("Predmeti", null, panelPredmeti, null);
 		
-		System.out.println(this.getSelectedIndex());
-		
+		//System.out.println(this.getSelectedIndex());
 		frame.getContentPane().add(this);
 	}
 }
