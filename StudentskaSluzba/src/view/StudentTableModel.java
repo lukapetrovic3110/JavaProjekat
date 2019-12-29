@@ -2,11 +2,14 @@ package view;
 
 import javax.swing.table.AbstractTableModel;
 
+import model.BazaStudenata;
+import model.Student;
+
 
 
 public class StudentTableModel extends AbstractTableModel{
 	private static final long serialVersionUID = 3591599721222020284L;
-	private final String[] kolone= {"Ime","Prezime","Broj indeksa","Godina studija","Status","Prosek","Datum rodjenja","Adresa stanovanja","Broj telefona","E-mail adresa","Datum upisa","Predmeti"};
+	private final String[] kolone= {"Ime","Prezime","Datum rodjenja","Adresa stanovanja","Telefon","E-mail","Broj indeksa","Datum upisa","Godina studija","Prosek","Status"};
 	
 	@Override
 	public int getColumnCount() {
@@ -15,7 +18,7 @@ public class StudentTableModel extends AbstractTableModel{
 	}
 	@Override
 	public int getRowCount() {
-		return 0;
+		return BazaStudenata.getInstance().getRowCount();
 		//return MainController.getInstance().getStudentController().getBrojStudenata();
 	}
 	@Override
@@ -39,41 +42,42 @@ public class StudentTableModel extends AbstractTableModel{
 	
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		/*Student student=MainController.getInstance().getStudentController().getStudent(rowIndex);
+		/*Student student=MainController.getInstance().getStudentController().getStudent(rowIndex);*/
+		Student s=BazaStudenata.getInstance().getRow(rowIndex);
 		switch(columnIndex) {
 		
 		case 0:
-			return student.getIme();
+			return s.getIme();
 		case 1:
-			return student.getPrezime();
+			return s.getPrezime();
 		case 2:
-			return student.getBrindeksa();
+			return s.getDatumr();
 			
 		case 3:
-			return student.getGodinastud();
+			return s.getAdresa();
 			
 		case 4:
-			return student.getS();
+			return s.getTel();
 		
 		case 5:
-			return student.getProsek();
+			return s.getEmail();
 			
 		case 6:
-			return student.getDatumr().toString();
+			return s.getBrindeksa();//getDatumr().toString();
 		case 7:
-			return student.getAdresa();
+			return s.getDatumu();
 			
 		case 8:
-			return student.getTel();
+			return s.getGodinastud();
 		case 9:
-			return student.getEmail();
+			return s.getProsek();
 		case 10:
-			return student.getDatumu().toString();
-		case 11:
-			return student.getLista();
+			return s.getS();
+		//case 11:
+			//return s.getLista();
 		default:
-			*/return "";
-		//}
+			return "";
+		}
 		
 	} 
 	

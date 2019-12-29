@@ -31,6 +31,7 @@ public class BazaStudenata {
 		this.kolone.add("Datum upisa");
 		this.kolone.add("Godina studija");
 		this.kolone.add("Prosek");
+		this.kolone.add("Status");
 
 	}
 	
@@ -59,7 +60,9 @@ public class BazaStudenata {
 	public int getColumnCount() {
 		return 10;
 	}
-
+	public int getRowCount() {
+		return this.studenti.size();
+	}
 	public String getColumnName(int index) {
 		return this.kolone.get(index);
 	}
@@ -91,6 +94,8 @@ public class BazaStudenata {
 			return s.getGodinastud();
 		case 9:
 			return Double.toString(s.getProsek());
+		case 10:
+			return ""+s.getS();
 		default:
 			return null;
 		}
