@@ -2,7 +2,7 @@ package view;
 
 import javax.swing.table.AbstractTableModel;
 
-import controller.MainController;
+
 
 public class StudentTableModel extends AbstractTableModel{
 	private static final long serialVersionUID = 3591599721222020284L;
