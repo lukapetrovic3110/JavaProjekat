@@ -60,8 +60,7 @@ public class MainWindow extends JFrame
 		
 		ToolBar toolBar = new ToolBar(this);
 		toolBar.setToolBar();
-		
-		
+	
 		//BrisanjeStudenta b=new BrisanjeStudenta(this);
 		//b.setVisible(true);
 		//DodavanjeStudenta d=new DodavanjeStudenta(this,true);
@@ -74,7 +73,7 @@ public class MainWindow extends JFrame
 		//AboutDialog h=new AboutDialog(this);
 		//h.setVisible(true);
 		
-		TabbedPane tabbedPane = new TabbedPane(this);
+		TabbedPane tabbedPane = new TabbedPane(this, toolBar);
 		tabbedPane.setTabbedPane();
 		
 		

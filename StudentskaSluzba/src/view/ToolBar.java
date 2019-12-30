@@ -22,6 +22,8 @@ public class ToolBar extends JToolBar{
 	private static final long serialVersionUID = 4268951943328073987L;
 	
 	private JFrame frame;
+	private JButton btnNew2;
+	private JButton btnNew3;
 	
 	public ToolBar(JFrame parentFrame)
 	{
@@ -74,10 +76,9 @@ public class ToolBar extends JToolBar{
 		
 		this.addSeparator();
 		
-		JButton btnNew2 = new JButton();
+	    btnNew2 = new JButton();
 		btnNew2.setMargin(new Insets(0, 0, 0, 0));
 		btnNew2.setPreferredSize(new Dimension(35,35));
-		btnNew2.setToolTipText("Dodaj");
 		try {
 			btnNew2.setIcon(new ImageIcon(ImageIO.read(getClass().getResourceAsStream("icon_add.png"))));
 		} catch (IOException e) {
@@ -87,12 +88,12 @@ public class ToolBar extends JToolBar{
 		btnNew2.setVisible(false);
 		this.add(btnNew2);
 		
+		
 		this.addSeparator();
 		
-		JButton btnNew3 = new JButton();
+		btnNew3 = new JButton();
 		btnNew3.setMargin(new Insets(0, 0, 0, 0));
 		btnNew3.setPreferredSize(new Dimension(35,35));
-		btnNew3.setToolTipText("Dodaj");
 		try {
 			btnNew3.setIcon(new ImageIcon(ImageIO.read(getClass().getResourceAsStream("icon_add_prof.png"))));
 		} catch (IOException e) {
@@ -127,5 +128,21 @@ public class ToolBar extends JToolBar{
 		setFloatable(false);
 		
 		frame.add(this, BorderLayout.NORTH);
+	}
+	
+	public JButton getBtnNew2() {
+		return btnNew2;
+	}
+
+	public void setBtnNew2(JButton btnNew2) {
+		this.btnNew2 = btnNew2;
+	}
+	
+	public JButton getBtnNew3() {
+		return btnNew3;
+	}
+
+	public void setBtnNew3(JButton btnNew3) {
+		this.btnNew3 = btnNew3;
 	}
 }
