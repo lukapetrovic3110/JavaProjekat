@@ -19,7 +19,7 @@ public class PredmetTableModel extends AbstractTableModel{
 
 	@Override
 	public int getRowCount() {
-		return BazaPredmeta.getInstanece().getRowCount();
+		return BazaPredmeta.getInstance().getRowCount();
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class PredmetTableModel extends AbstractTableModel{
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		Predmet predmet = BazaPredmeta.getInstanece().getRow(rowIndex);
+		Predmet predmet = BazaPredmeta.getInstance().getRow(rowIndex);
 		
 		switch(columnIndex) {
 		case 0:

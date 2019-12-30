@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class BazaPredmeta {
 	
 	private static BazaPredmeta instance = null;
-	public static BazaPredmeta getInstanece(){
+	public static BazaPredmeta getInstance(){
 		if (instance == null){
 			instance = new BazaPredmeta();
 		}
