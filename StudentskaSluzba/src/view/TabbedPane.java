@@ -27,7 +27,7 @@ public class TabbedPane extends JTabbedPane
 		PanelStudenti panelStudenti = new PanelStudenti(frame.getWidth(), frame.getHeight());
 		this.addTab("Studenti", null, panelStudenti, null);
 		
-		PanelProfesori panelProfesori = new PanelProfesori();
+		PanelProfesori panelProfesori = new PanelProfesori(frame.getWidth(), frame.getHeight());
 		this.addTab("Profesori", null, panelProfesori, null);
 		
 		PanelPredmeti panelPredmeti = new PanelPredmeti(frame.getWidth(), frame.getHeight());
