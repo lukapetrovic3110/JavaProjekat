@@ -25,13 +25,15 @@ public class MyFocusListener implements FocusListener{
 		// polje prezime je obavezno za unos:
 		if (txt.getName().equals("txtIme")) {
 
-			if (txt.getText().trim().equals("") || txt.getText().trim().equals("Unesite prezime...")) {
-				txt.setText("Unesite prezime...");
-				//txt.requestFocus();
+			if (txt.getText().trim().equals("") || txt.getText().trim().equals("Unesite ime...")) {
+				txt.setText("Unesite ime...");
+				txt.requestFocus();
 				txt.setForeground(Color.RED);
 			} else {
 				txt.setForeground(Color.BLACK);
 			}
+		
+			
 		}
 		
 		
