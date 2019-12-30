@@ -21,10 +21,12 @@ public class DialogDodavanjePredmeta extends JDialog{
 	
 	private JLabel sifrapredmeta;
 	private JLabel nazivpredmeta;
+	private JLabel semsetar;
 	private JLabel godinastudija;
 	
 	private JTextField poljesifpred;
 	private JTextField poljenzvpred;
+	private JTextField poljesemestar;
 	private JTextField poljegodstud;
 	
 	private JButton potvrdi;
@@ -68,6 +70,20 @@ public class DialogDodavanjePredmeta extends JDialog{
 		
 		panel.add(NazivPredmeta);
 		
+		JPanel Semestar = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		
+		semsetar = new JLabel();
+		semsetar.setText("Semestar*");
+		semsetar.setPreferredSize(dimenzije);
+		
+		poljesemestar = new JTextField();
+		poljesemestar.setPreferredSize(dimenzije);
+		
+		Semestar.add(semsetar);
+		Semestar.add(poljesemestar);
+		
+		panel.add(Semestar);
+	
 		JPanel GodinaStudija = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		
 		godinastudija = new JLabel();

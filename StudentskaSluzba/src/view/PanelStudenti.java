@@ -27,20 +27,20 @@ public class PanelStudenti extends JPanel{
 		setLayout(new BorderLayout(0, 0));
 		tableStudenti = new StudentiJTable();
 		
-		leftPanel.setPreferredSize(new Dimension(20,20));
+		leftPanel.setPreferredSize(new Dimension(35,20));
 		this.add(leftPanel, BorderLayout.WEST);
 		leftPanel.setBackground(Color.WHITE);
 		
-		rightPanel.setPreferredSize(new Dimension(20,20));
+		rightPanel.setPreferredSize(new Dimension(35,20));
 		this.add(rightPanel, BorderLayout.EAST);
 		rightPanel.setBackground(Color.WHITE);
 		
-		topPanel.setPreferredSize(new Dimension(20,20));
+		topPanel.setPreferredSize(new Dimension(20,35));
 		this.add(topPanel, BorderLayout.NORTH);
 		topPanel.setBackground(Color.WHITE);
 		
-		bottomPanel.setPreferredSize(new Dimension(20,20));
-		this.add(bottomPanel, BorderLayout.NORTH);
+		bottomPanel.setPreferredSize(new Dimension(20,100));
+		this.add(bottomPanel, BorderLayout.SOUTH);
 		bottomPanel.setBackground(Color.WHITE);
 			
 		tableStudenti.setPreferredSize(new Dimension(sirina-75, visina));
