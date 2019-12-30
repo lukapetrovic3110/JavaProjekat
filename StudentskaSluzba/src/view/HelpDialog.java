@@ -7,12 +7,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 
-public class HelpDialog extends JDialog{
+public class HelpDialog extends JOptionPane{
 	private static final long serialVersionUID = 359599721565020284L;
 	
-	public HelpDialog(JFrame parentFrame,boolean modal)
+	public HelpDialog(JFrame parentFrame)
 	{
-		super(parentFrame,modal);
+		
 		//JOptionPane.showMessageDialog(null, "tekst", "Help", JOptionPane.PLAIN_MESSAGE);
 		String longMessage="dieGFJD\njsidnfuhgyda\nnkafsa\nfghj\ngtfhgjukh\ndfgh\nsd\nfdg\nfgfh\ndf\ndfd\n";
 	    JTextArea textArea = new JTextArea(7, 30);
@@ -20,6 +20,7 @@ public class HelpDialog extends JDialog{
 	    textArea.setEditable(false);
 	    JScrollPane scrollPane = new JScrollPane(textArea);
 	    JOptionPane.showMessageDialog(parentFrame, scrollPane);
+	    
 	}
 	
 }

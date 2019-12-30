@@ -1,16 +1,14 @@
 package view;
 
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class BrisanjeStudenta extends JDialog{
+public class BrisanjeStudenta extends JOptionPane{
 	
 	private static final long serialVersionUID = 3591599721565020284L;
 	
-	public BrisanjeStudenta(JFrame parentFrame,boolean modal)
+	public BrisanjeStudenta(JFrame parentFrame)
 	{
-		super(parentFrame,modal);
 		
 		Object[] options = {"Odbaci",
 		"Potvrdi"};
@@ -19,7 +17,7 @@ public class BrisanjeStudenta extends JDialog{
 		Image i4 = imageIcon4.getImage();
 		Image ii = i4.getScaledInstance(10, 10, Image.SCALE_SMOOTH);*/
 		
-		setLocationRelativeTo(parentFrame);
+		//setLocationRelativeTo(parentFrame);
 		JOptionPane.showOptionDialog(parentFrame,
 		"Da li ste sigurni da zelite obrisati studenta?",
 		"Brisanje studenta",
@@ -31,5 +29,5 @@ public class BrisanjeStudenta extends JDialog{
 	}
 			
 		
-		//zasto ostane mali prozor gore desno?
+	
 }
