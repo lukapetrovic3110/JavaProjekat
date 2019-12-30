@@ -1,5 +1,6 @@
 package view;
 
+
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -66,8 +67,8 @@ public class MainWindow extends JFrame
 		//b.setVisible(true);
 		//DodavanjeStudenta d=new DodavanjeStudenta(this,true);
 		//d.setVisible(true);
-		//AboutDialog h=new AboutDialog(this,true);
-		//h.setVisible(true);
+		AboutDialog h=new AboutDialog(this,true);
+		h.setVisible(true);
 
 		TabbedPane tabbedPane = new TabbedPane(this);
 		tabbedPane.setTabbedPane();

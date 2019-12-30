@@ -16,8 +16,8 @@ public class Student {
 	private String datumu;
 	private String godinastud;
 	private double prosek;
-	
 	private  status s;
+	
 	//private ArrayList<String> lista=new ArrayList<String>();
 	
 	public Student() {}

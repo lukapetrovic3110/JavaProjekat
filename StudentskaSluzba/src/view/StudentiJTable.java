@@ -13,6 +13,7 @@ public class StudentiJTable extends JTable {
 	
 	public StudentiJTable()
 	{
+		this.setAutoCreateRowSorter(true);
 		this.setRowSelectionAllowed(true);
 		this.setColumnSelectionAllowed(true);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

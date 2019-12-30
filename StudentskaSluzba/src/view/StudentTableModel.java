@@ -40,6 +40,7 @@ public class StudentTableModel extends AbstractTableModel{
 	}
 	
 	
+
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		/*Student student=MainController.getInstance().getStudentController().getStudent(rowIndex);*/
@@ -63,7 +64,7 @@ public class StudentTableModel extends AbstractTableModel{
 			return s.getEmail();
 			
 		case 6:
-			return s.getBrindeksa();//getDatumr().toString();
+			return s.getBrindeksa(); //getDatumr().toString();
 		case 7:
 			return s.getDatumu();
 			

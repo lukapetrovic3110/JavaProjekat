@@ -87,6 +87,7 @@ public class DodavanjeStudenta extends JDialog {
 		panCenter.add(Prezime);
 		
 		
+		
 		JPanel Datum = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		datumr = new JLabel();
 		datumr.setText("Datum rodjenja*");
