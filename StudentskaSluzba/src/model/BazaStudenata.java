@@ -43,7 +43,7 @@ public class BazaStudenata {
 		studenti.add(new Student("Jovan","Jovanovic","31.10.1998.","Branislava Nusica 2","0655","luka.petrovic@gmail.com","RA-233-2016","6.7.2017.","treca",7.22,status.S));
 		studenti.add(new Student("Sanja","Jungic","31.10.1998.","Branislava Nusica 6","06222","luka.petrovic@gmail.com","RA-29-2015","6.7.2017.","prva",7.1,status.S));
 		studenti.add(new Student("Maja","Jovic","31.10.1998.","Branislava Nusica 78","064325","luka.petrovic@gmail.com","RA-123-2015","6.7.2017.","treca",8.342,status.B));
-		studenti.add(new Student("Ana","Lalic","31.10.1998.","Branislava Nusica 23","06344","luka.petrovic@gmail.com","RA-88-2016","6.7.2017.","druga",8.111,status.S));
+		studenti.add(new Student("Ana","Lalic","14.8.1997.","Branislava Nusica 23","06344","luka.petrovic@gmail.com","RA-88-2016","6.7.2017.","druga",8.111,status.S));
 		studenti.add(new Student("Nikola","Savic","31.10.1998.","Branislava Nusica 1","06123","luka.petrovic@gmail.com","RA-90-2017","6.7.2017.","treca",10.0,status.B));
 		studenti.add(new Student("Marija","Nikolic","31.10.1998.","Branislava Nusica 16","06435","luka.petrovic@gmail.com","RA-44-2018","6.7.2017.","cetvrta",9.543,status.B));
 

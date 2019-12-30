@@ -1,19 +1,9 @@
 package view;
 
+import java.awt.Image;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import java.awt.Dimension;
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -24,7 +14,8 @@ import javax.swing.KeyStroke;
 
 public class MenuBar extends JMenuBar{
 	
-private JFrame frame;
+	private static final long serialVersionUID = 2135611299138644286L;
+	private JFrame frame;
 	
 	public MenuBar(JFrame parentFrame)
 	{

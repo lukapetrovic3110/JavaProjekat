@@ -1,7 +1,5 @@
 package view;
 
-import java.awt.Color;
-
 /**
  *  @author ra25-2017
  */
@@ -26,13 +24,13 @@ public class TabbedPane extends JTabbedPane
 	
 	public void setTabbedPane()
 	{
-		PanelStudenti panelStudenti = new PanelStudenti();
+		PanelStudenti panelStudenti = new PanelStudenti(frame.getWidth(), frame.getHeight());
 		this.addTab("Studenti", null, panelStudenti, null);
 		
-		PanelProfesori panelProfesori = new PanelProfesori();
+		PanelProfesori panelProfesori = new PanelProfesori(frame.getWidth(), frame.getHeight());
 		this.addTab("Profesori", null, panelProfesori, null);
 		
-		PanelPredmeti panelPredmeti = new PanelPredmeti();
+		PanelPredmeti panelPredmeti = new PanelPredmeti(frame.getWidth(), frame.getHeight());
 		this.addTab("Predmeti", null, panelPredmeti, null);
 		
 		//System.out.println(this.getSelectedIndex());

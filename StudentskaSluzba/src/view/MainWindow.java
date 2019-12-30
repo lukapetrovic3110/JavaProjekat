@@ -58,9 +58,6 @@ public class MainWindow extends JFrame
 		
 		ToolBar toolBar = new ToolBar(this);
 		toolBar.setToolBar();
-		
-		
-		
 		setVisible(true); //poslednja metoda koja se poziva za frame
 		
 		//BrisanjeStudenta b=new BrisanjeStudenta(this,true);

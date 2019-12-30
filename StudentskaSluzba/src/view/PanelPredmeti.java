@@ -1,16 +1,23 @@
 package view;
 
-import javax.swing.JPanel;
 import java.awt.BorderLayout;
-import javax.swing.JTable;
-import java.awt.ScrollPane;
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 public class PanelPredmeti extends JPanel{
 	
 	private static final long serialVersionUID = -7962103450323241058L;
-	private JTable tablePredmeti;
+	private PredmetJTable tablePredmeti;
+	private JPanel leftPanel = new JPanel();
+	private JPanel rightPanel = new JPanel();
+	private JPanel topPanel = new JPanel();
+	private JPanel bottomPanel = new JPanel();
+	private JScrollPane scrollPane;
 
-	public PanelPredmeti()
+	public PanelPredmeti(int sirina, int visina)
 	{
 		
 		TabbedPane.panelstdunt = false;
@@ -18,12 +25,27 @@ public class PanelPredmeti extends JPanel{
 		TabbedPane.panelpredmet = true;
 		
 		setLayout(new BorderLayout(0, 0));
+		tablePredmeti = new PredmetJTable();
 		
-		ScrollPane scrollPane = new ScrollPane();
-		this.add(scrollPane, BorderLayout.CENTER);
+		leftPanel.setPreferredSize(new Dimension(35,20));
+		this.add(leftPanel, BorderLayout.WEST);
+		leftPanel.setBackground(Color.WHITE);
 		
-		tablePredmeti = new JTable();
-		scrollPane.add(tablePredmeti);
+		rightPanel.setPreferredSize(new Dimension(35,20));
+		this.add(rightPanel, BorderLayout.EAST);
+		rightPanel.setBackground(Color.WHITE);
 		
+		topPanel.setPreferredSize(new Dimension(20,35));
+		this.add(topPanel, BorderLayout.NORTH);
+		topPanel.setBackground(Color.WHITE);
+		
+		bottomPanel.setPreferredSize(new Dimension(20,100));
+		this.add(bottomPanel, BorderLayout.SOUTH);
+		bottomPanel.setBackground(Color.WHITE);
+		
+		tablePredmeti.setPreferredSize(new Dimension(sirina-75, visina));
+		
+		scrollPane = new JScrollPane(tablePredmeti, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		this.add(scrollPane, BorderLayout.CENTER);	
 	}
 }

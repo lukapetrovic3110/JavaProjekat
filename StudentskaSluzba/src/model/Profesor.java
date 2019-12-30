@@ -24,6 +24,24 @@ public class Profesor {
 	public Profesor() {}
 	
 	public Profesor(String ime, String prezime, String datum_rodjenja,
+		       String adresa_stanovanja, String kontakt_telefon, String e_mail,
+		       String adresa_kancelarije, long br_licne, titule titula, zvanja zvanje 
+		   	 ) 
+	{
+		super();
+		this.ime = ime;
+		this.prezime = prezime;
+		this.datum_rodjenja = datum_rodjenja;
+		this.adresa_stanovanja = adresa_stanovanja;
+		this.kontakt_telefona = kontakt_telefon;
+		this.e_mail = e_mail;
+		this.adresa_kancelarije = adresa_kancelarije;
+		this.br_licne = br_licne;
+		this.titula = titula;
+		this.zvanje = zvanje;
+	}
+	
+	public Profesor(String ime, String prezime, String datum_rodjenja,
 			       String adresa_stanovanja, String kontakt_telefon, String e_mail,
 			       String adresa_kancelarije, long br_licne, titule titula, zvanja zvanje, 
 			       ArrayList<Predmet> spisak_predmeta

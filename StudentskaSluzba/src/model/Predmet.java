@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * @author ra25-2017
  */
 public class Predmet {
-	private int sifra_predmeta;
+	private String sifra_predmeta;
 	private String naziv_predmeta;
 	private String semestar;
 	private String godina_studija;
@@ -14,7 +14,17 @@ public class Predmet {
 	
 	public Predmet() {}
 	
-	public Predmet(int sifra_predmeta, String naziv_predmeta, String semestar,
+	public Predmet(String sifra_predmeta, String naziv_predmeta, String semestar,
+			   String godina_studija) {
+
+		super();
+		this.sifra_predmeta = sifra_predmeta;
+		this.naziv_predmeta = naziv_predmeta;
+		this.semestar = semestar;
+		this.godina_studija = godina_studija;
+	}
+	
+	public Predmet(String sifra_predmeta, String naziv_predmeta, String semestar,
 				   String godina_studija, Profesor predmetniProfesor, ArrayList<Student> slusajuStudenti) {
 	
 		super();
@@ -26,10 +36,10 @@ public class Predmet {
 		this.slusajuStudenti = slusajuStudenti;
 	}
 	
-	public int getSifrapredmeta() {
+	public String getSifrapredmeta() {
 		return sifra_predmeta;
 	}
-	public void setSifrapredmeta(int sifra_predmeta) {
+	public void setSifrapredmeta(String sifra_predmeta) {
 		this.sifra_predmeta = sifra_predmeta;
 	}
 	public String getNazivpredmeta() {

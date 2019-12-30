@@ -13,12 +13,12 @@ import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 import javax.swing.Timer;
 import javax.swing.border.BevelBorder;
 
 public class StatusBar extends JPanel
 {
+	private static final long serialVersionUID = 2157576763164092408L;
 	private JFrame frame;
 	
 	public StatusBar(JFrame parentFrame)
