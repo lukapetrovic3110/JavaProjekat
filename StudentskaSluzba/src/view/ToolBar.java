@@ -103,7 +103,7 @@ public class ToolBar extends JToolBar{
 		btnNew3.setPreferredSize(new Dimension(35,35));
 		btnNew3.setToolTipText("Dodaj");
 		try {
-			btnNew3.setIcon(new ImageIcon(ImageIO.read(getClass().getResourceAsStream("icon_add.png"))));
+			btnNew3.setIcon(new ImageIcon(ImageIO.read(getClass().getResourceAsStream("icon_add_prof.png"))));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

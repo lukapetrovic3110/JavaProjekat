@@ -13,7 +13,5 @@ public class OptionPaneBrisanjeProfesora extends JOptionPane{
 		JOptionPane.showOptionDialog(null, "Da li ste sigurni da zelite da obrisete profesora?", "Brisanje profesora",
 				JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
 				null, options, options[1]);
-		
-		this.setLocation(null);
 	}
 }
