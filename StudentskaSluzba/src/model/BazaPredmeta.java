@@ -6,8 +6,7 @@ public class BazaPredmeta {
 	
 	private static BazaPredmeta instance = null;
 	public static BazaPredmeta getInstanece(){
-		if (instance == null)
-		{
+		if (instance == null){
 			instance = new BazaPredmeta();
 		}
 		
@@ -24,15 +23,16 @@ public class BazaPredmeta {
 		this.kolone.add("Naziv predmeta");
 		this.kolone.add("Semestar");
 		this.kolone.add("Godina studija");
-		this.kolone.add("Predmetni profesor");
-		this.kolone.add("Slusaju studenti");
+		//this.kolone.add("Predmetni profesor");
+		//this.kolone.add("Slusaju studenti");
 	}
 
 	private void initPred() {
 		this.predmeti = new ArrayList<Predmet>();
-		predmeti.add(new Predmet("PJISP-RA", "Programski jezici i strukture podataka", "prvi", "I (PRAVA)", null, null));
-		predmeti.add(new Predmet("MIS-RA", "Modeliranje i simulacija sistema", "treci", "II (DRUGA)", null, null));
-		predmeti.add(new Predmet("MO-RA", "Metode optimizacije", "peti", "III (TRECA)", null, null));
+		predmeti.add(new Predmet("PJISP-RA", "Programski jezici i strukture podataka", "prvi", "I (PRAVA)"));
+		predmeti.add(new Predmet("MIS-RA", "Modeliranje i simulacija sistema", "treci", "II (DRUGA)"));
+		predmeti.add(new Predmet("MO-RA", "Metode optimizacije", "peti", "III (TRECA)"));
+		
 	}
 
 	public ArrayList<Predmet> getPredmeti() {
@@ -44,7 +44,7 @@ public class BazaPredmeta {
 	}
 	
 	public int getColumnCount() {
-		return 3;
+		return this.kolone.size();
 	}
 	public int getRowCount() {
 		return this.predmeti.size();
@@ -68,10 +68,6 @@ public class BazaPredmeta {
 			return predmet.getSemestar();
 		case 3:
 			return predmet.getGodinastudija();
-		case 4:
-			return null;
-		case 5:
-			return null;
 		default:
 			return null;
 		}

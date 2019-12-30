@@ -45,11 +45,7 @@ public class PanelStudenti extends JPanel{
 			
 		tableStudenti.setPreferredSize(new Dimension(sirina-75, visina));
 	
-		
-		scrollPane = new JScrollPane(tableStudenti, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		
-		
-		
+		scrollPane = new JScrollPane(tableStudenti, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);	
 		this.add(scrollPane, BorderLayout.CENTER);
 	}
 }
