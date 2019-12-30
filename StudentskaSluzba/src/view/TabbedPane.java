@@ -13,10 +13,8 @@ public class TabbedPane extends JTabbedPane
 	private static final long serialVersionUID = -5733815749423597587L;
 	JFrame frame;
 	
-	static boolean panelstdunt = true;
-	static boolean panelprofesor = false;
-	static boolean panelpredmet = false;
-	
+	public static int tabindex;
+
 	public TabbedPane(JFrame parentFrame)
 	{
 		frame = parentFrame;
@@ -33,7 +31,7 @@ public class TabbedPane extends JTabbedPane
 		PanelPredmeti panelPredmeti = new PanelPredmeti(frame.getWidth(), frame.getHeight());
 		this.addTab("Predmeti", null, panelPredmeti, null);
 		
-		//System.out.println(this.getSelectedIndex());
 		frame.getContentPane().add(this);
 	}
+	
 }

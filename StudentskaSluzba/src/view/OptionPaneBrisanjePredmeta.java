@@ -13,8 +13,5 @@ public class OptionPaneBrisanjePredmeta extends JOptionPane{
 		JOptionPane.showOptionDialog(null, "Da li ste sigurni da zelite da obrisete predmet?", "Brisanje predmeta",
 				JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
 				null, options, options[1]);
-		
-		
-		this.setLocation(null);
 	}
 }

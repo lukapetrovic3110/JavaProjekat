@@ -20,10 +20,6 @@ public class PanelPredmeti extends JPanel{
 	public PanelPredmeti(int sirina, int visina)
 	{
 		
-		TabbedPane.panelstdunt = false;
-		TabbedPane.panelprofesor = false;
-		TabbedPane.panelpredmet = true;
-		
 		setLayout(new BorderLayout(0, 0));
 		tablePredmeti = new PredmetJTable();
 		

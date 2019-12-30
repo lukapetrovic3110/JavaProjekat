@@ -7,6 +7,8 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import javafx.scene.control.ToolBar;
+
 public class PanelProfesori extends JPanel{
 	
 	private static final long serialVersionUID = -8834895513188479593L;
@@ -18,9 +20,6 @@ public class PanelProfesori extends JPanel{
 	private JScrollPane scrollPane;
 	
 	public PanelProfesori(int sirina, int visina){
-		TabbedPane.panelstdunt = false;
-		TabbedPane.panelprofesor = true;
-		TabbedPane.panelpredmet = false;
 		
 		setLayout(new BorderLayout(0, 0));
 		tableProfesori = new ProfesorJTable();

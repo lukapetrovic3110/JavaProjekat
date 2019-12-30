@@ -9,6 +9,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class MainWindow extends JFrame
 {
@@ -58,18 +60,19 @@ public class MainWindow extends JFrame
 		
 		ToolBar toolBar = new ToolBar(this);
 		toolBar.setToolBar();
-		setVisible(true); //poslednja metoda koja se poziva za frame
+		
 		
 		//BrisanjeStudenta b=new BrisanjeStudenta(this);
 		//b.setVisible(true);
 		//DodavanjeStudenta d=new DodavanjeStudenta(this,true);
 		//d.setVisible(true);
-		AboutDialog h=new AboutDialog(this);
-		h.setVisible(true);
-
+//		AboutDialog h=new AboutDialog(this);
+//		h.setVisible(true);
+		
 		
 		TabbedPane tabbedPane = new TabbedPane(this);
 		tabbedPane.setTabbedPane();
+		
 		
 		setVisible(true);
 	}

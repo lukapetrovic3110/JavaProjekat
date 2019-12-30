@@ -20,9 +20,6 @@ public class PanelStudenti extends JPanel{
 	private JScrollPane scrollPane;
 	
 	public PanelStudenti(int sirina, int visina) {
-		TabbedPane.panelstdunt = true;
-		TabbedPane.panelprofesor = false;
-		TabbedPane.panelpredmet = false;
 		
 		setLayout(new BorderLayout(0, 0));
 		tableStudenti = new StudentiJTable();

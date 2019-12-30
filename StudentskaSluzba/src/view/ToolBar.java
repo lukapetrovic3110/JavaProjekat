@@ -62,15 +62,6 @@ public class ToolBar extends JToolBar{
 		JButton btnDelete = new JButton();
 		btnDelete.setMargin(new Insets(0, 0, 0, 0));
 		btnDelete.setPreferredSize(new Dimension(35,35));
-//		btnDelete.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				// TODO Auto-generated method stub
-//				OptionPaneBrisanjePredmeta op = new OptionPaneBrisanjePredmeta();
-//			}
-//		});
-		
 		btnDelete.setToolTipText("Obrisi");
 		
 		try {
@@ -93,7 +84,7 @@ public class ToolBar extends JToolBar{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		btnNew2.setVisible(true);
+		btnNew2.setVisible(false);
 		this.add(btnNew2);
 		
 		this.addSeparator();
@@ -108,7 +99,7 @@ public class ToolBar extends JToolBar{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		btnNew3.setVisible(true);
+		btnNew3.setVisible(false);
 		this.add(btnNew3);
 		
 		this.add(Box.createHorizontalStrut(frame.getWidth()/8));
