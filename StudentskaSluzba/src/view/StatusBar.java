@@ -60,7 +60,7 @@ public class StatusBar extends JPanel
         this.add(timeLabel);
 		
 		
-		String datum = new SimpleDateFormat("dd.MM.YYYY.").format(Calendar.getInstance().getTime());
+		String datum = new SimpleDateFormat("dd.MM.yyyy.").format(Calendar.getInstance().getTime());
 		JLabel dateTimeLabel = new JLabel(datum);
 		this.add(dateTimeLabel);
 		
