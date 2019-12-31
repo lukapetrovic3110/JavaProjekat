@@ -1,16 +1,10 @@
 package view;
 
-
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 public class MainWindow extends JFrame
 {
@@ -42,15 +36,9 @@ public class MainWindow extends JFrame
 		setLocationRelativeTo(null);
 	
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);	
-		
-		try {
-			ImageIcon imageIcon = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("icon_main_window.png")));
-			Image mainWindowImage = imageIcon.getImage();
-			this.setIconImage(mainWindowImage);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
+
+		Image mainicon = toolKit.getImage("src/icons/icon_main_window.png");
+		this.setIconImage(mainicon); 
 
 		StatusBar statusBar = new StatusBar(this);
 		statusBar.DrawStatusBar();
@@ -60,22 +48,9 @@ public class MainWindow extends JFrame
 		
 		ToolBar toolBar = new ToolBar(this);
 		toolBar.setToolBar();
-	
-		//BrisanjeStudenta b=new BrisanjeStudenta(this);
-		//b.setVisible(true);
-		//DodavanjeStudenta d=new DodavanjeStudenta(this,true);
-		//d.setVisible(true);
-
-//		AboutDialog h=new AboutDialog(this);
-//		h.setVisible(true);
-		
-
-		//AboutDialog h=new AboutDialog(this);
-		//h.setVisible(true);
 		
 		TabbedPane tabbedPane = new TabbedPane(this, toolBar);
 		tabbedPane.setTabbedPane();
-		
 		
 		setVisible(true);
 	}
