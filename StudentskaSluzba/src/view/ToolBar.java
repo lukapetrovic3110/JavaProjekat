@@ -3,8 +3,6 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.ImageIcon;
@@ -63,6 +61,8 @@ public class ToolBar extends JToolBar{
 		btnDelete.setPreferredSize(new Dimension(35,35));
 		btnDelete.setToolTipText("Obrisi");
 		
+		btnDelete.addActionListener(new BtnDeleteActionListener());
+		
 		ImageIcon imgBtnDelete = new ImageIcon("src/icons/icon_delete.png");
 		btnDelete.setIcon(imgBtnDelete);
 		this.add(btnDelete);
@@ -72,6 +72,8 @@ public class ToolBar extends JToolBar{
 	    btnNew2 = new JButton();
 		btnNew2.setMargin(new Insets(0, 0, 0, 0));
 		btnNew2.setPreferredSize(new Dimension(35,35));
+		
+		btnNew2.addActionListener(new BtnNew2ActionListener());
 		
 		ImageIcon imgBtnNew2 = new ImageIcon("src/icons/icon_add.png");
 		btnNew2.setIcon(imgBtnNew2);
@@ -83,6 +85,8 @@ public class ToolBar extends JToolBar{
 		btnNew3 = new JButton();
 		btnNew3.setMargin(new Insets(0, 0, 0, 0));
 		btnNew3.setPreferredSize(new Dimension(35,35));
+		
+		btnNew3.addActionListener(new BtnNew3ActionListener());
 		
 		ImageIcon imgBtnNew3 = new ImageIcon("src/icons/icon_add_prof.png");
 		btnNew3.setIcon(imgBtnNew3);

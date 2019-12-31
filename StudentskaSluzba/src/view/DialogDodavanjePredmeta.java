@@ -3,6 +3,8 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -109,16 +111,23 @@ public class DialogDodavanjePredmeta extends JDialog{
 		potvrdi.setPreferredSize(dimenzijadugmica);
 		
 		odustani = new JButton("Odustani");
+		odustani.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+			}
+		});
 		odustani.setPreferredSize(dimenzijadugmica);
 		
 		panelDugmici.add(Box.createGlue());
 		
-		panelDugmici.add(potvrdi);
-		panelDugmici.add(Box.createHorizontalStrut(20));
-		
 		panelDugmici.add(odustani);
 		panelDugmici.add(Box.createHorizontalStrut(20));
 		
+		panelDugmici.add(potvrdi);
+		panelDugmici.add(Box.createHorizontalStrut(20));
+	
 		this.add(panelDugmici, BorderLayout.SOUTH);
 		pack();
 		
