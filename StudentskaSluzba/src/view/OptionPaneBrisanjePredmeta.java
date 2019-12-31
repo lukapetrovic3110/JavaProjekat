@@ -1,5 +1,6 @@
 package view;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class OptionPaneBrisanjePredmeta extends JOptionPane{
@@ -9,9 +10,9 @@ public class OptionPaneBrisanjePredmeta extends JOptionPane{
 	public OptionPaneBrisanjePredmeta() 
 	{
 		Object[] options = { "Potvrdi", "Odustani" };	
-		
+
 		JOptionPane.showOptionDialog(null, "Da li ste sigurni da zelite da obrisete predmet?", "Brisanje predmeta",
 				JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
-				null, options, options[1]);
+				new ImageIcon("src/icons/icon_delete.png"), options, options[1]);
 	}
 }

@@ -1,5 +1,6 @@
 package view;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -23,7 +24,7 @@ public class BrisanjeStudenta extends JOptionPane{
 		"Brisanje studenta",
 		JOptionPane.YES_NO_CANCEL_OPTION,
 		JOptionPane.QUESTION_MESSAGE,
-		null,
+		new ImageIcon("src/icons/icon_delete.png"), // add icon
 		options,
 		options[1]);
 	}
