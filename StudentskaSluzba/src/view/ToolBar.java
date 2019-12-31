@@ -3,20 +3,16 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Insets;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
-
 /**
  * @author Luka RA25-2017
  */
-
 public class ToolBar extends JToolBar{
 
 	private static final long serialVersionUID = 4268951943328073987L;
@@ -36,12 +32,10 @@ public class ToolBar extends JToolBar{
 		btnNew.setMargin(new Insets(0, 0, 0, 0));
 		btnNew.setPreferredSize(new Dimension(35,35));
 		btnNew.setToolTipText("Dodaj");
-		try {
-			btnNew.setIcon(new ImageIcon(ImageIO.read(getClass().getResourceAsStream("icon_add.png"))));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+		ImageIcon imgBtnNew = new ImageIcon("src/icons/icon_add.png");
+		btnNew.setIcon(imgBtnNew);
+		
 		this.add(btnNew);
 		
 		this.addSeparator();
@@ -51,12 +45,9 @@ public class ToolBar extends JToolBar{
 		btnEdit.setPreferredSize(new Dimension(35,35));
 		btnEdit.setToolTipText("Izmeni");
 		
-		try {
-			btnEdit.setIcon(new ImageIcon(ImageIO.read(getClass().getResourceAsStream("icon_edit.png"))));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
+		ImageIcon imgBtnEdit = new ImageIcon("src/icons/icon_edit.png");
+		btnEdit.setIcon(imgBtnEdit);
+
 		this.add(btnEdit);
 		
 		this.addSeparator();
@@ -66,12 +57,8 @@ public class ToolBar extends JToolBar{
 		btnDelete.setPreferredSize(new Dimension(35,35));
 		btnDelete.setToolTipText("Obrisi");
 		
-		try {
-			btnDelete.setIcon(new ImageIcon(ImageIO.read(getClass().getResourceAsStream("icon_delete.png"))));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
+		ImageIcon imgBtnDelete = new ImageIcon("src/icons/icon_delete.png");
+		btnDelete.setIcon(imgBtnDelete);
 		this.add(btnDelete);
 		
 		this.addSeparator();
@@ -79,27 +66,20 @@ public class ToolBar extends JToolBar{
 	    btnNew2 = new JButton();
 		btnNew2.setMargin(new Insets(0, 0, 0, 0));
 		btnNew2.setPreferredSize(new Dimension(35,35));
-		try {
-			btnNew2.setIcon(new ImageIcon(ImageIO.read(getClass().getResourceAsStream("icon_add.png"))));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		ImageIcon imgBtnNew2 = new ImageIcon("src/icons/icon_add.png");
+		btnNew2.setIcon(imgBtnNew2);
 		btnNew2.setVisible(false);
 		this.add(btnNew2);
-		
 		
 		this.addSeparator();
 		
 		btnNew3 = new JButton();
 		btnNew3.setMargin(new Insets(0, 0, 0, 0));
 		btnNew3.setPreferredSize(new Dimension(35,35));
-		try {
-			btnNew3.setIcon(new ImageIcon(ImageIO.read(getClass().getResourceAsStream("icon_add_prof.png"))));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		ImageIcon imgBtnNew3 = new ImageIcon("src/icons/icon_add_prof.png");
+		btnNew3.setIcon(imgBtnNew3);
 		btnNew3.setVisible(false);
 		this.add(btnNew3);
 		
@@ -117,12 +97,8 @@ public class ToolBar extends JToolBar{
 		btnSearch.setPreferredSize(new Dimension(35,35));
 		btnSearch.setToolTipText("Pretraga");
 		
-		try {
-			btnSearch.setIcon(new ImageIcon(ImageIO.read(getClass().getResourceAsStream("icon_search.png"))));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
+		ImageIcon imgBtnSearch = new ImageIcon("src/icons/icon_search.png");
+		btnSearch.setIcon(imgBtnSearch);
 		this.add(btnSearch);
 		
 		setFloatable(false);
