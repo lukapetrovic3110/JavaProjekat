@@ -113,10 +113,10 @@ public class DialogDodavanjePredmeta extends JDialog{
 		
 		panelDugmici.add(Box.createGlue());
 		
-		panelDugmici.add(odustani);
+		panelDugmici.add(potvrdi);
 		panelDugmici.add(Box.createHorizontalStrut(20));
 		
-		panelDugmici.add(potvrdi);
+		panelDugmici.add(odustani);
 		panelDugmici.add(Box.createHorizontalStrut(20));
 		
 		this.add(panelDugmici, BorderLayout.SOUTH);

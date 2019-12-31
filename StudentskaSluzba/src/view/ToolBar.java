@@ -3,6 +3,8 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.ImageIcon;
@@ -32,7 +34,9 @@ public class ToolBar extends JToolBar{
 		btnNew.setMargin(new Insets(0, 0, 0, 0));
 		btnNew.setPreferredSize(new Dimension(35,35));
 		btnNew.setToolTipText("Dodaj");
-
+		
+		btnNew.addActionListener(new BtnNewActionListener());
+		
 		ImageIcon imgBtnNew = new ImageIcon("src/icons/icon_add.png");
 		btnNew.setIcon(imgBtnNew);
 		
@@ -44,6 +48,8 @@ public class ToolBar extends JToolBar{
 		btnEdit.setMargin(new Insets(0, 0, 0, 0));
 		btnEdit.setPreferredSize(new Dimension(35,35));
 		btnEdit.setToolTipText("Izmeni");
+		
+		btnEdit.addActionListener(new BtnEditActionListener());
 		
 		ImageIcon imgBtnEdit = new ImageIcon("src/icons/icon_edit.png");
 		btnEdit.setIcon(imgBtnEdit);

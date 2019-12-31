@@ -177,7 +177,7 @@ public class DialogDodavanjeProfesora extends JDialog{
 		titula.setPreferredSize(dimenzije);
 		
 		combotitula = new JComboBox<titule>();
-		combotitula.setModel(new DefaultComboBoxModel(new String[] {"DIPLOMIRANI INZENJER", "MAGISTAR", "DOKTORNAUKA"}));
+		combotitula.setModel(new DefaultComboBoxModel(new String[] {"DIPLOMIRANI INZENJER", "MAGISTAR", "DOKTOR NAUKA"}));
 		
 		Titula.add(titula);
 		Titula.add(combotitula);
@@ -191,7 +191,7 @@ public class DialogDodavanjeProfesora extends JDialog{
 		zvanje.setPreferredSize(dimenzije);
 		
 		combozvanje = new JComboBox<zvanja>();
-		combozvanje.setModel(new DefaultComboBoxModel(new String[] {"ASISTENT", "VANREDNI PROFESOR", "DOCENT", "REDOVNIPROFESOR", "DEKAN"}));
+		combozvanje.setModel(new DefaultComboBoxModel(new String[] {"ASISTENT", "VANREDNI PROFESOR", "DOCENT", "REDOVNI PROFESOR", "DEKAN"}));
 		
 		Zvanje.add(zvanje);
 		Zvanje.add(combozvanje);
@@ -212,10 +212,10 @@ public class DialogDodavanjeProfesora extends JDialog{
 		
 		panelDugmici.add(Box.createGlue());
 		
-		panelDugmici.add(odustani);
+		panelDugmici.add(potvrdi);
 		panelDugmici.add(Box.createHorizontalStrut(20));
 		
-		panelDugmici.add(potvrdi);
+		panelDugmici.add(odustani);
 		panelDugmici.add(Box.createHorizontalStrut(20));
 		
 		this.add(panelDugmici, BorderLayout.SOUTH);
