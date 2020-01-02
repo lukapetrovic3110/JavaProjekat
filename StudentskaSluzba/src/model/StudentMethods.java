@@ -6,26 +6,29 @@ import model.Student.status;
 
 public class StudentMethods {
 	
-	private ArrayList<Student> studenti;
+	private static ArrayList<Student> studenti=BazaStudenata.getInstance().getStudenti();
 	
-	public void dodajStudenta(String ime,String prezime,String datumr,String adresa,String tel,String 
-			email,String brindeksa,String datumu,String godinastud,double prosek,status st) {
-		this.studenti.add(new Student(ime,prezime,datumr,adresa,tel,email,brindeksa,datumu,godinastud,prosek,st));
+	public static void dodajStudenta(String ime,String prezime,String datumr,String adresa,String tel,String 
+			email,String brindeksa,String datumu,int godinastud,double prosek,status st) {
+		
+		studenti.add(new Student(ime,prezime,datumr,adresa,tel,email,brindeksa,datumu,godinastud,prosek,st));
 	}
 
-	public void izbrisiStudenta(String indeks) {
+	public static void izbrisiStudenta(String indeks) {
+		
 		for (Student s : studenti) {
-			if (s.getBrindeksa()==indeks) {
+			if (s.getBrindeksa().equals(indeks)) {
 				studenti.remove(s);
 				break;
 			}
 		}
+		
 	}
 
-	public void izmeniStudenta(String ime,String prezime,String datumr,String adresa,String tel,String 
-			email,String brindeksa,String datumu,String godinastud,double prosek,status st) {
+	public static void izmeniStudenta(String ime,String prezime,String datumr,String adresa,String tel,String 
+			email,String brindeksa,String datumu,int godinastud,double prosek,status st) {
 		for (Student s : studenti) {
-			if (s.getBrindeksa() == brindeksa) {
+			if (s.getBrindeksa().equals( brindeksa)) {
 				s.setAdresa(adresa);
 				s.setBrindeksa(brindeksa);
 				s.setDatumr(datumr);
@@ -39,11 +42,8 @@ public class StudentMethods {
 				s.setTel(tel);
 			}
 		}
-		
-		
-		
+			
 		
 	}
-
 
 }

@@ -156,6 +156,10 @@ public class MenuBar extends JMenuBar{
 	    this.add(fileEdit);
 	    this.add(fileHelp);
 	    
+	    //ovo je novo
+	    TabbedPaneMouseListener tabbePaneMouseListener = new TabbedPaneMouseListener();
+		this.addMouseListener(tabbePaneMouseListener);
+		//
 	    frame.setJMenuBar(this); 
 	
 	}
