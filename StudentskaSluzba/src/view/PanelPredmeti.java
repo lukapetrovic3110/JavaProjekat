@@ -10,7 +10,7 @@ import javax.swing.JScrollPane;
 public class PanelPredmeti extends JPanel{
 	
 	private static final long serialVersionUID = -7962103450323241058L;
-	private static PredmetJTable tablePredmeti;
+	public static PredmetJTable tablePredmeti;
 	private JPanel leftPanel = new JPanel();
 	private JPanel rightPanel = new JPanel();
 	private JPanel topPanel = new JPanel();
