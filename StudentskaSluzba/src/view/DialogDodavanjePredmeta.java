@@ -14,6 +14,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import controller.PredmetController;
 /**
  *  @author ra25-2017
  */
@@ -33,6 +35,11 @@ public class DialogDodavanjePredmeta extends JDialog{
 	
 	private JButton potvrdi;
 	private JButton odustani;
+	
+	private String sifraPredmeta;
+	private String nazivPredmeta;
+	private String semestar;
+	private String godinaStudija;
 	
 	public DialogDodavanjePredmeta(JFrame parent, boolean modal){
 		
@@ -108,6 +115,25 @@ public class DialogDodavanjePredmeta extends JDialog{
 		Dimension dimenzijadugmica = new Dimension(100,35);
 		
 		potvrdi = new JButton("Potvrdi");
+	
+		potvrdi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				if((!poljesifpred.getText().equals("")) && (!poljenzvpred.getText().equals("")) && (!poljesemestar.getText().equals("")) && (!poljegodstud.getText().equals("")))
+				{
+					sifraPredmeta = poljesifpred.getText();
+					nazivPredmeta = poljenzvpred.getText();
+					semestar = poljesemestar.getText();
+					godinaStudija = poljegodstud.getText();
+
+					PredmetController.getInstance().dodajPredmet(sifraPredmeta, nazivPredmeta, semestar, godinaStudija);
+					
+					setVisible(false);
+				}
+			}
+		});
 		potvrdi.setPreferredSize(dimenzijadugmica);
 		
 		odustani = new JButton("Odustani");
