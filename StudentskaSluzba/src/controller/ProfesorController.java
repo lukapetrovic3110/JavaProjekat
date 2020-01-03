@@ -41,7 +41,8 @@ public class ProfesorController {
 	{
 		if(rowSelectedIndex < 0)
 		{
-			JOptionPane.showMessageDialog(null, "Nije selektovan profesor u tabeli!\\nNije moguce izvrsiti brisanje!");
+			JOptionPane.showMessageDialog(null, "Nije selektovan profesor u tabeli!\nNije moguce izvrsiti brisanje!");
+			return ;
 		}
 		
 		Profesor profesor = BazaProfesora.getInstance().getRow(rowSelectedIndex);
