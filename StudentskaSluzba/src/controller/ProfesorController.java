@@ -1,7 +1,5 @@
 package controller;
 
-import javax.swing.JOptionPane;
-
 import model.BazaProfesora;
 import model.Profesor;
 import model.ProfesorMethods;
@@ -39,15 +37,8 @@ public class ProfesorController {
 	
 	public void izbrisiProfesora(int rowSelectedIndex)
 	{
-		if(rowSelectedIndex < 0)
-		{
-			JOptionPane.showMessageDialog(null, "Nije selektovan profesor u tabeli!\nNije moguce izvrsiti brisanje!");
-			return ;
-		}
-		
 		Profesor profesor = BazaProfesora.getInstance().getRow(rowSelectedIndex);
 		ProfesorMethods.izbrisiProfesora(profesor.getBrlicne());
 		PanelProfesori.azurirajPrikaz();
-		
 	}
 }
