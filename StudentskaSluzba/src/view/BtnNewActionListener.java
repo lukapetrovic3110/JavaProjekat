@@ -14,7 +14,7 @@ public class BtnNewActionListener implements ActionListener {
 		}
 		else if(TabbedPane.tabbedPane.getSelectedComponent() == TabbedPane.panelProfesori)
 		{
-			DialogDodavanjeProfesora dialogDodavanjeProfesora = new DialogDodavanjeProfesora(MainWindow.getInstance(), true);
+			DialogDodavanjeProfesora dialogDodavanjeProfesora = new DialogDodavanjeProfesora(MainWindow.getInstance(), true, false);
 			dialogDodavanjeProfesora.setVisible(true);
 		}
 		else

@@ -4,6 +4,8 @@ import javax.swing.table.AbstractTableModel;
 
 import model.BazaProfesora;
 import model.Profesor;
+import model.Profesor.titule;
+import model.Profesor.zvanja;
 
 public class ProfesorTableModel extends AbstractTableModel{
 	
@@ -63,12 +65,42 @@ public class ProfesorTableModel extends AbstractTableModel{
 		case 7:
 			return profesor.getBrlicne();
 		case 8:
-			return profesor.getTitula();
+			if(profesor.getTitula() == titule.DIPLOMIRANIINZENJER)
+			{
+				return "DIPLOMIRANI INZENJER";
+			}
+			else if(profesor.getTitula() == titule.DOKTORNAUKA)
+			{
+				return "DOKTOR NAUKA";
+			}
+			else
+			{
+				return  "MAGISTAR";
+			}
 		case 9:
-			return profesor.getZvanje();
+			if(profesor.getZvanje() == zvanja.REDOVNIPROFESOR)
+			{
+				return "REDOVNI PROFESOR";
+			}
+			else if(profesor.getZvanje() == zvanja.VANREDNIPROFESOR)
+			{
+				return "VANREDNI PROFESOR";
+			}
+			else if(profesor.getZvanje() == zvanja.ASISTENT)
+			{
+				return "ASISTENT";
+			}
+			else if(profesor.getZvanje() == zvanja.DOCENT)
+			{
+				return "DOCENT";
+			}
+			else
+			{
+				return "DEKAN";
+			}
 		default:
 			return "";
-			
+
 		}
 		
 	} 
