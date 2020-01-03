@@ -19,7 +19,7 @@ public class AboutDialog extends JOptionPane{
 	    textArea.setText(longMessage);
 	    textArea.setEditable(false);
 	    JScrollPane scrollPane = new JScrollPane(textArea);
-	    JOptionPane.showMessageDialog(parentFrame, scrollPane);
+	    JOptionPane.showMessageDialog(parentFrame, scrollPane, "About", JOptionPane.PLAIN_MESSAGE);
 	}
 
 };	

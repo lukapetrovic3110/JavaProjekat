@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
@@ -53,7 +55,8 @@ public class MenuBar extends JMenuBar{
 		}
 	    KeyStroke ctrlNKeyStroke = KeyStroke.getKeyStroke("control N");
 	    item1.setAccelerator(ctrlNKeyStroke);
-	    
+	    item1.setMnemonic('N');
+	    item1.addActionListener(new BtnNewActionListener());
 	    
 	    try 
 	    {
@@ -71,7 +74,8 @@ public class MenuBar extends JMenuBar{
 		}
 	    KeyStroke ctrlNKeyStroke2 = KeyStroke.getKeyStroke("control C"); 
 	    item2.setAccelerator(ctrlNKeyStroke2);
-	    
+	    item2.setMnemonic('C');
+	    item2.addActionListener(new BtnCloseActionListener());
 	    
 	    try 
 	    {
@@ -89,7 +93,8 @@ public class MenuBar extends JMenuBar{
 		}
 	    KeyStroke ctrlNKeyStroke3 = KeyStroke.getKeyStroke("control E"); 
 	    item3.setAccelerator(ctrlNKeyStroke3);
-	    
+	    item3.setMnemonic('E');
+	    item3.addActionListener(new BtnEditActionListener());
 	    
 	    try 
 	    {
@@ -107,7 +112,8 @@ public class MenuBar extends JMenuBar{
 		}
 	    KeyStroke ctrlNKeyStroke4 = KeyStroke.getKeyStroke("control D"); 
 	    item4.setAccelerator(ctrlNKeyStroke4);
-	    
+	    item4.setMnemonic('D');
+	    item4.addActionListener(new BtnDeleteActionListener());
 	    
 	    try 
 	    {
@@ -125,7 +131,8 @@ public class MenuBar extends JMenuBar{
 		}
 	    KeyStroke ctrlNKeyStroke5 = KeyStroke.getKeyStroke("control H"); 
 	    item5.setAccelerator(ctrlNKeyStroke5);
-	    
+	    item5.setMnemonic('H');
+	    item5.addActionListener(new BtnHelpActionListener());
 	    
 	    try 
 	    {
@@ -143,6 +150,8 @@ public class MenuBar extends JMenuBar{
 		}
 	    KeyStroke ctrlNKeyStroke6 = KeyStroke.getKeyStroke("control A"); 
 	    item6.setAccelerator(ctrlNKeyStroke6);
+	    item6.setMnemonic('A');
+	    item6.addActionListener(new BtnAboutActionListener());
 	    
 	    
 	    fileNew.add(item1);
@@ -156,10 +165,13 @@ public class MenuBar extends JMenuBar{
 	    this.add(fileEdit);
 	    this.add(fileHelp);
 	    
-	    //ovo je novo
+	    /*//ovo je novo
 	    TabbedPaneMouseListener tabbePaneMouseListener = new TabbedPaneMouseListener();
 		this.addMouseListener(tabbePaneMouseListener);
 		//
+*/	   
+	    
+	    
 	    frame.setJMenuBar(this); 
 	
 	}

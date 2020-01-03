@@ -12,7 +12,7 @@ import javax.swing.JScrollPane;
 public class PanelStudenti extends JPanel{
 	
 	private static final long serialVersionUID = 2883721902577408910L;
-	private static StudentiJTable tableStudenti;
+	public static StudentiJTable tableStudenti;
 	private JPanel leftPanel = new JPanel();
 	private JPanel rightPanel = new JPanel();
 	private JPanel topPanel = new JPanel();
