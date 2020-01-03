@@ -7,12 +7,10 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import javafx.scene.control.ToolBar;
-
 public class PanelProfesori extends JPanel{
 	
 	private static final long serialVersionUID = -8834895513188479593L;
-	private ProfesorJTable tableProfesori;
+	public static ProfesorJTable tableProfesori;
 	private JPanel leftPanel = new JPanel();
 	private JPanel rightPanel = new JPanel();
 	private JPanel topPanel = new JPanel();
@@ -44,5 +42,13 @@ public class PanelProfesori extends JPanel{
 		
 		scrollPane = new JScrollPane(tableProfesori, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);	
 		this.add(scrollPane, BorderLayout.CENTER);	
+		
+		azurirajPrikaz();
+	}
+
+	public static void azurirajPrikaz() {
+		
+		ProfesorTableModel model = (ProfesorTableModel) tableProfesori.getModel();
+		model.fireTableDataChanged();
 	}
 }

@@ -24,9 +24,20 @@ public class BtnEditActionListener implements ActionListener{
 		}
 		else if(TabbedPane.tabbedPane.getSelectedComponent() == TabbedPane.panelProfesori)
 		{
-			DialogDodavanjeProfesora dialogDodavanjeProfesora = new DialogDodavanjeProfesora(MainWindow.getInstance(), true);
+			DialogDodavanjeProfesora dialogDodavanjeProfesora = new DialogDodavanjeProfesora(MainWindow.getInstance(), true, true);
 			dialogDodavanjeProfesora.setTitle("Izmeni podatke profesora");
-			dialogDodavanjeProfesora.setVisible(true);
+		
+			rowSelectedIndex = PanelProfesori.tableProfesori.getSelectedRow();
+			
+			if (rowSelectedIndex < 0)
+			{
+				JOptionPane.showMessageDialog(null, "Nije selektovan profesor u tabeli!\nNije moguce izvrsiti izmenu!");
+				dialogDodavanjeProfesora.setVisible(false);
+			}
+			else 
+			{
+				dialogDodavanjeProfesora.setVisible(true);
+			}
 		}
 		else
 		{

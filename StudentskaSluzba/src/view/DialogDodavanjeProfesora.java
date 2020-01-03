@@ -17,6 +17,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controller.ProfesorController;
+import model.BazaProfesora;
+import model.Profesor;
 import model.Profesor.titule;
 import model.Profesor.zvanja;
 /**
@@ -45,13 +48,30 @@ public class DialogDodavanjeProfesora extends JDialog{
 	private JTextField poljeemail;
 	private JTextField poljeadrkan;
 	private JTextField poljebrlickarte;
-	private JComboBox<titule> combotitula;
-	private JComboBox<zvanja> combozvanje;
+	private JComboBox<String> combotitula;
+	private JComboBox<String> combozvanja;
 	
 	private JButton potvrdi;
 	private JButton odustani;
+	
+	private String imeProfesora;
+	private String prezimeProfesora;
+	private String datumRodjenjaProfesora;
+	private String adresaStanovanjaProfesora;
+	private String telefonProfesora;
+	private String emailProfesora;
+	private String adresaKancelarijeProfesora;
+	private long brojLicneKarteProfesora;
+	private titule titulaProfesora;
+	private zvanja zvanjeProfesora;
+	
+	private String stringTitula;;
+	private String stringZvanje;
+	
+	int rowSelectedIndex;
+	Profesor profesor;
 
-	public DialogDodavanjeProfesora(JFrame parent, boolean modal) {
+	public DialogDodavanjeProfesora(JFrame parent, boolean modal, boolean daLiJeIzmena) {
 
 		super(parent, "Dodavanje profesora", modal);
 	
@@ -179,8 +199,8 @@ public class DialogDodavanjeProfesora extends JDialog{
 		titula.setText("Titula*");
 		titula.setPreferredSize(dimenzije);
 		
-		combotitula = new JComboBox<titule>();
-		combotitula.setModel(new DefaultComboBoxModel(new String[] {"DIPLOMIRANI INZENJER", "MAGISTAR", "DOKTOR NAUKA"}));
+		combotitula = new JComboBox<String>();
+		combotitula.setModel(new DefaultComboBoxModel<String>(new String[] {"DIPLOMIRANI INZENJER", "MAGISTAR", "DOKTOR NAUKA"}));
 		
 		Titula.add(titula);
 		Titula.add(combotitula);
@@ -193,14 +213,86 @@ public class DialogDodavanjeProfesora extends JDialog{
 		zvanje.setText("Zvanje*");
 		zvanje.setPreferredSize(dimenzije);
 		
-		combozvanje = new JComboBox<zvanja>();
-		combozvanje.setModel(new DefaultComboBoxModel(new String[] {"ASISTENT", "VANREDNI PROFESOR", "DOCENT", "REDOVNI PROFESOR", "DEKAN"}));
+		combozvanja = new JComboBox<String>();
+		combozvanja.setModel(new DefaultComboBoxModel<String>(new String[] {"ASISTENT", "VANREDNI PROFESOR", "DOCENT", "REDOVNI PROFESOR", "DEKAN"}));
 		
 		Zvanje.add(zvanje);
-		Zvanje.add(combozvanje);
+		Zvanje.add(combozvanja);
 		panel.add(Zvanje);
 		
 		panel.add(Box.createVerticalStrut(20));
+		
+		if (daLiJeIzmena) 
+		{
+			
+			rowSelectedIndex = PanelProfesori.tableProfesori.getSelectedRow();
+			
+			if (rowSelectedIndex >= 0)
+			{
+				profesor = BazaProfesora.getInstance().getRow(rowSelectedIndex);
+				
+				imeProfesora = profesor.getIme();
+				prezimeProfesora = profesor.getPrezime();
+				datumRodjenjaProfesora = profesor.getDatumrodjenja();
+				adresaStanovanjaProfesora = profesor.getAdresastanovanja();
+				telefonProfesora = profesor.getKontakttelefona();
+				emailProfesora = profesor.getEmail();
+				adresaKancelarijeProfesora = profesor.getAdresakancelarije();
+				brojLicneKarteProfesora = profesor.getBrlicne();
+				titulaProfesora = profesor.getTitula();
+				zvanjeProfesora = profesor.getZvanje();
+				
+				
+				poljeime.setText(imeProfesora);
+				poljeprz.setText(prezimeProfesora);
+				poljedatrodj.setText(datumRodjenjaProfesora);
+				poljeadrstan.setText(adresaStanovanjaProfesora);
+				poljetel.setText(telefonProfesora);
+				poljeemail.setText(emailProfesora);
+				poljeadrkan.setText(adresaKancelarijeProfesora);
+				poljebrlickarte.setText(""+brojLicneKarteProfesora);
+				poljebrlickarte.setEditable(false);
+				
+				
+				
+				if(profesor.getTitula() == titule.DIPLOMIRANIINZENJER)
+				{
+					stringTitula  = "DIPLOMIRANI INZENJER";
+				}
+				else if(profesor.getTitula() == titule.DOKTORNAUKA)
+				{
+					stringTitula = "DOKTOR NAUKA";
+				}
+				else
+				{
+					stringTitula = "MAGISTAR";
+				}
+				
+				if(profesor.getZvanje() == zvanja.REDOVNIPROFESOR)
+				{
+					stringZvanje =  "REDOVNI PROFESOR";
+				}
+				else if(profesor.getZvanje() == zvanja.VANREDNIPROFESOR)
+				{
+					stringZvanje =  "VANREDNI PROFESOR";
+				}
+				else if(profesor.getZvanje() == zvanja.ASISTENT)
+				{
+					stringZvanje =  "ASISTENT";
+				}
+				else if(profesor.getZvanje() == zvanja.DOCENT)
+				{
+					stringZvanje =  "DOCENT";
+				}
+				else
+				{
+					stringZvanje = "DEKAN";
+				}
+				
+				combotitula.setSelectedItem(stringTitula);
+				combozvanja.setSelectedItem(stringZvanje);
+			}
+		}
 		
 		JPanel panelDugmici = new JPanel();
 		panelDugmici.setLayout(new BoxLayout(panelDugmici, BoxLayout.X_AXIS));
@@ -208,6 +300,115 @@ public class DialogDodavanjeProfesora extends JDialog{
 		Dimension dimenzijadugmica = new Dimension(100,35);
 		
 		potvrdi = new JButton("Potvrdi");
+		potvrdi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(!daLiJeIzmena) 
+				{
+					if((!poljeime.getText().equals("")) && (!poljeprz.getText().equals("")) && (!poljedatrodj.getText().equals("")) 
+							&&  (!poljeadrstan.getText().equals(""))  && (!poljetel.getText().equals("")) && (!poljeemail.getText().equals(""))
+							&& (!poljeadrkan.getText().equals("")) && (!poljebrlickarte.getText().equals("")))
+					{
+						imeProfesora = poljeime.getText();
+						prezimeProfesora = poljeprz.getText();
+						datumRodjenjaProfesora = poljedatrodj.getText();
+						adresaStanovanjaProfesora = poljeadrstan.getText();
+						telefonProfesora = poljetel.getText();
+						emailProfesora = poljeemail.getText();
+						adresaKancelarijeProfesora = poljeadrkan.getText();
+						brojLicneKarteProfesora = Long.parseLong(poljebrlickarte.getText());
+						if(combotitula.getSelectedItem().toString().equals("DIPLOMIRANI INZENJER"))
+						{
+							titulaProfesora = titule.DIPLOMIRANIINZENJER;
+						}
+						else if(combotitula.getSelectedItem().toString().equals("DOKTOR NAUKA"))
+						{
+							titulaProfesora = titule.DOKTORNAUKA;
+						}
+						else
+						{
+							titulaProfesora = titule.MAGISTAR;
+						}
+						
+						if(combozvanja.getSelectedItem().toString().equals("REDOVNI PROFESOR"))
+						{
+							zvanjeProfesora = zvanja.REDOVNIPROFESOR;
+						}
+						else if(combozvanja.getSelectedItem().toString().equals("VANREDNI PROFESOR"))
+						{
+							zvanjeProfesora = zvanja.VANREDNIPROFESOR;
+						}
+						else if(combozvanja.getSelectedItem().toString().equals("ASISTENT"))
+						{
+							zvanjeProfesora = zvanja.ASISTENT;
+						}
+						else if(combozvanja.getSelectedItem().toString().equals("DOCENT"))
+						{
+							zvanjeProfesora = zvanja.DOCENT;
+						}
+						else
+						{
+							zvanjeProfesora = zvanja.DEKAN;
+						}
+						
+						ProfesorController.getInstance().dodajProfesora(imeProfesora, prezimeProfesora, datumRodjenjaProfesora, adresaStanovanjaProfesora, telefonProfesora, emailProfesora, adresaKancelarijeProfesora, brojLicneKarteProfesora, titulaProfesora, zvanjeProfesora);
+						
+						setVisible(false);
+					}
+				}
+				else
+				{
+					imeProfesora = poljeime.getText();
+					prezimeProfesora = poljeprz.getText();
+					datumRodjenjaProfesora = poljedatrodj.getText();
+					adresaStanovanjaProfesora = poljeadrstan.getText();
+					telefonProfesora = poljetel.getText();
+					emailProfesora = poljeemail.getText();
+					adresaKancelarijeProfesora = poljeadrkan.getText();
+					
+					if(combotitula.getSelectedItem().toString().equals("DIPLOMIRANI INZENJER"))
+					{
+						titulaProfesora = titule.DIPLOMIRANIINZENJER;
+					}
+					else if(combotitula.getSelectedItem().toString().equals("DOKTOR NAUKA"))
+					{
+						titulaProfesora = titule.DOKTORNAUKA;
+					}
+					else
+					{
+						titulaProfesora = titule.MAGISTAR;
+					}
+					
+					if(combozvanja.getSelectedItem().toString().equals("REDOVNI PROFESOR"))
+					{
+						zvanjeProfesora =  zvanja.REDOVNIPROFESOR;
+					}
+					else if(combozvanja.getSelectedItem().toString().equals("VANREDNI PROFESOR"))
+					{
+						zvanjeProfesora =  zvanja.VANREDNIPROFESOR;
+					}
+					else if(combozvanja.getSelectedItem().toString().equals("ASISTENT"))
+					{
+						zvanjeProfesora =  zvanja.ASISTENT;
+					}
+					else if(combozvanja.getSelectedItem().toString().equals("DOCENT"))
+					{
+						zvanjeProfesora = zvanja.DOCENT;
+					}
+					else
+					{
+						zvanjeProfesora = zvanja.DEKAN;
+					}
+				
+					
+					ProfesorController.getInstance().izmeniProfesora(brojLicneKarteProfesora, imeProfesora, prezimeProfesora, datumRodjenjaProfesora, adresaStanovanjaProfesora, telefonProfesora, emailProfesora, adresaKancelarijeProfesora, titulaProfesora, zvanjeProfesora);
+					
+					setVisible(false);
+				}
+				
+			}
+		});
 		potvrdi.setPreferredSize(dimenzijadugmica);
 		
 		odustani = new JButton("Odustani");

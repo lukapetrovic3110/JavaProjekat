@@ -47,7 +47,7 @@ public class BazaProfesora {
 		profesori.add(new Profesor("Imenko", "Prezimenic", "1.1.1986.", "Ulica Narodnih heroja 1", "062/2010-800", "imenko@uns.ac.rs", "Bulevar Oslobdjenja 133", 2227010, titule.DIPLOMIRANIINZENJER, zvanja.ASISTENT));
 	}
 	
-	public ArrayList<Profesor> getStudenti() {
+	public ArrayList<Profesor> getProfesori() {
 		return profesori;
 	}	
 	
@@ -92,9 +92,39 @@ public class BazaProfesora {
 		case 7:
 			return Long.toString(profesor.getBrlicne());
 		case 8:
-			return "" + profesor.getTitula();
+			if(profesor.getTitula() == titule.DIPLOMIRANIINZENJER)
+			{
+				return "DIPLOMIRANI INZENJER";
+			}
+			else if(profesor.getTitula() == titule.DOKTORNAUKA)
+			{
+				return "DOKTOR NAUKA";
+			}
+			else
+			{
+				return  "MAGISTAR";
+			}
 		case 9:
-			return "" + profesor.getZvanje();
+			if(profesor.getZvanje() == zvanja.REDOVNIPROFESOR)
+			{
+				return "REDOVNI PROFESOR";
+			}
+			else if(profesor.getZvanje() == zvanja.VANREDNIPROFESOR)
+			{
+				return "VANREDNI PROFESOR";
+			}
+			else if(profesor.getZvanje() == zvanja.ASISTENT)
+			{
+				return "ASISTENT";
+			}
+			else if(profesor.getZvanje() == zvanja.DOCENT)
+			{
+				return "DOCENT";
+			}
+			else
+			{
+				return "DEKAN";
+			}
 		default:
 			return null;
 		}
