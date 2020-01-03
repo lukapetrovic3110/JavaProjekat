@@ -45,11 +45,24 @@ public class DialogDodavanjeProfesora extends JDialog{
 	private JTextField poljeemail;
 	private JTextField poljeadrkan;
 	private JTextField poljebrlickarte;
-	private JComboBox<titule> combotitula;
-	private JComboBox<zvanja> combozvanje;
+	//private JComboBox<titule> combotitula;
+	//private JComboBox<zvanja> combozvanje;
+	private JComboBox combotitula;
+	private JComboBox combozvanja;
 	
 	private JButton potvrdi;
 	private JButton odustani;
+	
+	private String imeProfesora;
+	private String prezimeProfesora;
+	private String datumrodjenjaProfesora;
+	private String adresastanovanjaProfesora;
+	private String telefonProfesora;
+	private String emailProfesora;
+	private String adresakancelarijeProfesora;
+	private int brojlicnekarteProfesora;
+	private titule titulaProfesora;
+	private zvanja zvanjeProfesora;
 
 	public DialogDodavanjeProfesora(JFrame parent, boolean modal) {
 
@@ -180,7 +193,8 @@ public class DialogDodavanjeProfesora extends JDialog{
 		titula.setPreferredSize(dimenzije);
 		
 		combotitula = new JComboBox<titule>();
-		combotitula.setModel(new DefaultComboBoxModel(new String[] {"DIPLOMIRANI INZENJER", "MAGISTAR", "DOKTOR NAUKA"}));
+		combotitula.setModel(new DefaultComboBoxModel(new String[] {"DIPLOMIRANI INZENJER", "MAGISTAR", "DOKTORNAUKA"}));
+		//combotitula.setModel(new DefaultComboBoxModel<titule>(new titule[] {titule.DIPLOMIRANIINZENJER, titule.MAGISTAR, titule.DOKTORNAUKA}));
 		
 		Titula.add(titula);
 		Titula.add(combotitula);
@@ -193,11 +207,11 @@ public class DialogDodavanjeProfesora extends JDialog{
 		zvanje.setText("Zvanje*");
 		zvanje.setPreferredSize(dimenzije);
 		
-		combozvanje = new JComboBox<zvanja>();
-		combozvanje.setModel(new DefaultComboBoxModel(new String[] {"ASISTENT", "VANREDNI PROFESOR", "DOCENT", "REDOVNI PROFESOR", "DEKAN"}));
+		combozvanja = new JComboBox<zvanja>();
+		combozvanja.setModel(new DefaultComboBoxModel(new String[] {"ASISTENT", "VANREDNI PROFESOR", "DOCENT", "REDOVNI PROFESOR", "DEKAN"}));
 		
 		Zvanje.add(zvanje);
-		Zvanje.add(combozvanje);
+		Zvanje.add(combozvanja);
 		panel.add(Zvanje);
 		
 		panel.add(Box.createVerticalStrut(20));

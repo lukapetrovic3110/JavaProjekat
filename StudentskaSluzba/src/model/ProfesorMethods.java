@@ -13,7 +13,7 @@ public class ProfesorMethods {
 		profesori.add(new Profesor(imeProfesora, prezimeProfesora, datumRodjenjaProfesora, adresaStanovanjaProfesora, telefonProfesora, emailProfesora, adresaKancelarijeProfesora, brojLicneKarteProfesora, titulaProfesora, zvanjeProfesora));
 	}
 	
-	public static void izbrisiProfesora(int brojLicneProfesora)
+	public static void izbrisiProfesora(long brojLicneProfesora)
 	{
 		for(Profesor profesor : profesori)
 		{
