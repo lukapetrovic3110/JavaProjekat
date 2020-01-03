@@ -19,7 +19,7 @@ public class BtnNewActionListener implements ActionListener {
 		}
 		else
 		{
-			DialogDodavanjePredmeta dialogDodavanjePredmeta = new DialogDodavanjePredmeta(MainWindow.getInstance(), true);
+			DialogDodavanjePredmeta dialogDodavanjePredmeta = new DialogDodavanjePredmeta(MainWindow.getInstance(), true, false);
 			dialogDodavanjePredmeta.setVisible(true);
 		}
 			

@@ -3,8 +3,12 @@ package view;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BtnEditActionListener implements ActionListener{
+import javax.swing.JOptionPane;
 
+public class BtnEditActionListener implements ActionListener{
+	
+	private int rowSelectedIndex;
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(TabbedPane.tabbedPane.getSelectedComponent() == TabbedPane.panelStudenti)
@@ -21,9 +25,20 @@ public class BtnEditActionListener implements ActionListener{
 		}
 		else
 		{
-			DialogDodavanjePredmeta dialogDodavanjePredmeta = new DialogDodavanjePredmeta(MainWindow.getInstance(), true);
+			DialogDodavanjePredmeta dialogDodavanjePredmeta = new DialogDodavanjePredmeta(MainWindow.getInstance(), true, true);
 			dialogDodavanjePredmeta.setTitle("Izmeni podatke predmeta");
-			dialogDodavanjePredmeta.setVisible(true);
+			
+	        rowSelectedIndex = PanelPredmeti.tablePredmeti.getSelectedRow();
+			
+			if (rowSelectedIndex < 0)
+			{
+				JOptionPane.showMessageDialog(null, "Nije selektovan predmet u tabeli!\nNije moguce izvrsiti izmenu!");
+				dialogDodavanjePredmeta.setVisible(false);
+			}
+			else 
+			{
+				dialogDodavanjePredmeta.setVisible(true);
+			}
 		}
 	}
 }
