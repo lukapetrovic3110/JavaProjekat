@@ -21,7 +21,7 @@ public class BtnEditActionListener implements ActionListener{
 		}
 		else
 		{
-			DialogDodavanjePredmeta dialogDodavanjePredmeta = new DialogDodavanjePredmeta(MainWindow.getInstance(), true);
+			DialogDodavanjePredmeta dialogDodavanjePredmeta = new DialogDodavanjePredmeta(MainWindow.getInstance(), true, true);
 			dialogDodavanjePredmeta.setTitle("Izmeni podatke predmeta");
 			dialogDodavanjePredmeta.setVisible(true);
 		}

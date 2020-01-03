@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
@@ -53,7 +55,15 @@ public class MenuBar extends JMenuBar{
 		}
 	    KeyStroke ctrlNKeyStroke = KeyStroke.getKeyStroke("control N");
 	    item1.setAccelerator(ctrlNKeyStroke);
-	    
+	    item1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				DodavanjeStudenta ds = new DodavanjeStudenta(frame, true);
+				ds.setVisible(true);
+			}
+		});
 	    
 	    try 
 	    {

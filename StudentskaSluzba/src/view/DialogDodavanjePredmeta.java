@@ -16,6 +16,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.PredmetController;
+import model.BazaPredmeta;
+import model.Predmet;
 /**
  *  @author ra25-2017
  */
@@ -41,7 +43,9 @@ public class DialogDodavanjePredmeta extends JDialog{
 	private String semestar;
 	private String godinaStudija;
 	
-	public DialogDodavanjePredmeta(JFrame parent, boolean modal){
+	private int rowSelected;
+	
+	public DialogDodavanjePredmeta(JFrame parent, boolean modal, boolean popujenaPolja){
 		
 		super(parent, "Dodavanje predmeta", modal);
 		
@@ -109,6 +113,25 @@ public class DialogDodavanjePredmeta extends JDialog{
 		
 		panel.add(Box.createVerticalStrut(20));
 		
+		if (popujenaPolja) 
+		{
+			rowSelected = PanelPredmeti.tablePredmeti.getSelectedRow();
+			Predmet p = BazaPredmeta.getInstance().getRow(rowSelected);
+			
+			sifraPredmeta = p.getSifrapredmeta();
+			nazivPredmeta = p.getNazivpredmeta();
+			semestar = p.getSemestar();
+			godinaStudija = p.getGodinastudija();
+			
+			poljesifpred.setText(sifraPredmeta);
+			poljesifpred.setEditable(false);
+			poljenzvpred.setText(nazivPredmeta);
+			poljesemestar.setText(semestar);
+			poljegodstud.setText(godinaStudija);
+			
+			System.out.println("Polja trebaju biti popunjena, radi se izmena podataka!");
+		}
+		
 		JPanel panelDugmici = new JPanel();
 		panelDugmici.setLayout(new BoxLayout(panelDugmici, BoxLayout.X_AXIS));
 		
@@ -121,19 +144,26 @@ public class DialogDodavanjePredmeta extends JDialog{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				if((!poljesifpred.getText().equals("")) && (!poljenzvpred.getText().equals("")) && (!poljesemestar.getText().equals("")) && (!poljegodstud.getText().equals("")))
-				{
-					sifraPredmeta = poljesifpred.getText();
+				if(!popujenaPolja) {
+					if((!poljesifpred.getText().equals("")) && (!poljenzvpred.getText().equals("")) && (!poljesemestar.getText().equals("")) && (!poljegodstud.getText().equals("")))
+					{
+						sifraPredmeta = poljesifpred.getText();
+						nazivPredmeta = poljenzvpred.getText();
+						semestar = poljesemestar.getText();
+						godinaStudija = poljegodstud.getText();
+		
+						PredmetController.getInstance().dodajPredmet(sifraPredmeta, nazivPredmeta, semestar, godinaStudija);
+							
+						setVisible(false);
+					}
+				} else {
 					nazivPredmeta = poljenzvpred.getText();
 					semestar = poljesemestar.getText();
 					godinaStudija = poljegodstud.getText();
-
-					PredmetController.getInstance().dodajPredmet(sifraPredmeta, nazivPredmeta, semestar, godinaStudija);
-					
-					setVisible(false);
 				}
 			}
 		});
+		
 		potvrdi.setPreferredSize(dimenzijadugmica);
 		
 		odustani = new JButton("Odustani");
