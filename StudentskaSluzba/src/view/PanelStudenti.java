@@ -12,7 +12,7 @@ import javax.swing.JScrollPane;
 public class PanelStudenti extends JPanel{
 	
 	private static final long serialVersionUID = 2883721902577408910L;
-	private StudentiJTable tableStudenti;
+	private static StudentiJTable tableStudenti;
 	private JPanel leftPanel = new JPanel();
 	private JPanel rightPanel = new JPanel();
 	private JPanel topPanel = new JPanel();
@@ -44,5 +44,12 @@ public class PanelStudenti extends JPanel{
 	
 		scrollPane = new JScrollPane(tableStudenti, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);	
 		this.add(scrollPane, BorderLayout.CENTER);
+		
+		azurirajPrikaz();
 	}
+	 public static void azurirajPrikaz() {
+			
+	    	StudentTableModel model = (StudentTableModel) tableStudenti.getModel();
+			model.fireTableDataChanged();
+		}
 }
