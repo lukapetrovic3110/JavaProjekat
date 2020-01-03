@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -43,9 +44,10 @@ public class DialogDodavanjePredmeta extends JDialog{
 	private String semestar;
 	private String godinaStudija;
 	
-	private int rowSelected;
+	private int rowSelectedIndex;
+	private Predmet p;
 	
-	public DialogDodavanjePredmeta(JFrame parent, boolean modal, boolean popujenaPolja){
+	public DialogDodavanjePredmeta(JFrame parent, boolean modal, boolean daLiJeIzmena){
 		
 		super(parent, "Dodavanje predmeta", modal);
 		
@@ -113,23 +115,25 @@ public class DialogDodavanjePredmeta extends JDialog{
 		
 		panel.add(Box.createVerticalStrut(20));
 		
-		if (popujenaPolja) 
+		if (daLiJeIzmena) 
 		{
-			rowSelected = PanelPredmeti.tablePredmeti.getSelectedRow();
-			Predmet p = BazaPredmeta.getInstance().getRow(rowSelected);
 			
-			sifraPredmeta = p.getSifrapredmeta();
-			nazivPredmeta = p.getNazivpredmeta();
-			semestar = p.getSemestar();
-			godinaStudija = p.getGodinastudija();
+			rowSelectedIndex = PanelPredmeti.tablePredmeti.getSelectedRow();
 			
-			poljesifpred.setText(sifraPredmeta);
-			poljesifpred.setEditable(false);
-			poljenzvpred.setText(nazivPredmeta);
-			poljesemestar.setText(semestar);
-			poljegodstud.setText(godinaStudija);
-			
-			System.out.println("Polja trebaju biti popunjena, radi se izmena podataka!");
+			if (rowSelectedIndex >= 0)
+			{
+				p = BazaPredmeta.getInstance().getRow(rowSelectedIndex);
+				sifraPredmeta = p.getSifrapredmeta();
+				nazivPredmeta = p.getNazivpredmeta();
+				semestar = p.getSemestar();
+				godinaStudija = p.getGodinastudija();
+				
+				poljesifpred.setText(sifraPredmeta);
+				poljesifpred.setEditable(false);
+				poljenzvpred.setText(nazivPredmeta);
+				poljesemestar.setText(semestar);
+				poljegodstud.setText(godinaStudija);
+			}
 		}
 		
 		JPanel panelDugmici = new JPanel();
@@ -144,7 +148,8 @@ public class DialogDodavanjePredmeta extends JDialog{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				if(!popujenaPolja) {
+				if(!daLiJeIzmena) 
+				{
 					if((!poljesifpred.getText().equals("")) && (!poljenzvpred.getText().equals("")) && (!poljesemestar.getText().equals("")) && (!poljegodstud.getText().equals("")))
 					{
 						sifraPredmeta = poljesifpred.getText();
@@ -156,10 +161,16 @@ public class DialogDodavanjePredmeta extends JDialog{
 							
 						setVisible(false);
 					}
-				} else {
+				}
+				else 
+				{
 					nazivPredmeta = poljenzvpred.getText();
 					semestar = poljesemestar.getText();
 					godinaStudija = poljegodstud.getText();
+					
+					PredmetController.getInstance().izmeniPredmet(sifraPredmeta, nazivPredmeta, semestar, godinaStudija);
+					
+					setVisible(false);
 				}
 			}
 		});

@@ -29,9 +29,10 @@ public class PredmetController {
 		PanelPredmeti.azurirajPrikaz();
 	}
 	
-	public void izmeniPredmet()
+	public void izmeniPredmet(String sifraPredmeta, String nazivPredmeta, String semestar, String godinaStudija)
 	{
-		// TO::DO
+		PredmetMethods.izmeniPredmet(sifraPredmeta, nazivPredmeta, semestar, godinaStudija);
+		PanelPredmeti.azurirajPrikaz();
 	}
 	
 	public void izbrisiPredmet(int rowSelectedIndex)
