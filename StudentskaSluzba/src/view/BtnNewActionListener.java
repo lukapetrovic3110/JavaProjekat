@@ -9,7 +9,7 @@ public class BtnNewActionListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(TabbedPane.tabbedPane.getSelectedComponent() == TabbedPane.panelStudenti)
 		{
-			DodavanjeStudenta dodavanjeStudenta = new DodavanjeStudenta(MainWindow.getInstance(), true);
+			DodavanjeStudenta dodavanjeStudenta = new DodavanjeStudenta(MainWindow.getInstance(), true,false);
 			dodavanjeStudenta.setVisible(true);
 		}
 		else if(TabbedPane.tabbedPane.getSelectedComponent() == TabbedPane.panelProfesori)

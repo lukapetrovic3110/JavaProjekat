@@ -110,6 +110,7 @@ public class Profesor {
 		this.titula = titula;
 	}
 	public zvanja getZvanje() {
+	
 		return zvanje;
 	}
 	public void setZvanje(zvanja zvanje) {

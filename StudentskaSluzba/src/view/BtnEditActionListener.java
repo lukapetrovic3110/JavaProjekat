@@ -13,8 +13,13 @@ public class BtnEditActionListener implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(TabbedPane.tabbedPane.getSelectedComponent() == TabbedPane.panelStudenti)
 		{
-			DodavanjeStudenta dodavanjeStudenta = new DodavanjeStudenta(MainWindow.getInstance(), true);
+			DodavanjeStudenta dodavanjeStudenta = new DodavanjeStudenta(MainWindow.getInstance(), true,true);
 			dodavanjeStudenta.setTitle("Izmeni podatke studenta");
+			rowSelectedIndex = PanelStudenti.tableStudenti.getSelectedRow();
+			if(rowSelectedIndex < 0) {
+				JOptionPane.showMessageDialog(null, "Nije selektovan student u tabeli!\nNije moguce izvrsiti izmenu!");
+				dodavanjeStudenta.setVisible(false);
+			}else
 			dodavanjeStudenta.setVisible(true);
 		}
 		else if(TabbedPane.tabbedPane.getSelectedComponent() == TabbedPane.panelProfesori)

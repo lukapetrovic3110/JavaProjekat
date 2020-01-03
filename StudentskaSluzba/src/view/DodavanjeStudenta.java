@@ -4,8 +4,11 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
+import javax.swing.AbstractButton;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
@@ -20,6 +23,14 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+import controller.PredmetController;
+import controller.StudentController;
+import model.BazaPredmeta;
+import model.BazaStudenata;
+import model.Predmet;
+import model.Student;
+import model.Student.status;
+
 public class DodavanjeStudenta extends JDialog {
 	private static final long serialVersionUID = 3591599721565020284L;
 
@@ -32,14 +43,30 @@ public class DodavanjeStudenta extends JDialog {
 	private JLabel godinastud;
 	private JLabel samo1;
 	private JLabel budzet1;
+	private JLabel email;
+	private JLabel datumupisa;
+	private JLabel prosekocena;
 	private JComboBox<String> god2;
 	private JRadioButton samo;
 	private JRadioButton budzet;
 
-	private JTextField im, prz, datr, adr, t, bri;
+	private JTextField im, prz, datr, adr, t, bri,datu,em,p;
 	
-
-	public DodavanjeStudenta(JFrame parentFrame, boolean modal) {
+	private String imes;
+	private String prezimes;
+	private String datumrs;
+	private String adresas;
+	private String tels;
+	private String emails;
+	private String brindeksas;
+	private String datumus;
+	private double prosek;
+//	private String godina;
+	
+	private int rowSelectedIndex;
+	private Student s;
+	
+	public DodavanjeStudenta(JFrame parentFrame, boolean modal, boolean daLiJeIzmena) {
 
 		super(parentFrame, "Dodavanje studenta", modal);
 
@@ -51,7 +78,7 @@ public class DodavanjeStudenta extends JDialog {
 
 		Dimension dim = new Dimension(160, 25);
 		
-		MyFocusListener focusListener = new MyFocusListener();
+		
 		
 		JPanel Ime = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		ime = new JLabel();
@@ -63,11 +90,7 @@ public class DodavanjeStudenta extends JDialog {
 		Ime.add(im);
 		
 		panCenter.add(Ime);
-		im.setBackground(Color.GRAY);
-		im.setName("txtIme");
-		im.addFocusListener(focusListener);
-		//JPanel panFocusListener = new FocusListenerPanel();
-		//panCenter.add(panFocusListener);
+	
 		
 		JPanel Prezime = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		prezime = new JLabel();
@@ -126,7 +149,38 @@ public class DodavanjeStudenta extends JDialog {
 
 		panCenter.add(Br);
 		
+		JPanel Email = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		email = new JLabel();
+		email.setText("Email*");
+		email.setPreferredSize(dim);
+		em = new JTextField();
+		em.setPreferredSize(dim);
+		Email.add(email);
+		Email.add(em);
+
+		panCenter.add(Email);
 		
+		JPanel Prosek = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		prosekocena = new JLabel();
+		prosekocena.setText("Prosek*");
+		prosekocena.setPreferredSize(dim);
+		p = new JTextField();
+		p.setPreferredSize(dim);
+		Prosek.add(prosekocena);
+		Prosek.add(p);
+
+		panCenter.add(Prosek);
+		
+		JPanel Datumu = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		datumupisa = new JLabel();
+		datumupisa.setText("Datum upisa*");
+		datumupisa.setPreferredSize(dim);
+		datu = new JTextField();
+		datu.setPreferredSize(dim);
+		Datumu.add(datumupisa);
+		Datumu.add(datu);
+
+		panCenter.add(Datumu);	
 		
 		JPanel God = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		godinastud = new JLabel();
@@ -180,11 +234,98 @@ public class DodavanjeStudenta extends JDialog {
 		BoxLayout box = new BoxLayout(panBottom, BoxLayout.X_AXIS);
 		panBottom.setLayout(box);
 
+		if (daLiJeIzmena) 
+		{
+			
+			rowSelectedIndex = PanelStudenti.tableStudenti.getSelectedRow();
+			
+			if (rowSelectedIndex >= 0)
+			{
+				s = BazaStudenata.getInstance().getRow(rowSelectedIndex);
+				imes=s.getIme();
+				prezimes=s.getPrezime();
+				datumrs=s.getDatumr();
+				adresas=s.getAdresa();
+				emails=s.getEmail();
+				tels=s.getTel();
+				prosek=s.getProsek();
+				datumus=s.getDatumu();
+				brindeksas=s.getBrindeksa();
+				
+				
+				
+				bri.setText(brindeksas);
+				bri.setEditable(false);
+				im.setText(imes);
+				prz.setText(prezimes);
+			    datr.setText(datumrs);
+				adr.setText(adresas);
+				em.setText(emails);
+				t.setText(tels);
+				p.setText(""+prosek);
+				datu.setText(datumus);
+			
+			}
+		}
+		
+		
+		
 		JButton btn1 = new JButton("Potvrdi");
 		btn1.setPreferredSize(new Dimension(100, 35));
+		btn1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				if(!daLiJeIzmena) 
+				{
+					if((!im.getText().equals("")) && (!prz.getText().equals("")) && (!datr.getText().equals("")) && (!adr.getText().equals("")) && (!t.getText().equals("")) && (!bri.getText().equals("")) && (!datu.getText().equals("")) && (!em.getText().equals("")) && (!p.getText().equals("")))
+					{
+						imes = im.getText();
+						prezimes = prz.getText();
+						datumrs = datr.getText();
+						adresas = adr.getText();
+						emails = em.getText();
+						tels = t.getText();
+						prosek = Double.parseDouble(p.getText());
+						datumus = datu.getText();
+						brindeksas = bri.getText();
+		
+					//	StudentController.getInstance().dodajStudenta(imes, prezimes, datumrs, adresas, tels, emails, brindeksas, datumus, , prosek, );;
+							
+						setVisible(false);
+					}
+				}
+				else 
+				{
+					imes = im.getText();
+					prezimes = prz.getText();
+					datumrs = datr.getText();
+					adresas = adr.getText();
+					emails = em.getText();
+					tels = t.getText();
+					prosek = Double.parseDouble(p.getText());
+					datumus = datu.getText();
+					
+					//StudentController.getInstance().dodajStudenta(imes, prezimes, datumrs, adresas, tels, emails, brindeksas, datumus, , prosek, );;
+					
+					setVisible(false);
+				}
+			}
+		});
+		
+		
 
 		JButton btn2 = new JButton("Odustani");
 		btn2.setPreferredSize(new Dimension(100, 35));
+		btn2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+			}
+		});
+		
 		panBottom.add(Box.createGlue());
 		panBottom.add(btn1);
 		panBottom.add(Box.createHorizontalStrut(20));
