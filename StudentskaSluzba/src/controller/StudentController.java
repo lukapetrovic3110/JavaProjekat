@@ -41,9 +41,11 @@ public class StudentController {
 		PanelStudenti.azurirajPrikaz();
 	}
 	
-	public void izmeniStudenta()
+	public void izmeniStudenta(String ime,String prezime,String datumr,String adresa,String tel,String 
+			email,String brindeksa,String datumu,int godinastud,double prosek,status st)
 	{
-		
+		StudentMethods.izmeniStudenta(ime,prezime,datumr,adresa,tel,email,brindeksa,datumu,godinastud,prosek,st);
+		PanelStudenti.azurirajPrikaz();
 	}
 	
 	public void izbrisiStudenta(int rowSelectedIndex)

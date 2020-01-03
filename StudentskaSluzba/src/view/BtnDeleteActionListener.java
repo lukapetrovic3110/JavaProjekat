@@ -6,15 +6,15 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 public class BtnDeleteActionListener implements ActionListener{
-	
+
 	private int rowSelectedIndex;
-	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(TabbedPane.tabbedPane.getSelectedComponent() == TabbedPane.panelStudenti)
 		{
 			BrisanjeStudenta brisanjeStudenta = new BrisanjeStudenta(MainWindow.getInstance());
 			brisanjeStudenta.setVisible(true);
+				
 		}
 		else if(TabbedPane.tabbedPane.getSelectedComponent() == TabbedPane.panelProfesori)
 		{
