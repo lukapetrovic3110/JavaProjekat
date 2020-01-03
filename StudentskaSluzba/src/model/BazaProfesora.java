@@ -47,7 +47,7 @@ public class BazaProfesora {
 		profesori.add(new Profesor("Imenko", "Prezimenic", "1.1.1986.", "Ulica Narodnih heroja 1", "062/2010-800", "imenko@uns.ac.rs", "Bulevar Oslobdjenja 133", 2227010, titule.DIPLOMIRANIINZENJER, zvanja.ASISTENT));
 	}
 	
-	public ArrayList<Profesor> getStudenti() {
+	public ArrayList<Profesor> getProfesori() {
 		return profesori;
 	}	
 	
