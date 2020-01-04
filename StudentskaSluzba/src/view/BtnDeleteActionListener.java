@@ -12,9 +12,17 @@ public class BtnDeleteActionListener implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(TabbedPane.tabbedPane.getSelectedComponent() == TabbedPane.panelStudenti)
 		{
-			BrisanjeStudenta brisanjeStudenta = new BrisanjeStudenta(MainWindow.getInstance());
-			brisanjeStudenta.setVisible(true);
-				
+			rowSelectedIndex = PanelStudenti.tableStudenti.getSelectedRow();
+			
+			if (rowSelectedIndex < 0)
+			{
+				JOptionPane.showMessageDialog(null, "Nije selektovan student u tabeli!\nNije moguce izvrsiti brisanje!");
+			}
+			else
+			{
+				BrisanjeStudenta brisanjeStudenta = new BrisanjeStudenta(MainWindow.getInstance());
+				brisanjeStudenta.setVisible(true);
+			}	
 		}
 		else if(TabbedPane.tabbedPane.getSelectedComponent() == TabbedPane.panelProfesori)
 		{

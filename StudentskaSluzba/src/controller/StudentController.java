@@ -35,14 +35,14 @@ public class StudentController {
 
 	
 	public void dodajStudenta(String ime,String prezime,String datumr,String adresa,String tel,String 
-			email,String brindeksa,String datumu,int godinastud,double prosek,status st)
+			email,String brindeksa,String datumu,String godinastud,double prosek,status st)
 	{
 		StudentMethods.dodajStudenta(ime,prezime,datumr,adresa,tel,email,brindeksa,datumu,godinastud,prosek,st);
 		PanelStudenti.azurirajPrikaz();
 	}
 	
 	public void izmeniStudenta(String ime,String prezime,String datumr,String adresa,String tel,String 
-			email,String brindeksa,String datumu,int godinastud,double prosek,status st)
+			email,String brindeksa,String datumu,String godinastud,double prosek,status st)
 	{
 		StudentMethods.izmeniStudenta(ime,prezime,datumr,adresa,tel,email,brindeksa,datumu,godinastud,prosek,st);
 		PanelStudenti.azurirajPrikaz();
@@ -50,11 +50,7 @@ public class StudentController {
 	
 	public void izbrisiStudenta(int rowSelectedIndex)
 	{
-		if (rowSelectedIndex < 0)
-		{
-			JOptionPane.showMessageDialog(null, "Nije selektovan nijedan student u tabeli!\nNije moguce izvrsiti brisanje!");
-			return ;
-		}
+		
 		
 		Student student = BazaStudenata.getInstance().getRow(rowSelectedIndex);
 		StudentMethods.izbrisiStudenta(student.getBrindeksa());
