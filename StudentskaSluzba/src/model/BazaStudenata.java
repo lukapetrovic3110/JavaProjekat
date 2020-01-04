@@ -37,15 +37,15 @@ public class BazaStudenata {
 	
 	private void initStud() {
 		this.studenti = new ArrayList<Student>();
-		studenti.add(new Student("Luka","Petrovic","31.10.1998.","Branislava Nusica 33","063","luka.petrovic@gmail.com","RA-21-2017","6.7.2017.",3,8.0,status.B));
-		studenti.add(new Student("Jelena","Budisa","12.6.1998.","Branislava Nusica 25","06765","jelena.budisa@gmail.com","RA-33-2017","12.6.2017.",3,9.0,status.B));
-		studenti.add(new Student("Marko","Petrovic","30.10.1998.","Branislava Nusica 22","064","luka.petrovic@gmail.com","SW-22-2017","6.7.2017.",4,6.9,status.S));
-		studenti.add(new Student("Jovan","Jovanovic","31.10.1933.","Branislava Nusica 2","0655","luka.petrovic@gmail.com","RA-233-2016","6.7.2017.",3,7.22,status.S));
-		studenti.add(new Student("Sanja","Jungic","31.1.1999.","Branislava Nusica 6","06222","luka.petrovic@gmail.com","RA-29-2015","6.7.2017.",1,7.1,status.S));
-		studenti.add(new Student("Maja","Jovic","1.8.1998.","Branislava Nusica 78","064325","luka.petrovic@gmail.com","SW-123-2015","6.7.2017.",3,8.342,status.B));
-		studenti.add(new Student("Ana","Lalic","14.8.1997.","Branislava Nusica 23","06344","luka.petrovic@gmail.com","RA-88-2016","6.7.2017.",2,8.111,status.S));
-		studenti.add(new Student("Nikola","Savic","28.5.1923.","Branislava Nusica 1","06123","luka.petrovic@gmail.com","PR-90-2017","6.7.2017.",2,10.0,status.B));
-		studenti.add(new Student("Marija","Nikolic","11.11.1991.","Branislava Nusica 16","06435","luka.petrovic@gmail.com","RA-44-2018","6.7.2017.",4,9.543,status.B));
+		studenti.add(new Student("Luka","Petrovic","31.10.1998.","Branislava Nusica 33","063","luka.petrovic@gmail.com","RA-21-2017","6.7.2017.","III (TRECA)",8.0,status.B));
+		studenti.add(new Student("Jelena","Budisa","12.6.1998.","Branislava Nusica 25","06765","jelena.budisa@gmail.com","RA-33-2017","12.6.2017.","III (TRECA)",9.0,status.B));
+		studenti.add(new Student("Marko","Petrovic","30.10.1998.","Branislava Nusica 22","064","luka.petrovic@gmail.com","SW-22-2017","6.7.2017.","IV (CETVRTA)",6.9,status.S));
+		studenti.add(new Student("Jovan","Jovanovic","31.10.1933.","Branislava Nusica 2","0655","luka.petrovic@gmail.com","RA-233-2016","6.7.2017.","I (PRVA)",7.22,status.S));
+		studenti.add(new Student("Sanja","Jungic","31.1.1999.","Branislava Nusica 6","06222","luka.petrovic@gmail.com","RA-29-2015","6.7.2017.","II (DRUGA)",7.1,status.S));
+		studenti.add(new Student("Maja","Jovic","1.8.1998.","Branislava Nusica 78","064325","luka.petrovic@gmail.com","SW-123-2015","6.7.2017.","IV (CETVRTA)",8.342,status.B));
+		studenti.add(new Student("Ana","Lalic","14.8.1997.","Branislava Nusica 23","06344","luka.petrovic@gmail.com","RA-88-2016","6.7.2017.","I (PRVA)",8.111,status.S));
+		studenti.add(new Student("Nikola","Savic","28.5.1923.","Branislava Nusica 1","06123","luka.petrovic@gmail.com","PR-90-2017","6.7.2017.","II (DRUGA)",10.0,status.B));
+		studenti.add(new Student("Marija","Nikolic","11.11.1991.","Branislava Nusica 16","06435","luka.petrovic@gmail.com","RA-44-2018","6.7.2017.","IV (CETVRTA)",9.543,status.B));
 
 	}
 
@@ -91,7 +91,7 @@ public class BazaStudenata {
 		case 7:
 			return s.getDatumu();
 		case 8:
-			return ""+s.getGodinastud();
+			return s.getGodinastud();
 		case 9:
 			return Double.toString(s.getProsek());
 		case 10:

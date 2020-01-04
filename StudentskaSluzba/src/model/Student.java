@@ -12,9 +12,9 @@ public class Student {
 	private String email;
 	private String brindeksa;
 	private String datumu;
-	private int godinastud;
+	private String godinastud;
 	private double prosek;
-	private  status s;
+	private status s;
 	
 	//private ArrayList<String> lista=new ArrayList<String>();
 	
@@ -22,7 +22,7 @@ public class Student {
 	
 	public Student(String ime, String prezime, String datumr, 
 			String adresa, String tel, String email, String brindeksa,
-			String datumu, int godinastud, double prosek,status s
+			String datumu, String godinastud, double prosek,status s
 			//,ArrayList <String> lista
 			){
 		super();
@@ -105,11 +105,11 @@ public class Student {
 		this.datumu = datumu;
 	}
 
-	public int getGodinastud() {
+	public String getGodinastud() {
 		return godinastud;
 	}
 
-	public void setGodinastud(int godinastud) {
+	public void setGodinastud(String godinastud) {
 		this.godinastud = godinastud;
 	}
 

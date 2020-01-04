@@ -9,7 +9,7 @@ public class StudentMethods {
 	private static ArrayList<Student> studenti=BazaStudenata.getInstance().getStudenti();
 	
 	public static void dodajStudenta(String ime,String prezime,String datumr,String adresa,String tel,String 
-			email,String brindeksa,String datumu,int godinastud,double prosek,status st) {
+			email,String brindeksa,String datumu,String godinastud,double prosek,status st) {
 		
 		studenti.add(new Student(ime,prezime,datumr,adresa,tel,email,brindeksa,datumu,godinastud,prosek,st));
 	}
@@ -26,7 +26,7 @@ public class StudentMethods {
 	}
 
 	public static void izmeniStudenta(String ime,String prezime,String datumr,String adresa,String tel,String 
-			email,String brindeksa,String datumu,int godinastud,double prosek,status st) {
+			email,String brindeksa,String datumu,String godinastud,double prosek,status st) {
 		for (Student s : studenti) {
 			if (s.getBrindeksa().equals( brindeksa)) {
 				s.setAdresa(adresa);

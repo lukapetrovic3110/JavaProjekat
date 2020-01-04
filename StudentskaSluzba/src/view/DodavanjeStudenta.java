@@ -61,7 +61,8 @@ public class DodavanjeStudenta extends JDialog {
 	private String brindeksas;
 	private String datumus;
 	private double prosek;
-//	private String godina;
+    private String godina;
+    private status st;
 	
 	private int rowSelectedIndex;
 	private Student s;
@@ -186,15 +187,13 @@ public class DodavanjeStudenta extends JDialog {
 		godinastud = new JLabel();
 		godinastud.setText("Trenutna godina studija*");
 		godinastud.setPreferredSize(dim);
-		     
-		
-		ComboBoxModel<String> god1=new DefaultComboBoxModel<String>(new String[] {"I (PRVA)",
-				"II (DRUGA)", "III (TRECA)", "IV (CETVRTA)" });
-
+	
 		god2=new JComboBox<String>();
+		god2.setModel(new DefaultComboBoxModel<String>(new String[] {"I (PRVA)",
+				"II (DRUGA)", "III (TRECA)", "IV (CETVRTA)" }));
+		
 		God.add(godinastud);
 		God.add(god2);
-		god2.setModel(god1);
 		
 
 		panCenter.add(God);
@@ -251,7 +250,8 @@ public class DodavanjeStudenta extends JDialog {
 				prosek=s.getProsek();
 				datumus=s.getDatumu();
 				brindeksas=s.getBrindeksa();
-				
+				godina = s.getGodinastud();
+				st = s.getS();
 				
 				
 				bri.setText(brindeksas);
@@ -264,6 +264,16 @@ public class DodavanjeStudenta extends JDialog {
 				t.setText(tels);
 				p.setText(""+prosek);
 				datu.setText(datumus);
+				god2.setSelectedItem(godina);
+				
+				if(st == status.B) {
+					samo.setSelected(false);
+					budzet.setSelected(true);
+				}else
+				{
+					samo.setSelected(true);
+					budzet.setSelected(false);
+				}
 			
 			}
 		}
@@ -290,8 +300,17 @@ public class DodavanjeStudenta extends JDialog {
 						prosek = Double.parseDouble(p.getText());
 						datumus = datu.getText();
 						brindeksas = bri.getText();
-		
-					//	StudentController.getInstance().dodajStudenta(imes, prezimes, datumrs, adresas, tels, emails, brindeksas, datumus, , prosek, );;
+						godina = god2.getSelectedItem().toString();
+						
+						if(samo.isSelected()) 
+						{
+							st = status.S;
+						}else
+						{
+							st = status.B;
+						}
+						
+					    StudentController.getInstance().dodajStudenta(imes, prezimes, datumrs, adresas, tels, emails, brindeksas, datumus, godina, prosek, st);
 							
 						setVisible(false);
 					}
@@ -306,8 +325,17 @@ public class DodavanjeStudenta extends JDialog {
 					tels = t.getText();
 					prosek = Double.parseDouble(p.getText());
 					datumus = datu.getText();
+					brindeksas = bri.getText();
+					godina = god2.getSelectedItem().toString();
+					if(samo.isSelected()) 
+					{
+						st = status.S;
+					}else
+					{
+						st = status.B;
+					}
 					
-					//StudentController.getInstance().dodajStudenta(imes, prezimes, datumrs, adresas, tels, emails, brindeksas, datumus, , prosek, );;
+				    StudentController.getInstance().izmeniStudenta(imes, prezimes, datumrs, adresas, tels, emails, brindeksas, datumus, godina, prosek, st);
 					
 					setVisible(false);
 				}
