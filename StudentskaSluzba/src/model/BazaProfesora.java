@@ -34,7 +34,7 @@ public class BazaProfesora {
 		this.kolone.add("Broj licne karte");
 		this.kolone.add("Titula");
 		this.kolone.add("Zvanje");
-		//this.kolone.add("Spisak predmeta");
+		this.kolone.add("Spisak predmeta");
 
 	}
 

@@ -20,10 +20,10 @@ public class PrikaziButtonColumn extends AbstractCellEditor
 
 	private JButton renderButton; 	// dugme koje se iscrtava
 	private JButton editorButton; 	// dugme koje obradjuje akciju
-	private PredmetJTable table;
+	private JTable table;
 	private boolean isEditorActive = false; // da li je aktivno editovanje celije tabele
 
-	public PrikaziButtonColumn(PredmetJTable table, int column) {
+	public PrikaziButtonColumn(JTable table, int column) {
 		
 		this.table = table;
 		this.table.getColumnModel().getColumn(column).setCellRenderer(this); 		// nacin iscrtavanje celije

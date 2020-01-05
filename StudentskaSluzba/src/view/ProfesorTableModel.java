@@ -1,5 +1,6 @@
 package view;
 
+import javax.swing.JButton;
 import javax.swing.table.AbstractTableModel;
 
 import model.BazaProfesora;
@@ -10,11 +11,11 @@ import model.Profesor.zvanja;
 public class ProfesorTableModel extends AbstractTableModel{
 	
 	private static final long serialVersionUID = 6127102205843865783L;
-	private final String[] kolone= {"Ime","Prezime","Datum rodjenja","Adresa stanovanja","Telefon","E-mail","Adresa kancelarije","Broj licne karte","Titula","Zvanje"};
+	private final String[] kolone= {"Ime", "Prezime", "Datum rodjenja", "Adresa stanovanja", "Telefon", "E-mail", "Adresa kancelarije", "Broj licne karte", "Titula", "Zvanje", "Spisak predmeta"};
 	
 	@Override
 	public int getColumnCount() {
-		return this.kolone.length;
+		return BazaProfesora.getInstance().getColumnCount();
 	}
 
 	@Override
@@ -31,9 +32,25 @@ public class ProfesorTableModel extends AbstractTableModel{
 	}
 	
 	@Override
-	public Class<?> getColumnClass(int c) {
+	public Class<?> getColumnClass(int column) {
 		
-		return getValueAt(0,c).getClass();
+		switch (column) {
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+		case 8:
+		case 9:
+			return String.class;
+		case 10:
+			return JButton.class;
+		default:
+			return null;
+		}
 	}
 	
 	@Override
@@ -98,6 +115,9 @@ public class ProfesorTableModel extends AbstractTableModel{
 			{
 				return "DEKAN";
 			}
+		case 10:
+			JButton btnPrikaziSpisakPredmeta = new JButton("" + rowIndex);
+			return btnPrikaziSpisakPredmeta;
 		default:
 			return "";
 
