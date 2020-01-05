@@ -23,8 +23,8 @@ public class BazaPredmeta {
 		this.kolone.add("Naziv predmeta");
 		this.kolone.add("Semestar");
 		this.kolone.add("Godina studija");
-		//this.kolone.add("Predmetni profesor");
-		//this.kolone.add("Slusaju studenti");
+		this.kolone.add("Predmetni profesor");
+		this.kolone.add("Slusaju studenti");
 	}
 
 	private void initPred() {

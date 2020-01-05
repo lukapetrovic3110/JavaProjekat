@@ -19,6 +19,8 @@ public class PredmetJTable extends JTable{
 		this.setColumnSelectionAllowed(false);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.setModel(new PredmetTableModel());
+		new PrikaziButtonColumn(this, 4);
+		new PrikaziButtonColumn(this, 5);
 	}
 	
     @Override
