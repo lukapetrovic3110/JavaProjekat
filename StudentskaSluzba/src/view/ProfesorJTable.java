@@ -39,12 +39,10 @@ public class ProfesorJTable extends JTable {
 			public int compare(String o1, String o2) {
 				String[] god1 = o1.split("\\.");
 				String[] god2 = o2.split("\\.");
-				String mes1;
-				String mes2;
 
 				if (god1[2].equals(god2[2])) {
-					mes1 = god1[1];
-					mes2 = god2[1];
+					// String mes1 = god1[1];
+					// String mes2 = god2[1];
 					if (god1[1].equals(god2[1])) {
 						if (god1[0].equals(god2[0])) {
 							return 0;
