@@ -4,7 +4,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import controller.PredmetController;
 import controller.StudentController;
 
 public class BrisanjeStudenta extends JOptionPane{

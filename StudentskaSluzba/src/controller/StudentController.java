@@ -1,15 +1,9 @@
 package controller;
 
-import javax.swing.JOptionPane;
-
-import model.BazaPredmeta;
 import model.BazaStudenata;
-import model.Predmet;
-import model.PredmetMethods;
 import model.Student;
-import model.StudentMethods;
 import model.Student.status;
-import view.PanelPredmeti;
+import model.StudentMethods;
 import view.PanelStudenti;
 
 public class StudentController {
