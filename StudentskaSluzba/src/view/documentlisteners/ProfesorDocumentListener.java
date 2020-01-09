@@ -7,18 +7,17 @@ import javax.swing.event.DocumentListener;
 import view.DialogDodavanjeProfesora;
 
 public class ProfesorDocumentListener implements DocumentListener {
-	
+
 	public String regex;
 	public JTextField komponenta;
 	public DialogDodavanjeProfesora dialogProfesori;
-	
-	public ProfesorDocumentListener(DialogDodavanjeProfesora dialogProfesori, JTextField komponenta, String regex)
-	{
+
+	public ProfesorDocumentListener(DialogDodavanjeProfesora dialogProfesori, JTextField komponenta, String regex) {
 		this.regex = regex;
 		this.komponenta = komponenta;
 		this.dialogProfesori = dialogProfesori;
 	}
-	
+
 	@Override
 	public void changedUpdate(DocumentEvent arg0) {
 		proveriDaLiJeDobaroPopunjeno();
