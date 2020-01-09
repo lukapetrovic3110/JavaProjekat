@@ -229,6 +229,8 @@ public class DialogDodavanjeProfesora extends JDialog{
 			
 			if (rowSelectedIndex >= 0)
 			{
+				rowSelectedIndex = PanelProfesori.tableProfesori.convertRowIndexToModel(rowSelectedIndex);
+				
 				profesor = BazaProfesora.getInstance().getRow(rowSelectedIndex);
 				
 				imeProfesora = profesor.getIme();
