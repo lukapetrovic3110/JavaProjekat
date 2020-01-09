@@ -240,7 +240,10 @@ public class DodavanjeStudenta extends JDialog {
 			
 			if (rowSelectedIndex >= 0)
 			{
+				rowSelectedIndex = PanelStudenti.tableStudenti.convertRowIndexToModel(rowSelectedIndex);
+				
 				s = BazaStudenata.getInstance().getRow(rowSelectedIndex);
+				
 				imes=s.getIme();
 				prezimes=s.getPrezime();
 				datumrs=s.getDatumr();
