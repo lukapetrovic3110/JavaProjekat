@@ -22,6 +22,8 @@ import model.BazaProfesora;
 import model.Profesor;
 import model.Profesor.titule;
 import model.Profesor.zvanja;
+import view.KeyListeners.ImeProfesoraKeyListener;
+import view.documentlisteners.ImeProfesoraDocumentListener;
 /**
  *  @author ra25-2017
  */
@@ -40,7 +42,7 @@ public class DialogDodavanjeProfesora extends JDialog{
 	private JLabel titula;
 	private JLabel zvanje;
 	
-	private JTextField poljeime;
+	public static JTextField poljeime;
 	private JTextField poljeprz;
 	private JTextField poljedatrodj;
 	private JTextField poljeadrstan;
@@ -51,8 +53,8 @@ public class DialogDodavanjeProfesora extends JDialog{
 	private JComboBox<String> combotitula;
 	private JComboBox<String> combozvanja;
 	
-	private JButton potvrdi;
-	private JButton odustani;
+	public static JButton potvrdi;
+	public static JButton odustani;
 	
 	private String imeProfesora;
 	private String prezimeProfesora;
@@ -89,6 +91,9 @@ public class DialogDodavanjeProfesora extends JDialog{
 		
 		poljeime = new JTextField();
 		poljeime.setPreferredSize(dimenzije);
+		
+		poljeime.getDocument().addDocumentListener(new ImeProfesoraDocumentListener());
+		poljeime.addKeyListener(new ImeProfesoraKeyListener());
 		
 		Ime.add(ime);
 		Ime.add(poljeime);
@@ -222,6 +227,12 @@ public class DialogDodavanjeProfesora extends JDialog{
 		
 		panel.add(Box.createVerticalStrut(20));
 		
+		potvrdi = new JButton("Potvrdi");
+		
+		potvrdi.setEnabled(false);
+		
+		odustani = new JButton("Odustani");
+		
 		if (daLiJeIzmena) 
 		{
 			
@@ -301,7 +312,6 @@ public class DialogDodavanjeProfesora extends JDialog{
 		
 		Dimension dimenzijadugmica = new Dimension(100,35);
 		
-		potvrdi = new JButton("Potvrdi");
 		potvrdi.addActionListener(new ActionListener() {
 			
 			@Override
@@ -413,7 +423,6 @@ public class DialogDodavanjeProfesora extends JDialog{
 		});
 		potvrdi.setPreferredSize(dimenzijadugmica);
 		
-		odustani = new JButton("Odustani");
 		odustani.addActionListener(new ActionListener() {
 			
 			@Override
