@@ -40,11 +40,12 @@ public class BazaProfesora {
 
 	private void initProf() {
 		this.profesori = new ArrayList<Profesor>();
-		profesori.add(new Profesor("Nikol", "Despotovic", "21.10.1968.", "Bulevar oslobodjenja 38", "064/2053-991", "nikola.peric@uns.ac.rs", "Bulevar Oslobdjenja 133", 8780888, titule.DOKTORNAUKA, zvanja.REDOVNIPROFESOR));
-		profesori.add(new Profesor("Milos", "Biklic", "20.1.1978.", "Bulevar oslobodjenja 108", "061/2153-991", "milos.biklic@uns.ac.rs", "Bulevar Oslobdjenja 133", 3280189, titule.DIPLOMIRANIINZENJER, zvanja.ASISTENT));
-		profesori.add(new Profesor("Ana", "Veselinovic", "3.3.1991.", "Ulica Nikole Tesle 7", "063/2010-800", "ana.veselinovic@uns.ac.rs", "Bulevar Oslobdjenja 133", 5780448, titule.MAGISTAR, zvanja.DOCENT));
-		profesori.add(new Profesor("Bojana", "Bozovic", "7.7.1995.", "Ulica Narodnih heroja 10", "061/2210-800", "bojana95@uns.ac.rs", "Bulevar Oslobdjenja 133", 3331088, titule.DIPLOMIRANIINZENJER, zvanja.ASISTENT));
-		profesori.add(new Profesor("Imenko", "Prezimenic", "1.1.1986.", "Ulica Narodnih heroja 1", "062/2010-800", "imenko@uns.ac.rs", "Bulevar Oslobdjenja 133", 2227010, titule.DIPLOMIRANIINZENJER, zvanja.ASISTENT));
+		profesori.add(new Profesor("Aleksa", "Petkovic", "15.01.1965.", "Temerinska 15, Novi Sad", "021/334-990", "aleksa.petkovic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, MI 105", 7198721, titule.DOKTORNAUKA, zvanja.REDOVNIPROFESOR));
+		profesori.add(new Profesor("Jana", "Lazarevic", "25.02.1963.", "Jovana Cvijica 26, Novi Sad", "021/435-891", "jana.lazarevic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, Nastavni Blok 206", 8431903, titule.DOKTORNAUKA, zvanja.REDOVNIPROFESOR));
+		profesori.add(new Profesor("Nadja", "Aleksic", "23.03.1973.", "Gunduliceva 75, Novi Sad", "021/730-172", "nadja.aleksic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, NTP 307", 5671007, titule.MAGISTAR, zvanja.VANREDNIPROFESOR));
+		profesori.add(new Profesor("Djordje", "Spasojevic", "24.08.1978.", "Sekspirova 44, Novi Sad", "021/514-893", "djordje.spasojevic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, MI 118", 9999331, titule.MAGISTAR, zvanja.VANREDNIPROFESOR));
+		profesori.add(new Profesor("Elena", "Milenkovic", "08.11.1985.", "Tolstojeva 52, Novi Sad", "062/2010-800", "elena.milenkovic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, Nastavni blok 217", 3330976, titule.MAGISTAR, zvanja.DOCENT));
+		profesori.add(new Profesor("Teodora", "Mladenovic", "14.12.1983.", "Jovana Subotica 33, Novi Sad", "021/441-007", "teodora.mladenovic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, NTP M35", 7441998, titule.DOKTORNAUKA, zvanja.DOCENT));
 	}
 	
 	public ArrayList<Profesor> getProfesori() {
