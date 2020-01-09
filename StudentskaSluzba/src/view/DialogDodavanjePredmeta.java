@@ -121,7 +121,10 @@ public class DialogDodavanjePredmeta extends JDialog{
 			
 			if (rowSelectedIndex >= 0)
 			{
+				rowSelectedIndex = PanelPredmeti.tablePredmeti.convertRowIndexToModel(rowSelectedIndex);
+				
 				p = BazaPredmeta.getInstance().getRow(rowSelectedIndex);
+				
 				sifraPredmeta = p.getSifrapredmeta();
 				nazivPredmeta = p.getNazivpredmeta();
 				semestar = p.getSemestar();
