@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -22,14 +23,16 @@ import model.BazaProfesora;
 import model.Profesor;
 import model.Profesor.titule;
 import model.Profesor.zvanja;
-import view.KeyListeners.ImeProfesoraKeyListener;
-import view.documentlisteners.ImeProfesoraDocumentListener;
+import view.documentlisteners.ProfesorDocumentListener;
 /**
  *  @author ra25-2017
  */
-public class DialogDodavanjeProfesora extends JDialog{
+public class DialogDodavanjeProfesora extends JDialog implements KomponenteInterface{
 	
 	private static final long serialVersionUID = 5272581017507998104L;
+	
+	private ArrayList<JTextField> listaKomponenti;
+	public ArrayList<Boolean> vrednostPopunjenostiKomponenti;
 	
 	private JLabel ime;
 	private JLabel prezime;
@@ -43,7 +46,7 @@ public class DialogDodavanjeProfesora extends JDialog{
 	private JLabel zvanje;
 	
 	public static JTextField poljeime;
-	private JTextField poljeprz;
+	public static JTextField poljeprz;
 	private JTextField poljedatrodj;
 	private JTextField poljeadrstan;
 	private JTextField poljetel;
@@ -63,25 +66,36 @@ public class DialogDodavanjeProfesora extends JDialog{
 	private String telefonProfesora;
 	private String emailProfesora;
 	private String adresaKancelarijeProfesora;
-	private long brojLicneKarteProfesora;
+	private String brojLicneKarteProfesora;
 	private titule titulaProfesora;
 	private zvanja zvanjeProfesora;
 	
 	private String stringTitula;;
 	private String stringZvanje;
 	
+	private String regexIme = "[A-Z]{1,1}[a-z]{2,15}";
+	private String regexPrzime = "[A-Z]{1,1}[a-z]{2,19}";
+	private String regexDatumRodjenja = "([0-9]{2}).([0-9]{2}).([0-9]{4}).";
+	private String regexAdresaStanovanja = "[A-Z a-z]{1,35}[0-9]{2},[A-Z a-z]{1,30}";
+	private String regexTelefon = "021/[0-9]{3}-[0-9]{3}";
+	private String regexEmail = "[a-z]{1,20}.?([a-z]{1,20})?@[a-z]{1,15}.com";
+	private String regexAdresaKancelarije = "[A-Z a-z]{3,50}[0-9]{1,2},[A-Z a-z]{1,30},[A-Z a-z]{1,30}[0-9A-Z]{1,3}";
+	private String regexBrLicneKarte = "[0-9]{9}";
+	
 	int rowSelectedIndex;
 	Profesor profesor;
 
 	public DialogDodavanjeProfesora(JFrame parent, boolean modal, boolean daLiJeIzmena) {
-
 		super(parent, "Dodavanje profesora", modal);
-	
+		
 		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		this.add(panel, BorderLayout.CENTER);
 		
 		Dimension dimenzije = new Dimension(160, 25);
+		
+		listaKomponenti = new ArrayList<JTextField>();
+		vrednostPopunjenostiKomponenti = new ArrayList<Boolean>();
 		
 		JPanel Ime = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		
@@ -91,10 +105,8 @@ public class DialogDodavanjeProfesora extends JDialog{
 		
 		poljeime = new JTextField();
 		poljeime.setPreferredSize(dimenzije);
-		
-		poljeime.getDocument().addDocumentListener(new ImeProfesoraDocumentListener());
-		poljeime.addKeyListener(new ImeProfesoraKeyListener());
-		
+		listaKomponenti.add(poljeime);
+
 		Ime.add(ime);
 		Ime.add(poljeime);
 		
@@ -108,6 +120,7 @@ public class DialogDodavanjeProfesora extends JDialog{
 		
 		poljeprz = new JTextField();
 		poljeprz.setPreferredSize(dimenzije);
+		listaKomponenti.add(poljeprz);
 		
 		Prezime.add(prezime);
 		Prezime.add(poljeprz);
@@ -122,7 +135,7 @@ public class DialogDodavanjeProfesora extends JDialog{
 		
 		poljedatrodj = new JTextField();
 		poljedatrodj.setPreferredSize(dimenzije);
-		
+		listaKomponenti.add(poljedatrodj);
 		Datumrodjenja.add(datumrodjenja);
 		Datumrodjenja.add(poljedatrodj);
 		
@@ -136,7 +149,7 @@ public class DialogDodavanjeProfesora extends JDialog{
 		
 		poljeadrstan = new JTextField();
 		poljeadrstan.setPreferredSize(dimenzije);
-		
+		listaKomponenti.add(poljeadrstan);
 		Adresa.add(adresastanovanja);
 		Adresa.add(poljeadrstan);
 		
@@ -150,7 +163,7 @@ public class DialogDodavanjeProfesora extends JDialog{
 		
 		poljetel = new JTextField();
 		poljetel.setPreferredSize(dimenzije);
-		
+		listaKomponenti.add(poljetel);
 		Telefon.add(telefon);
 		Telefon.add(poljetel);
 		
@@ -164,7 +177,7 @@ public class DialogDodavanjeProfesora extends JDialog{
 		
 		poljeemail = new JTextField();
 		poljeemail.setPreferredSize(dimenzije);
-		
+		listaKomponenti.add(poljeemail);
 		Email.add(email);
 		Email.add(poljeemail);
 		
@@ -178,7 +191,7 @@ public class DialogDodavanjeProfesora extends JDialog{
 		
 		poljeadrkan = new JTextField();
 		poljeadrkan.setPreferredSize(dimenzije);
-		
+		listaKomponenti.add(poljeadrkan);
 		AdresaKancelarije.add(adresakancelarije);
 		AdresaKancelarije.add(poljeadrkan);
 		
@@ -192,11 +205,16 @@ public class DialogDodavanjeProfesora extends JDialog{
 		
 		poljebrlickarte = new JTextField();
 		poljebrlickarte.setPreferredSize(dimenzije);
-		
+		listaKomponenti.add(poljebrlickarte);
 		BrojLicneKarte.add(brojlicnekarte);
 		BrojLicneKarte.add(poljebrlickarte);
 		
 		panel.add(BrojLicneKarte);
+		
+		for(int i = 0; i <= listaKomponenti.size() - 1; i++)
+		{
+			vrednostPopunjenostiKomponenti.add(i, false);
+		}
 		
 		JPanel Titula = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		
@@ -227,10 +245,26 @@ public class DialogDodavanjeProfesora extends JDialog{
 		
 		panel.add(Box.createVerticalStrut(20));
 		
-		potvrdi = new JButton("Potvrdi");
+		poljeime.getDocument().addDocumentListener(new ProfesorDocumentListener(this, poljeime, regexIme));
 		
-		potvrdi.setEnabled(false);
+		poljeprz.getDocument().addDocumentListener(new ProfesorDocumentListener(this, poljeprz, regexPrzime));
 		
+		poljedatrodj.getDocument().addDocumentListener(new ProfesorDocumentListener(this, poljedatrodj, regexDatumRodjenja));
+		
+		poljeadrstan.getDocument().addDocumentListener(new ProfesorDocumentListener(this, poljeadrstan, regexAdresaStanovanja));
+		
+		poljetel.getDocument().addDocumentListener(new ProfesorDocumentListener(this, poljetel, regexTelefon));
+		
+		poljeemail.getDocument().addDocumentListener(new ProfesorDocumentListener(this, poljeemail, regexEmail));
+		
+		poljeadrkan.getDocument().addDocumentListener(new ProfesorDocumentListener(this, poljeadrkan, regexAdresaKancelarije));
+		
+		poljebrlickarte.getDocument().addDocumentListener(new ProfesorDocumentListener(this, poljebrlickarte, regexBrLicneKarte));
+		
+		potvrdi = new JButton("Potvrdi");	
+		
+		potvrdi.setEnabled(checkifAllValid());
+	
 		odustani = new JButton("Odustani");
 		
 		if (daLiJeIzmena) 
@@ -263,11 +297,8 @@ public class DialogDodavanjeProfesora extends JDialog{
 				poljetel.setText(telefonProfesora);
 				poljeemail.setText(emailProfesora);
 				poljeadrkan.setText(adresaKancelarijeProfesora);
-				poljebrlickarte.setText(""+brojLicneKarteProfesora);
-				poljebrlickarte.setEditable(false);
-				
-				
-				
+				poljebrlickarte.setText(brojLicneKarteProfesora);
+						
 				if(profesor.getTitula() == titule.DIPLOMIRANIINZENJER)
 				{
 					stringTitula  = "DIPLOMIRANI INZENJER";
@@ -329,7 +360,7 @@ public class DialogDodavanjeProfesora extends JDialog{
 						telefonProfesora = poljetel.getText();
 						emailProfesora = poljeemail.getText();
 						adresaKancelarijeProfesora = poljeadrkan.getText();
-						brojLicneKarteProfesora = Long.parseLong(poljebrlickarte.getText());
+						brojLicneKarteProfesora = poljebrlickarte.getText();
 						if(combotitula.getSelectedItem().toString().equals("DIPLOMIRANI INZENJER"))
 						{
 							titulaProfesora = titule.DIPLOMIRANIINZENJER;
@@ -444,7 +475,49 @@ public class DialogDodavanjeProfesora extends JDialog{
 		pack();
 		
 		setSize(500,500);
-		setLocationRelativeTo(parent);
+		setLocationRelativeTo(parent);	
+	}
+
+	@Override
+	public void setValid(JTextField komponenta) {
+		for(int i = 0; i <= listaKomponenti.size() - 1; i++){
+			if(listaKomponenti.get(i) == komponenta) {
+				System.out.println("TO TRUE");
+				vrednostPopunjenostiKomponenti.set(i, true);
+			}
+		}
+	}
+
+	@Override
+	public void setInvalid(JTextField komponenta) {
+		for(int i = 0; i <= listaKomponenti.size() - 1; i++){
+			if(listaKomponenti.get(i) == komponenta) {
+				System.out.println("TO FALSE");
+				vrednostPopunjenostiKomponenti.set(i, false);
+			}
+		}
+	}
+
+	@Override
+	public boolean checkifAllValid() {
+		for(int j = 0; j <= vrednostPopunjenostiKomponenti.size() - 1; j++)
+		{
+			
+				System.out.println("\n " + vrednostPopunjenostiKomponenti.get(j));
+			
+		}
 		
+		for(int i = 0; i <= vrednostPopunjenostiKomponenti.size() - 1; i++)
+		{
+			if(vrednostPopunjenostiKomponenti.get(i) == false)
+			{
+				System.out.println("Check");
+				potvrdi.setEnabled(false);
+				return false;
+			}
+		}	
+		
+		potvrdi.setEnabled(true);
+		return true;
 	}
 }
