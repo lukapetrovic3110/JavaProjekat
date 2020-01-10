@@ -42,10 +42,13 @@ public class PredmetTableModel extends AbstractTableModel {
 
 		switch (column) {
 		case 0:
-		case 1:
-		case 2:
-		case 3:
 			return String.class;
+		case 1:
+			return String.class;
+		case 2:
+			return Integer.class;
+		case 3:
+			return Integer.class;
 		case 4:
 			return JButton.class;
 		case 5:

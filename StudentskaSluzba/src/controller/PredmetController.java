@@ -21,13 +21,13 @@ public class PredmetController {
 	
 	private PredmetController() {}
 	
-	public void dodajPredmet(String sifraPredmeta, String nazivPredmeta, String semestar, String godinaStudija)
+	public void dodajPredmet(String sifraPredmeta, String nazivPredmeta, int semestar, int godinaStudija)
 	{
 		PredmetMethods.dodajPredmet(sifraPredmeta, nazivPredmeta, semestar, godinaStudija);
 		PanelPredmeti.azurirajPrikaz();
 	}
 	
-	public void izmeniPredmet(String sifraPredmeta, String nazivPredmeta, String semestar, String godinaStudija)
+	public void izmeniPredmet(String sifraPredmeta, String nazivPredmeta, int semestar, int godinaStudija)
 	{
 		PredmetMethods.izmeniPredmet(sifraPredmeta, nazivPredmeta, semestar, godinaStudija);
 		PanelPredmeti.azurirajPrikaz();

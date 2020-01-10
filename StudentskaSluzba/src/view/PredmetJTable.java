@@ -6,19 +6,25 @@ import java.awt.Component;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableRowSorter;
 
 public class PredmetJTable extends JTable{
 
 	
 	private static final long serialVersionUID = -636753750955096487L;
+	private TableRowSorter<PredmetTableModel> sorterPredmet;
 	
 	public PredmetJTable()
 	{
-		this.setAutoCreateRowSorter(true);
+		PredmetTableModel model = new PredmetTableModel();
+		this.setModel(model);
+		sorterPredmet = new TableRowSorter<PredmetTableModel>(model);
+		sorterPredmet.setSortable(4, false);
+		sorterPredmet.setSortable(5, false);
+		this.setRowSorter(sorterPredmet);
 		this.setRowSelectionAllowed(true);
-		this.setColumnSelectionAllowed(false);
+		this.setColumnSelectionAllowed(true);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		this.setModel(new PredmetTableModel());
 		new PrikaziButtonColumn(this, 4);
 		new PrikaziButtonColumn(this, 5);
 	}

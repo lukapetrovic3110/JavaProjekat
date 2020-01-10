@@ -1,18 +1,15 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
-import javax.swing.AbstractButton;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -23,11 +20,8 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import controller.PredmetController;
 import controller.StudentController;
-import model.BazaPredmeta;
 import model.BazaStudenata;
-import model.Predmet;
 import model.Student;
 import model.Student.status;
 
@@ -240,7 +234,10 @@ public class DodavanjeStudenta extends JDialog {
 			
 			if (rowSelectedIndex >= 0)
 			{
+				rowSelectedIndex = PanelStudenti.tableStudenti.convertRowIndexToModel(rowSelectedIndex);
+				
 				s = BazaStudenata.getInstance().getRow(rowSelectedIndex);
+				
 				imes=s.getIme();
 				prezimes=s.getPrezime();
 				datumrs=s.getDatumr();

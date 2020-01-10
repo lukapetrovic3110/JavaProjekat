@@ -13,10 +13,10 @@ public class Profesor {
 	private String prezime;
 	private String datum_rodjenja;
 	private String adresa_stanovanja;
-	private String kontakt_telefona; // zbor unosa ***/***-**-** npr. 064/344-33-45
+	private String kontakt_telefona;
 	private String e_mail;
 	private String adresa_kancelarije;
-	private long br_licne;
+	private String br_licne;
 	private titule titula;
 	private zvanja zvanje;
 	private ArrayList<Predmet> spisak_predmeta;
@@ -25,7 +25,7 @@ public class Profesor {
 	
 	public Profesor(String ime, String prezime, String datum_rodjenja,
 		       String adresa_stanovanja, String kontakt_telefon, String e_mail,
-		       String adresa_kancelarije, long br_licne, titule titula, zvanja zvanje 
+		       String adresa_kancelarije, String br_licne, titule titula, zvanja zvanje 
 		   	 ) 
 	{
 		super();
@@ -43,7 +43,7 @@ public class Profesor {
 	
 	public Profesor(String ime, String prezime, String datum_rodjenja,
 			       String adresa_stanovanja, String kontakt_telefon, String e_mail,
-			       String adresa_kancelarije, long br_licne, titule titula, zvanja zvanje, 
+			       String adresa_kancelarije, String br_licne, titule titula, zvanja zvanje, 
 			       ArrayList<Predmet> spisak_predmeta
 			   	 ) 
 	{
@@ -97,10 +97,10 @@ public class Profesor {
 	public void setAdresakancelarije(String adresa_kancelarije) {
 		this.adresa_kancelarije = adresa_kancelarije;
 	}
-	public long getBrlicne() {
+	public String getBrlicne() {
 		return br_licne;
 	}
-	public void setBrlicne(long br_licne) {
+	public void setBrlicne(String br_licne) {
 		this.br_licne = br_licne;
 	}
 	public titule getTitula() {

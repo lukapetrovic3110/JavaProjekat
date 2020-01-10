@@ -7,17 +7,17 @@ public class ProfesorMethods {
 	private static ArrayList<Profesor> profesori = BazaProfesora.getInstance().getProfesori();
 	
 	public static void dodajProfesora(String imeProfesora, String prezimeProfesora, String datumRodjenjaProfesora, String adresaStanovanjaProfesora, 
-			String telefonProfesora, String emailProfesora, String adresaKancelarijeProfesora, long brojLicneKarteProfesora, Profesor.titule titulaProfesora, Profesor.zvanja zvanjeProfesora)	
+			String telefonProfesora, String emailProfesora, String adresaKancelarijeProfesora, String brojLicneKarteProfesora, Profesor.titule titulaProfesora, Profesor.zvanja zvanjeProfesora)	
 	{
 		
 		profesori.add(new Profesor(imeProfesora, prezimeProfesora, datumRodjenjaProfesora, adresaStanovanjaProfesora, telefonProfesora, emailProfesora, adresaKancelarijeProfesora, brojLicneKarteProfesora, titulaProfesora, zvanjeProfesora));
 	}
 	
-	public static void izbrisiProfesora(long brojLicneProfesora)
+	public static void izbrisiProfesora(String brojLicneProfesora)
 	{
 		for(Profesor profesor : profesori)
 		{
-			if(profesor.getBrlicne() == brojLicneProfesora)
+			if(profesor.getBrlicne().equals(brojLicneProfesora))
 			{
 				profesori.remove(profesor);
 				break;
@@ -25,12 +25,12 @@ public class ProfesorMethods {
 		}
 	}
 	
-	public static void izmeniProfesora(long brojLicneKarteProfesora, String imeProfesora, String prezimeProfesora, String datumRodjenjaProfesora, String adresaStanovanjaProfesora, 
+	public static void izmeniProfesora(String brojLicneKarteProfesora, String imeProfesora, String prezimeProfesora, String datumRodjenjaProfesora, String adresaStanovanjaProfesora, 
 			String telefonProfesora, String emailProfesora, String adresaKancelarijeProfesora, Profesor.titule titulaProfesora, Profesor.zvanja zvanjeProfesora)
 	{
 		for(Profesor profesor : profesori)
 		{
-			if(profesor.getBrlicne() == brojLicneKarteProfesora)
+			if(profesor.getBrlicne().equals(brojLicneKarteProfesora))
 			{
 				profesor.setIme(imeProfesora);
 				profesor.setPrezime(prezimeProfesora);
