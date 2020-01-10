@@ -20,23 +20,23 @@ public class ProfesorDocumentListener implements DocumentListener {
 
 	@Override
 	public void changedUpdate(DocumentEvent arg0) {
-		proveriDaLiJeDobaroPopunjeno();
+		proveriDaLiJeDobroPopunjeno();
 		dialogProfesori.checkifAllValid();
 	}
 
 	@Override
 	public void insertUpdate(DocumentEvent arg0) {
-		proveriDaLiJeDobaroPopunjeno();
+		proveriDaLiJeDobroPopunjeno();
 		dialogProfesori.checkifAllValid();
 	}
 
 	@Override
 	public void removeUpdate(DocumentEvent arg0) {
-		proveriDaLiJeDobaroPopunjeno();
+		proveriDaLiJeDobroPopunjeno();
 		dialogProfesori.checkifAllValid();
 	}
 
-	private void proveriDaLiJeDobaroPopunjeno() {
+	private void proveriDaLiJeDobroPopunjeno() {
 		if (!(this.komponenta.getText().matches(regex))) {
 			this.komponenta.setToolTipText("Morate ispravno popuniti polje!");
 			dialogProfesori.setInvalid(this.komponenta);
