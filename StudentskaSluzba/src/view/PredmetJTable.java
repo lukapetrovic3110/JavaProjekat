@@ -12,16 +12,16 @@ public class PredmetJTable extends JTable{
 
 	
 	private static final long serialVersionUID = -636753750955096487L;
-	private TableRowSorter<PredmetTableModel> sorter;
+	private TableRowSorter<PredmetTableModel> sorterPredmet;
 	
 	public PredmetJTable()
 	{
 		PredmetTableModel model = new PredmetTableModel();
 		this.setModel(model);
-		sorter = new TableRowSorter<PredmetTableModel>(model);
-		sorter.setSortable(4, false);
-		sorter.setSortable(5, false);
-		this.setRowSorter(sorter);
+		sorterPredmet = new TableRowSorter<PredmetTableModel>(model);
+		sorterPredmet.setSortable(4, false);
+		sorterPredmet.setSortable(5, false);
+		this.setRowSorter(sorterPredmet);
 		this.setRowSelectionAllowed(true);
 		this.setColumnSelectionAllowed(true);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
