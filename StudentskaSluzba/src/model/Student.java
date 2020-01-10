@@ -14,7 +14,7 @@ public class Student {
 	private String email;
 	private String brindeksa;
 	private String datumu;
-	private String godinastud;
+	private int godinastud;
 	private double prosek;
 	private status s;
 	private ArrayList<Predmet> lista=new ArrayList<Predmet>();
@@ -23,7 +23,7 @@ public class Student {
 	
 	public Student(String ime, String prezime, String datumr, 
 			String adresa, String tel, String email, String brindeksa,
-			String datumu, String godinastud, double prosek,status s
+			String datumu, int godinastud, double prosek,status s
 			//,ArrayList <String> lista
 			){
 		super();
@@ -43,7 +43,7 @@ public class Student {
 	}
 	public Student(String ime, String prezime, String datumr, 
 			String adresa, String tel, String email, String brindeksa,
-			String datumu, String godinastud, double prosek,status s
+			String datumu, int godinastud, double prosek,status s
 			,ArrayList <Predmet> lista
 			){
 		super();
@@ -126,11 +126,11 @@ public class Student {
 		this.datumu = datumu;
 	}
 
-	public String getGodinastud() {
+	public int getGodinastud() {
 		return godinastud;
 	}
 
-	public void setGodinastud(String godinastud) {
+	public void setGodinastud(int godinastud) {
 		this.godinastud = godinastud;
 	}
 
@@ -158,14 +158,6 @@ public class Student {
 		this.lista = lista;
 	}
 
-	/*public ArrayList<String> getLista() {
-		return lista;
-	}
-
-	public void setLista(ArrayList<String> lista) {
-		this.lista = lista;
-	}*/
-	
 	
 
 }

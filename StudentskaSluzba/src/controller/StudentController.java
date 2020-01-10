@@ -30,14 +30,14 @@ public class StudentController {
 
 	
 	public void dodajStudenta(String ime,String prezime,String datumr,String adresa,String tel,String 
-			email,String brindeksa,String datumu,String godinastud,double prosek,status st)
+			email,String brindeksa,String datumu,int godinastud,double prosek,status st)
 	{
 		StudentMethods.dodajStudenta(ime,prezime,datumr,adresa,tel,email,brindeksa,datumu,godinastud,prosek,st);
 		PanelStudenti.azurirajPrikaz();
 	}
 	
 	public void izmeniStudenta(String ime,String prezime,String datumr,String adresa,String tel,String 
-			email,String brindeksa,String datumu,String godinastud,double prosek,status st)
+			email,String brindeksa,String datumu,int godinastud,double prosek,status st)
 	{
 		StudentMethods.izmeniStudenta(ime,prezime,datumr,adresa,tel,email,brindeksa,datumu,godinastud,prosek,st);
 		PanelStudenti.azurirajPrikaz();
@@ -52,6 +52,7 @@ public class StudentController {
 	
 	public String[] izlistajPredmeteZaStudente(int rowSelectedIndex)
 	{
+		rowSelectedIndex = PanelStudenti.tableStudenti.convertRowIndexToModel(rowSelectedIndex);
 		Student student = BazaStudenata.getInstance().getRow(rowSelectedIndex);
 		String[] podaci = StudentMethods.izlistajPredmeteZaStudente(student.getBrindeksa());
 		PanelStudenti.azurirajPrikaz();
