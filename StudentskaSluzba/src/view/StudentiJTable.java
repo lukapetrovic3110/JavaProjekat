@@ -22,8 +22,15 @@ public class StudentiJTable extends JTable {
 		sorter.setSortable(3, false);
 		sorter.setSortable(4, false);
 		sorter.setSortable(5, false);
-		sorter.setSortable(7, false);
+		sorter.setSortable(10, false); //
 		sorter.setSortable(11, false);  
+		
+		
+		this.setRowSorter(sorter);
+		
+		this.setRowSelectionAllowed(true);
+		this.setColumnSelectionAllowed(true);
+		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		new  PrikaziButtonColumn(this, 11);
 		
@@ -63,24 +70,27 @@ public class StudentiJTable extends JTable {
 
 			@Override
 			public int compare(String o1, String o2) {
-				String[] niz1=o1.split("-");
-				String[] niz2=o2.split("-");
+				String[] niz1=o1.split(" ");
+				String[] niz2=o2.split(" ");
 				
+				String[] niz11=niz1[1].split("/");
+				String[] niz22=niz2[1].split("/");
 				if(niz1[0].equals(niz2[0])) {
 					
-					if(niz1[2].equals(niz2[2])){
-						if(niz1[1].equals(niz2[1])){
+					if(niz11[1].equals(niz22[1])){
+						if(niz11[0].equals(niz22[0])){
 							return 0;
-						}else if(Integer.parseInt(niz1[1]) < (Integer.parseInt(niz2[1]))){
+						}else if(Integer.parseInt(niz11[0]) < (Integer.parseInt(niz22[0]))){
 							return -1;
 						}else{
 							return 1;
 						}
-					}else if(Integer.parseInt(niz1[2]) < (Integer.parseInt(niz2[2]))){
+					}else if(Integer.parseInt(niz11[1]) < (Integer.parseInt(niz22[1]))){
 						return -1;
 					}else{
 						return 1;
 					}
+					
 				}else{
 					return o1.compareTo(o2);
 				}
@@ -88,19 +98,38 @@ public class StudentiJTable extends JTable {
 
 			
 		});
-		
+		sorter.setComparator(7, new Comparator<String>() {
 
-		
-		
-		
-		
-		this.setRowSorter(sorter);
-		
-		this.setRowSelectionAllowed(true);
-		this.setColumnSelectionAllowed(true);
-		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		//this.setModel(new StudentTableModel()); 
-		
+			@Override
+			public int compare(String o1, String o2) {
+				String[] god1=o1.split("\\.");
+				String[] god2=o2.split("\\.");
+				
+				if(god1[2].equals(god2[2])) {
+					
+					if(god1[1].equals(god2[1])){
+						if(god1[0].equals(god2[0])){
+							return 0;
+						}else if(Integer.parseInt(god1[0]) < (Integer.parseInt(god2[0]))){
+							return -1;
+						}else{
+							return 1;
+						}
+					}else if(Integer.parseInt(god1[1]) < (Integer.parseInt(god2[1]))){
+						return -1;
+					}else{
+						return 1;
+					}
+				}else if(Integer.parseInt(god1[2]) < (Integer.parseInt(god2[2]))){
+					return -1;
+				}else{
+					return 1;
+				}
+			}
+
+			
+		});
+
 		
 	}
 	

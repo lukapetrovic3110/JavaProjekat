@@ -19,8 +19,8 @@ import controller.StudentController;
 public class PrikaziDugmeStudenta extends JDialog {
 
 	JList<String> lista;
-	JButton btn1=new JButton("Odustanak");
-	JButton btn2=new JButton("Potvrda");
+//	JButton btn1=new JButton("Odustanak");
+//	JButton btn2=new JButton("Potvrda");
 	
 	public PrikaziDugmeStudenta(JFrame parentFrame, boolean modal, boolean daLiJeIzmena) {
 		super(parentFrame, "Dodavanje studenta", modal);

@@ -6,6 +6,7 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -16,18 +17,26 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import controller.StudentController;
+import model.BazaProfesora;
 import model.BazaStudenata;
+import model.Profesor;
 import model.Student;
 import model.Student.status;
+import view.documentlisteners.ProfesorDocumentListener;
+import view.documentlisteners.StudentDocumentListener;
 
-public class DodavanjeStudenta extends JDialog {
+public class DodavanjeStudenta extends JDialog implements KomponenteInterface{
 	private static final long serialVersionUID = 3591599721565020284L;
 
+	private ArrayList<JTextField> listaKomponenti;
+	public ArrayList<Boolean> vrednostPopunjenostiKomponenti;
+	
 	private JLabel ime;
 	private JLabel prezime;
 	private JLabel datumr;
@@ -52,14 +61,29 @@ public class DodavanjeStudenta extends JDialog {
 	private String adresas;
 	private String tels;
 	private String emails;
+	
 	private String brindeksas;
 	private String datumus;
 	private double prosek;
-    private String godina;
+    private int godina;
     private status st;
 	
 	private int rowSelectedIndex;
 	private Student s;
+	
+	public static JButton btn1;
+	public static JButton btn2;
+	
+	private String regexIme = "[A-Z][a-z]{2,15}";
+	private String regexPrezime = "[A-Z][a-z]{2,19}";
+	private String regexDatumRodjenja = "([0-9]{2}).([0-9]{2}).([0-9]{4}).";
+	private String regexAdresaStanovanja = "[A-Z][A-Z a-z]{2,35}[0-9]{1,4},[A-Z a-z]{1,30}";
+	private String regexTelefon = "[0-9]{3,4}/[0-9]{3,4}-[0-9]{3,4}";
+	private String regexEmail = "[a-z]{1,20}.?([a-z]{1,20})?@[a-z]{1,15}.com";
+	private String regexBrIndeksa="[A-Z]{1,3} [0-9]{1,4}/[0-9]{4}";
+	private String regexDatumUpisa = "([0-9]{2}).([0-9]{2}).([0-9]{4}).";
+	private String regexProsek = "[0-9]{1,2}.?[0-9]{0,4}";
+	
 	
 	public DodavanjeStudenta(JFrame parentFrame, boolean modal, boolean daLiJeIzmena) {
 
@@ -73,7 +97,8 @@ public class DodavanjeStudenta extends JDialog {
 
 		Dimension dim = new Dimension(160, 25);
 		
-		
+		listaKomponenti = new ArrayList<JTextField>();
+		vrednostPopunjenostiKomponenti = new ArrayList<Boolean>();
 		
 		JPanel Ime = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		ime = new JLabel();
@@ -81,6 +106,7 @@ public class DodavanjeStudenta extends JDialog {
 		ime.setPreferredSize(dim);
 		im = new JTextField();
 		im.setPreferredSize(dim);
+		listaKomponenti.add(im);
 		Ime.add(ime);
 		Ime.add(im);
 		
@@ -93,6 +119,7 @@ public class DodavanjeStudenta extends JDialog {
 		prezime.setPreferredSize(dim);
 		prz = new JTextField();
 		prz.setPreferredSize(dim);
+		listaKomponenti.add(prz);
 		Prezime.add(prezime);
 		Prezime.add(prz);
 
@@ -106,6 +133,7 @@ public class DodavanjeStudenta extends JDialog {
 		datumr.setPreferredSize(dim);
 		datr = new JTextField();
 		datr.setPreferredSize(dim);
+		listaKomponenti.add(datr);
 		Datum.add(datumr);
 		Datum.add(datr);
 
@@ -117,6 +145,7 @@ public class DodavanjeStudenta extends JDialog {
 		adresa.setPreferredSize(dim);
 		adr = new JTextField();
 		adr.setPreferredSize(dim);
+		listaKomponenti.add(adr);
 		Adresa.add(adresa);
 		Adresa.add(adr);
 
@@ -128,6 +157,7 @@ public class DodavanjeStudenta extends JDialog {
 		tel.setPreferredSize(dim);
 		t = new JTextField();
 		t.setPreferredSize(dim);
+		listaKomponenti.add(t);
 		Tel.add(tel);
 		Tel.add(t);
 
@@ -139,6 +169,7 @@ public class DodavanjeStudenta extends JDialog {
 		brindeksa.setPreferredSize(dim);
 		bri = new JTextField();
 		bri.setPreferredSize(dim);
+		listaKomponenti.add(bri);
 		Br.add(brindeksa);
 		Br.add(bri);
 
@@ -150,6 +181,7 @@ public class DodavanjeStudenta extends JDialog {
 		email.setPreferredSize(dim);
 		em = new JTextField();
 		em.setPreferredSize(dim);
+		listaKomponenti.add(em);
 		Email.add(email);
 		Email.add(em);
 
@@ -161,6 +193,7 @@ public class DodavanjeStudenta extends JDialog {
 		prosekocena.setPreferredSize(dim);
 		p = new JTextField();
 		p.setPreferredSize(dim);
+		listaKomponenti.add(p);
 		Prosek.add(prosekocena);
 		Prosek.add(p);
 
@@ -172,10 +205,15 @@ public class DodavanjeStudenta extends JDialog {
 		datumupisa.setPreferredSize(dim);
 		datu = new JTextField();
 		datu.setPreferredSize(dim);
+		listaKomponenti.add(datu);
 		Datumu.add(datumupisa);
 		Datumu.add(datu);
 
 		panCenter.add(Datumu);	
+		
+		for (int i = 0; i <= listaKomponenti.size() - 1; i++) {
+			vrednostPopunjenostiKomponenti.add(i, false);
+		}
 		
 		JPanel God = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		godinastud = new JLabel();
@@ -183,8 +221,7 @@ public class DodavanjeStudenta extends JDialog {
 		godinastud.setPreferredSize(dim);
 	
 		god2=new JComboBox<String>();
-		god2.setModel(new DefaultComboBoxModel<String>(new String[] {"I (PRVA)",
-				"II (DRUGA)", "III (TRECA)", "IV (CETVRTA)" }));
+		god2.setModel(new DefaultComboBoxModel(new Integer[] {1,2,3,4}));
 		
 		God.add(godinastud);
 		God.add(god2);
@@ -226,6 +263,28 @@ public class DodavanjeStudenta extends JDialog {
 		JPanel panBottom = new JPanel();
 		BoxLayout box = new BoxLayout(panBottom, BoxLayout.X_AXIS);
 		panBottom.setLayout(box);
+		
+		im.getDocument().addDocumentListener(new StudentDocumentListener(this, im, regexIme));
+
+		prz.getDocument().addDocumentListener(new StudentDocumentListener(this, prz, regexPrezime));
+
+		datr.getDocument().addDocumentListener(new StudentDocumentListener(this, datr, regexDatumRodjenja));
+
+		adr.getDocument().addDocumentListener(new StudentDocumentListener(this, adr, regexAdresaStanovanja));
+
+		t.getDocument().addDocumentListener(new StudentDocumentListener(this, t, regexTelefon));
+
+		em.getDocument().addDocumentListener(new StudentDocumentListener(this, em, regexEmail));
+
+		bri.getDocument().addDocumentListener(new StudentDocumentListener(this, bri, regexBrIndeksa));
+
+		p.getDocument().addDocumentListener(new StudentDocumentListener(this, p, regexProsek));
+		
+		datu.getDocument().addDocumentListener(new StudentDocumentListener(this, datu, regexDatumUpisa));
+
+		btn1 = new JButton("Potvrdi");
+		 btn1.setEnabled(checkifAllValid());
+		btn1.setPreferredSize(new Dimension(100, 35));
 
 		if (daLiJeIzmena) 
 		{
@@ -277,8 +336,8 @@ public class DodavanjeStudenta extends JDialog {
 		
 		
 		
-		JButton btn1 = new JButton("Potvrdi");
-		btn1.setPreferredSize(new Dimension(100, 35));
+		 
+		
 		btn1.addActionListener(new ActionListener() {
 			
 			@Override
@@ -286,30 +345,31 @@ public class DodavanjeStudenta extends JDialog {
 				
 				if(!daLiJeIzmena) 
 				{
-					if((!im.getText().equals("")) && (!prz.getText().equals("")) && (!datr.getText().equals("")) && (!adr.getText().equals("")) && (!t.getText().equals("")) && (!bri.getText().equals("")) && (!datu.getText().equals("")) && (!em.getText().equals("")) && (!p.getText().equals("")))
-					{
-						imes = im.getText();
-						prezimes = prz.getText();
-						datumrs = datr.getText();
-						adresas = adr.getText();
-						emails = em.getText();
-						tels = t.getText();
-						prosek = Double.parseDouble(p.getText());
-						datumus = datu.getText();
-						brindeksas = bri.getText();
-						godina = god2.getSelectedItem().toString();
-						
-						if(samo.isSelected()) 
+					if(!postoji(bri.getText())) {
+						if((!im.getText().equals("")) && (!prz.getText().equals("")) && (!datr.getText().equals("")) && (!adr.getText().equals("")) && (!t.getText().equals("")) && (!bri.getText().equals("")) && (!datu.getText().equals("")) && (!em.getText().equals("")) && (!p.getText().equals("")))
 						{
-							st = status.S;
-						}else
-						{
-							st = status.B;
-						}
-						
-					    StudentController.getInstance().dodajStudenta(imes, prezimes, datumrs, adresas, tels, emails, brindeksas, datumus, godina, prosek, st);
+							imes = im.getText();
+							prezimes = prz.getText();
+							datumrs = datr.getText();
+							adresas = adr.getText();
+							emails = em.getText();
+							tels = t.getText();
+							prosek = Double.parseDouble(p.getText());
+							datumus = datu.getText();
+							brindeksas = bri.getText();
+							godina = (int )god2.getSelectedItem();
+							if(samo.isSelected()) 
+							{
+								st = status.S;
+							}else
+							{
+								st = status.B;
+							}
 							
-						setVisible(false);
+						    StudentController.getInstance().dodajStudenta(imes, prezimes, datumrs, adresas, tels, emails, brindeksas, datumus, godina, prosek, st);
+								
+							setVisible(false);
+						}
 					}
 				}
 				else 
@@ -323,7 +383,7 @@ public class DodavanjeStudenta extends JDialog {
 					prosek = Double.parseDouble(p.getText());
 					datumus = datu.getText();
 					brindeksas = bri.getText();
-					godina = god2.getSelectedItem().toString();
+					godina = (int )god2.getSelectedItem();
 					if(samo.isSelected()) 
 					{
 						st = status.S;
@@ -341,7 +401,7 @@ public class DodavanjeStudenta extends JDialog {
 		
 		
 
-		JButton btn2 = new JButton("Odustani");
+		 btn2 = new JButton("Odustani");
 		btn2.setPreferredSize(new Dimension(100, 35));
 		btn2.addActionListener(new ActionListener() {
 			
@@ -365,6 +425,56 @@ public class DodavanjeStudenta extends JDialog {
 
 	}
 
+	@Override
+	public void setValid(JTextField komponenta) {
+		for (int i = 0; i <= listaKomponenti.size() - 1; i++) {
+			if (listaKomponenti.get(i) == komponenta) {
+
+				vrednostPopunjenostiKomponenti.set(i, true); 
+			}
+		}
+		
+	}
+
+	@Override
+	public void setInvalid(JTextField komponenta) {
+		for (int i = 0; i <= listaKomponenti.size() - 1; i++) {
+			if (listaKomponenti.get(i) == komponenta) {
+
+				vrednostPopunjenostiKomponenti.set(i, false);
+			}
+		}
+		
+	}
+
+	@Override
+	public boolean checkifAllValid() {
+		for (int i = 0; i <= vrednostPopunjenostiKomponenti.size() - 1; i++) {
+			if (vrednostPopunjenostiKomponenti.get(i) == false) {
+
+				btn1.setEnabled(false); 
+				return false;
+			}
+		}
+
+		btn1.setEnabled(true);
+		return true;
+	}
+	
+	public boolean postoji(String brIndeksa)
+	{
+		for(Student s : BazaStudenata.getInstance().getStudenti())
+		{
+			if(s.getBrindeksa().equals(brIndeksa))
+			{
+				JOptionPane.showMessageDialog(null, "Uneli ste indeks studenta koji vec postoji u bazi podataka!", "Greska", JOptionPane.ERROR_MESSAGE);
+				bri.setText("");
+				return true;
+			}
+		}
+		
+		return false;
+	}
 
 	/*
 	 * Dimension dim = new Dimension(150, 20);

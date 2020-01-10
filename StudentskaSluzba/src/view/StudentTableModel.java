@@ -46,7 +46,9 @@ public class StudentTableModel extends AbstractTableModel{
 		case 6:
 		case 7:
 		case 8:
+			return Integer.class;
 		case 9:
+			return Long.class;
 		case 10:
 			return String.class;
 		case 11:
