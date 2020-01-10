@@ -6,7 +6,7 @@ public class PredmetMethods {
 	
 	private static ArrayList<Predmet> predmeti = BazaPredmeta.getInstance().getPredmeti();
 	
-	public static void dodajPredmet(String sifraPredmeta, String nazivPredmeta, String semestar, String godinaStudija)
+	public static void dodajPredmet(String sifraPredmeta, String nazivPredmeta, int semestar, int godinaStudija)
 	{
 	
 		predmeti.add(new Predmet(sifraPredmeta, nazivPredmeta, semestar, godinaStudija));
@@ -24,7 +24,7 @@ public class PredmetMethods {
 		}
 	}
 	
-	public static void izmeniPredmet(String sifraPredmeta, String nazivPredmeta, String semestar, String godinaStudija)
+	public static void izmeniPredmet(String sifraPredmeta, String nazivPredmeta, int semestar, int godinaStudija)
 	{
 		for(Predmet p : predmeti)
 		{

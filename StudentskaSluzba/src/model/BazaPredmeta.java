@@ -29,10 +29,11 @@ public class BazaPredmeta {
 
 	private void initPred() {
 		this.predmeti = new ArrayList<Predmet>();
-		predmeti.add(new Predmet("PJISP-RA", "Programski jezici i strukture podataka", "prvi", "I (PRAVA)"));
-		predmeti.add(new Predmet("MIS-RA", "Modeliranje i simulacija sistema", "treci", "II (DRUGA)"));
-		predmeti.add(new Predmet("MO-RA", "Metode optimizacije", "peti", "III (TRECA)"));
-		
+		predmeti.add(new Predmet("OP301", "Osnove programiranja", 1, 1));
+		predmeti.add(new Predmet("DM881", "Diskretna matematika", 3, 2));
+		predmeti.add(new Predmet("PP007", "Paralelno programiranje", 5, 3));
+		predmeti.add(new Predmet("RVP33", "Racunarstvo visokih performanasi", 7, 4));
+		predmeti.add(new Predmet("JSD91", "Jezici specificni za domen", 8, 4));
 	}
 
 	public ArrayList<Predmet> getPredmeti() {
@@ -65,9 +66,9 @@ public class BazaPredmeta {
 		case 1:
 			return predmet.getNazivpredmeta();
 		case 2:
-			return predmet.getSemestar();
+			return "" + predmet.getSemestar();
 		case 3:
-			return predmet.getGodinastudija();
+			return "" + predmet.getGodinastudija();
 		default:
 			return null;
 		}

@@ -7,15 +7,15 @@ import java.util.ArrayList;
 public class Predmet {
 	private String sifra_predmeta;
 	private String naziv_predmeta;
-	private String semestar;
-	private String godina_studija;
+	private int semestar;
+	private int godina_studija;
 	private Profesor predmetniProfesor;
 	private ArrayList<Student> slusajuStudenti;
 	
 	public Predmet() {}
 	
-	public Predmet(String sifra_predmeta, String naziv_predmeta, String semestar,
-			   String godina_studija) {
+	public Predmet(String sifra_predmeta, String naziv_predmeta, int semestar,
+			   int godina_studija) {
 
 		super();
 		this.sifra_predmeta = sifra_predmeta;
@@ -24,8 +24,8 @@ public class Predmet {
 		this.godina_studija = godina_studija;
 	}
 	
-	public Predmet(String sifra_predmeta, String naziv_predmeta, String semestar,
-				   String godina_studija, Profesor predmetniProfesor, ArrayList<Student> slusajuStudenti) {
+	public Predmet(String sifra_predmeta, String naziv_predmeta, int semestar,
+				   int godina_studija, Profesor predmetniProfesor, ArrayList<Student> slusajuStudenti) {
 	
 		super();
 		this.sifra_predmeta = sifra_predmeta;
@@ -48,17 +48,17 @@ public class Predmet {
 	public void setNazivpredmeta(String naziv_predmeta) {
 		this.naziv_predmeta = naziv_predmeta;
 	}
-	public String getSemestar() {
+	public int getSemestar() {
 		return semestar;
 	}
-	public void setSemestar(String semestar) {
+	public void setSemestar(int semestar) {
 		this.semestar = semestar;
 	}
-	public String getGodinastudija() {
+	public int getGodinastudija() {
 		return godina_studija;
 	}
 
-	public void setGodinastudija(String godina_studija) {
+	public void setGodinastudija(int godina_studija) {
 		this.godina_studija = godina_studija;
 	}
 
