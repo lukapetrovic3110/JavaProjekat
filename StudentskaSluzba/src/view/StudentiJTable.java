@@ -23,7 +23,9 @@ public class StudentiJTable extends JTable {
 		sorter.setSortable(4, false);
 		sorter.setSortable(5, false);
 		sorter.setSortable(7, false);
-		//sorter.setSortable(12, false);  TREBA!
+		sorter.setSortable(11, false);  
+		
+		new  PrikaziButtonColumn(this, 11);
 		
 		sorter.setComparator(2, new Comparator<String>() {
 

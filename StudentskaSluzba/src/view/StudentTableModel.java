@@ -1,5 +1,6 @@
 package view;
 
+import javax.swing.JButton;
 import javax.swing.table.AbstractTableModel;
 
 import model.BazaStudenata;
@@ -9,12 +10,12 @@ import model.Student;
 
 public class StudentTableModel extends AbstractTableModel{
 	private static final long serialVersionUID = 3591599721222020284L;
-	private final String[] kolone= {"Ime","Prezime","Datum rodjenja","Adresa stanovanja","Telefon","E-mail","Broj indeksa","Datum upisa","Godina studija","Prosek","Status"};
+	private final String[] kolone= {"Ime","Prezime","Datum rodjenja","Adresa stanovanja","Telefon","E-mail","Broj indeksa","Datum upisa","Godina studija","Prosek","Status","Spisak predmeta"};
 	
 	@Override
 	public int getColumnCount() {
 		
-		return this.kolone.length;
+		return BazaStudenata.getInstance().getColumnCount();
 	}
 	@Override
 	public int getRowCount() {
@@ -34,9 +35,26 @@ public class StudentTableModel extends AbstractTableModel{
 		return kolone[column];
 	}
 	@Override
-	public Class<?> getColumnClass(int c) {
-		
-		return getValueAt(0,c).getClass();
+	public Class<?> getColumnClass(int column) {
+		switch (column) {
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+		case 8:
+		case 9:
+		case 10:
+			return String.class;
+		case 11:
+			return JButton.class;
+		default:
+			return null;
+		}
+		//return getValueAt(0,c).getClass();
 	}
 	
 	
@@ -74,8 +92,9 @@ public class StudentTableModel extends AbstractTableModel{
 			return s.getProsek();
 		case 10:
 			return s.getS();
-		//case 11:
-			//return s.getLista();
+		case 11:
+			JButton btnPrikaziSpisakPredmeta = new JButton("" + rowIndex);
+			return btnPrikaziSpisakPredmeta;
 		default:
 			return "";
 		}

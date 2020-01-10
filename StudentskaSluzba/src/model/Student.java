@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Student {
 	
 	public enum status {B,S};
@@ -15,8 +17,7 @@ public class Student {
 	private String godinastud;
 	private double prosek;
 	private status s;
-	
-	//private ArrayList<String> lista=new ArrayList<String>();
+	private ArrayList<Predmet> lista=new ArrayList<Predmet>();
 	
 	public Student() {}
 	
@@ -39,6 +40,26 @@ public class Student {
 		
 		this.s=s;
 	//	this.lista=lista;
+	}
+	public Student(String ime, String prezime, String datumr, 
+			String adresa, String tel, String email, String brindeksa,
+			String datumu, String godinastud, double prosek,status s
+			,ArrayList <Predmet> lista
+			){
+		super();
+		this.ime = ime;
+		this.prezime = prezime;
+		this.datumr=datumr;
+		this.adresa=adresa;
+		this.tel=tel;
+		this.email=email;
+		this.brindeksa=brindeksa;
+		this.datumu=datumu;
+		this.godinastud=godinastud;
+		this.prosek=prosek;
+		
+		this.s=s;
+		this.lista=lista;
 	}
 
 	public String getIme() {
@@ -127,6 +148,14 @@ public class Student {
 
 	public void setS(status s) {
 		this.s = s;
+	}
+
+	public ArrayList<Predmet> getLista() {
+		return lista;
+	}
+
+	public void setLista(ArrayList<Predmet> lista) {
+		this.lista = lista;
 	}
 
 	/*public ArrayList<String> getLista() {

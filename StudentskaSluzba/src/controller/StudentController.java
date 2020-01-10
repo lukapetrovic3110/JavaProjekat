@@ -11,6 +11,7 @@ import model.StudentMethods;
 import model.Student.status;
 import view.PanelPredmeti;
 import view.PanelStudenti;
+import view.StudentiJTable;
 
 public class StudentController {
 	private static StudentController instance = null;
@@ -50,11 +51,17 @@ public class StudentController {
 	
 	public void izbrisiStudenta(int rowSelectedIndex)
 	{
-		
-		
 		Student student = BazaStudenata.getInstance().getRow(rowSelectedIndex);
 		StudentMethods.izbrisiStudenta(student.getBrindeksa());
 		PanelStudenti.azurirajPrikaz();
+	}
+	
+	public String[] izlistajPredmeteZaStudente(int rowSelectedIndex)
+	{
+		Student student = BazaStudenata.getInstance().getRow(rowSelectedIndex);
+		String[] podaci = StudentMethods.izlistajPredmeteZaStudente(student.getBrindeksa());
+		PanelStudenti.azurirajPrikaz();
+		return podaci;
 	}
 	
 	

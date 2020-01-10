@@ -41,9 +41,25 @@ public class StudentMethods {
 				s.setS(st);
 				s.setTel(tel);
 			}
+		}	
+	}
+	
+	public static String[] izlistajPredmeteZaStudente(String indeks) {
+		String[] podaci;
+		ArrayList<Predmet> predmeti = new ArrayList<Predmet>();
+		for (Student s : studenti) {
+			if (s.getBrindeksa().equals(indeks)) {
+				predmeti = s.getLista();
+				podaci = new String[predmeti.size()];
+				int i = 0;
+				for(Predmet predmet : predmeti) {
+					podaci[i] = predmet.getSifrapredmeta();
+					i++;
+				}
+				return podaci;
+			}
 		}
-			
-		
+		return null;
 	}
 
 }

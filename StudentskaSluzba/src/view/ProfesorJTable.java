@@ -31,7 +31,7 @@ public class ProfesorJTable extends JTable {
 		this.setRowSelectionAllowed(true);
 		this.setColumnSelectionAllowed(true);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		new PrikaziButtonColumn(this, 10);
+		new  PrikaziButtonColumn(this, 10);
 
 		sorter.setComparator(2, new Comparator<String>() {
 

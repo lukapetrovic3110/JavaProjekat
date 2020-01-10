@@ -38,7 +38,9 @@ public class PrikaziButtonColumn extends AbstractCellEditor
 			public void actionPerformed(ActionEvent e) {
 				fireEditingStopped();
 				// proba
-				JOptionPane.showMessageDialog(table, "Selektovan je red " + table.getSelectedRow() + " selektovana je kolona " + table.getSelectedColumn());
+				PrikaziDugmeStudenta pk = new PrikaziDugmeStudenta(MainWindow.getInstance(),true,false);
+				pk.setVisible(true);
+				//JOptionPane.showMessageDialog(table, "Selektovan je red " + table.getSelectedRow() + " selektovana je kolona " + table.getSelectedColumn());
 			}
 		});
 

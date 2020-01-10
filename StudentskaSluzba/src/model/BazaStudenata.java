@@ -14,7 +14,7 @@ public class BazaStudenata {
 		return instance;
 	}
 	
-	private ArrayList<Student> studenti;
+	public ArrayList<Student> studenti;
 	private ArrayList<String> kolone;
 	
 	private BazaStudenata() {
@@ -32,13 +32,15 @@ public class BazaStudenata {
 		this.kolone.add("Godina studija");
 		this.kolone.add("Prosek");
 		this.kolone.add("Status");
-
+		this.kolone.add("Spisak predmeta");
 	}
 	
 	private void initStud() {
 		this.studenti = new ArrayList<Student>();
+		ArrayList<Predmet> predmeti = new ArrayList<Predmet>();
+		predmeti.add(new Predmet("MO-RA", "Metode optimizacije", "peti", "III (TRECA)"));
 		studenti.add(new Student("Luka","Petrovic","31.10.1998.","Branislava Nusica 33","063","luka.petrovic@gmail.com","RA-21-2017","6.7.2017.","III (TRECA)",8.0,status.B));
-		studenti.add(new Student("Jelena","Budisa","12.6.1998.","Branislava Nusica 25","06765","jelena.budisa@gmail.com","RA-33-2017","12.6.2017.","III (TRECA)",9.0,status.B));
+		studenti.add(new Student("Jelena","Budisa","12.6.1998.","Branislava Nusica 25","06765","jelena.budisa@gmail.com","RA-33-2017","12.6.2017.","III (TRECA)",9.0,status.B,predmeti));
 		studenti.add(new Student("Marko","Petrovic","30.10.1998.","Branislava Nusica 22","064","luka.petrovic@gmail.com","SW-22-2017","6.7.2017.","IV (CETVRTA)",6.9,status.S));
 		studenti.add(new Student("Jovan","Jovanovic","31.10.1933.","Branislava Nusica 2","0655","luka.petrovic@gmail.com","RA-233-2016","6.7.2017.","I (PRVA)",7.22,status.S));
 		studenti.add(new Student("Sanja","Jungic","31.1.1999.","Branislava Nusica 6","06222","luka.petrovic@gmail.com","RA-29-2015","6.7.2017.","II (DRUGA)",7.1,status.S));
@@ -58,7 +60,7 @@ public class BazaStudenata {
 	}
 
 	public int getColumnCount() {
-		return 10;
+		return this.kolone.size();
 	}
 	public int getRowCount() {
 		return this.studenti.size();
