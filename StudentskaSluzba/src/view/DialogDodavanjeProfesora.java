@@ -79,7 +79,7 @@ public class DialogDodavanjeProfesora extends JDialog implements KomponenteInter
 	private String regexPrzime = "[A-Z][a-z]{2,19}";
 	private String regexDatumRodjenja = "([0-9]{2}).([0-9]{2}).([0-9]{4}).";
 	private String regexAdresaStanovanja = "[A-Z][A-Z a-z]{2,35}[0-9]{1,4},[A-Z a-z]{1,30}";
-	private String regexTelefon = "021/[0-9]{3,4}-[0-9]{3,4}";
+	private String regexTelefon = "[0-9]{3,4}/[0-9]{3,4}-[0-9]{3,4}";
 	private String regexEmail = "[a-z]{1,20}.?([a-z]{1,20})?@[a-z]{1,15}.com";
 	private String regexAdresaKancelarije = "[A-Z a-z]{3,50}[0-9]{1,2},[A-Z a-z]{1,30},[A-Z a-z]{1,30}[0-9A-Z]{1,3}";
 	private String regexBrLicneKarte = "[0-9]{9}";
@@ -297,6 +297,7 @@ public class DialogDodavanjeProfesora extends JDialog implements KomponenteInter
 				poljeemail.setText(emailProfesora);
 				poljeadrkan.setText(adresaKancelarijeProfesora);
 				poljebrlickarte.setText(brojLicneKarteProfesora);
+				poljebrlickarte.setEnabled(false);
 
 				if (profesor.getTitula() == titule.DIPLOMIRANIINZENJER) {
 					stringTitula = "DIPLOMIRANI INZENJER";
@@ -332,7 +333,9 @@ public class DialogDodavanjeProfesora extends JDialog implements KomponenteInter
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				if (!daLiJeIzmena) {
+					
 					if(!postoji(poljebrlickarte.getText()))
 					{
 						if ((!poljeime.getText().equals("")) && (!poljeprz.getText().equals(""))
@@ -374,6 +377,7 @@ public class DialogDodavanjeProfesora extends JDialog implements KomponenteInter
 	
 							setVisible(false);
 						}
+						
 					}
 				} else {
 					imeProfesora = poljeime.getText();
@@ -480,7 +484,7 @@ public class DialogDodavanjeProfesora extends JDialog implements KomponenteInter
 		{
 			if(p.getBrlicne().equals(brLiceneProfesora))
 			{
-				JOptionPane.showMessageDialog(null, "Uneli ste br. licen karte profesora koji postoji u bazi podataka", "Greska", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Uneli ste br. licen karte profesora koji vec postoji u bazi podataka!", "Greska", JOptionPane.ERROR_MESSAGE);
 				poljebrlickarte.setText("");
 				return true;
 			}
