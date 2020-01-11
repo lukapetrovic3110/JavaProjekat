@@ -36,8 +36,9 @@ public class PrikaziButtonColumn extends AbstractCellEditor
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				fireEditingStopped();
-				
-				if(TabbedPane.tabbedPane.getSelectedComponent() == TabbedPane.panelStudenti)
+				PrikaziDugmeStudenta pk = new PrikaziDugmeStudenta(MainWindow.getInstance(),true,false);//
+				pk.setVisible(true);//
+				/*if(TabbedPane.tabbedPane.getSelectedComponent() == TabbedPane.panelStudenti)
 				{
 					PrikaziDugmeStudenta pk = new PrikaziDugmeStudenta(MainWindow.getInstance(),true,false);
 					pk.setVisible(true);
@@ -59,7 +60,7 @@ public class PrikaziButtonColumn extends AbstractCellEditor
 						PrikaziStudenteKojiSlusajuDialog prikaziStudenteKojiSlusajuDialog = new PrikaziStudenteKojiSlusajuDialog(MainWindow.getInstance(), true);
 						prikaziStudenteKojiSlusajuDialog.setVisible(true);	
 					}
-				}
+				}*/
 			}
 		});
 
