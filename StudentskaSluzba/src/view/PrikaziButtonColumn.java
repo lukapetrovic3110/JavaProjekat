@@ -8,7 +8,6 @@ import java.awt.event.MouseListener;
 
 import javax.swing.AbstractCellEditor;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
@@ -37,10 +36,30 @@ public class PrikaziButtonColumn extends AbstractCellEditor
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				fireEditingStopped();
-				// proba
-				PrikaziDugmeStudenta pk = new PrikaziDugmeStudenta(MainWindow.getInstance(),true,false);
-				pk.setVisible(true);
-				//JOptionPane.showMessageDialog(table, "Selektovan je red " + table.getSelectedRow() + " selektovana je kolona " + table.getSelectedColumn());
+				
+				if(TabbedPane.tabbedPane.getSelectedComponent() == TabbedPane.panelStudenti)
+				{
+					PrikaziDugmeStudenta pk = new PrikaziDugmeStudenta(MainWindow.getInstance(),true,false);
+					pk.setVisible(true);
+				}
+				else if(TabbedPane.tabbedPane.getSelectedComponent() == TabbedPane.panelProfesori)
+				{
+					PrikaziSpisakPredmetaProfesoraDialog prikaziDugmeProfesora = new PrikaziSpisakPredmetaProfesoraDialog(MainWindow.getInstance(), true);
+					prikaziDugmeProfesora.setVisible(true);
+				}
+				else
+				{
+					if(PanelPredmeti.tablePredmeti.getSelectedColumn() == 4)
+					{
+						PrikaziPredmetnogProfesoraDialog prikaziPredmetnogProfesoraDialog = new PrikaziPredmetnogProfesoraDialog(MainWindow.getInstance(), true);
+						prikaziPredmetnogProfesoraDialog.setVisible(true);
+					}
+					if(PanelPredmeti.tablePredmeti.getSelectedColumn() == 5)
+					{
+						PrikaziStudenteKojiSlusajuDialog prikaziStudenteKojiSlusajuDialog = new PrikaziStudenteKojiSlusajuDialog(MainWindow.getInstance(), true);
+						prikaziStudenteKojiSlusajuDialog.setVisible(true);	
+					}
+				}
 			}
 		});
 
