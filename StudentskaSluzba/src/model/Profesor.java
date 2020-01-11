@@ -1,10 +1,13 @@
 package model;
+import java.io.Serializable;
 import java.util.ArrayList;
 /**
  * @author ra25-2017
  */
-public class Profesor {
+public class Profesor implements Serializable{
 	
+	private static final long serialVersionUID = -210009160453105642L;
+
 	public enum titule { DIPLOMIRANIINZENJER, MAGISTAR, DOKTORNAUKA; }
 	
 	public enum zvanja { ASISTENT, VANREDNIPROFESOR, DOCENT, REDOVNIPROFESOR, DEKAN;}

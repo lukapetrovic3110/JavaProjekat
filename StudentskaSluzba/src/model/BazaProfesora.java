@@ -40,9 +40,9 @@ public class BazaProfesora {
 
 	private void initProf() {
 		this.profesori = new ArrayList<Profesor>();
-		ArrayList<Predmet> predmeti = new ArrayList<Predmet>();
-		predmeti.add(new Predmet("MO-RA", "Metode optimizacije", 5, 3));
-		profesori.add(new Profesor("Aleksa", "Petkovic", "15.01.1965.", "Temerinska 15, Novi Sad", "021/334-990", "aleksa.petkovic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, MI 105", "007198721", titule.DOKTORNAUKA, zvanja.REDOVNIPROFESOR, predmeti));
+		ArrayList<Predmet> spisakPredmetaProfesora = new ArrayList<Predmet>();
+		spisakPredmetaProfesora.add(new Predmet("MO-RA", "Metode optimizacije", 5, 3));
+		profesori.add(new Profesor("Aleksa", "Petkovic", "15.01.1965.", "Temerinska 15, Novi Sad", "021/334-990", "aleksa.petkovic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, MI 105", "007198721", titule.DOKTORNAUKA, zvanja.REDOVNIPROFESOR, spisakPredmetaProfesora));
 		profesori.add(new Profesor("Jana", "Lazarevic", "25.02.1963.", "Jovana Cvijica 26, Novi Sad", "021/435-891", "jana.lazarevic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, Nastavni Blok 206", "008431903", titule.DOKTORNAUKA, zvanja.REDOVNIPROFESOR));
 		profesori.add(new Profesor("Nadja", "Aleksic", "23.03.1973.", "Gunduliceva 75, Novi Sad", "021/730-172", "nadja.aleksic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, NTP 307", "005671007", titule.MAGISTAR, zvanja.VANREDNIPROFESOR));
 		profesori.add(new Profesor("Djordje", "Spasojevic", "24.08.1978.", "Sekspirova 44, Novi Sad", "021/514-893", "djordje.spasojevic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, MI 118", "009999331", titule.MAGISTAR, zvanja.VANREDNIPROFESOR));

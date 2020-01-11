@@ -1,22 +1,34 @@
 package model;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+import view.PanelPredmeti;
+
 public class BazaPredmeta {
-	
+
 	private static BazaPredmeta instance = null;
-	public static BazaPredmeta getInstance(){
-		if (instance == null){
+
+	public static BazaPredmeta getInstance() {
+		if (instance == null) {
 			instance = new BazaPredmeta();
 		}
-		
+
 		return instance;
 	}
-	
+
 	private ArrayList<Predmet> predmeti;
 	private ArrayList<String> kolone;
-	
-	private BazaPredmeta(){
+
+	private BazaPredmeta() {
 		initPred();
 		this.kolone = new ArrayList<String>();
 		this.kolone.add("Sifra predmeta");
@@ -43,13 +55,15 @@ public class BazaPredmeta {
 	public void setPredmeti(ArrayList<Predmet> predmeti) {
 		this.predmeti = predmeti;
 	}
-	
+
 	public int getColumnCount() {
 		return this.kolone.size();
 	}
+
 	public int getRowCount() {
 		return this.predmeti.size();
 	}
+
 	public String getColumnName(int index) {
 		return this.kolone.get(index);
 	}
@@ -57,7 +71,7 @@ public class BazaPredmeta {
 	public Predmet getRow(int rowIndex) {
 		return this.predmeti.get(rowIndex);
 	}
-	
+
 	public String getValueAt(int row, int column) {
 		Predmet predmet = this.predmeti.get(row);
 		switch (column) {
@@ -72,5 +86,37 @@ public class BazaPredmeta {
 		default:
 			return null;
 		}
+	}
+
+	// serijalizacija
+
+	public void serijalizacijaPisanje() throws FileNotFoundException, IOException {
+		File txtPredmet = new File("bazapredmeta.txt");
+
+		ObjectOutputStream objectOutputStream = new ObjectOutputStream(
+				new BufferedOutputStream(new FileOutputStream(txtPredmet)));
+
+		try {
+			objectOutputStream.writeObject(predmeti);
+		} finally {
+			objectOutputStream.close();
+		}
+
+	}
+
+	@SuppressWarnings("unchecked")
+	public void serijalizacijaCitanje() throws IOException, ClassNotFoundException, FileNotFoundException {
+		File txtPredmet = new File("bazapredmeta.txt");
+
+		ObjectInputStream objectInputStream = new ObjectInputStream(
+				new BufferedInputStream(new FileInputStream(txtPredmet)));
+
+		try {
+			predmeti = (ArrayList<Predmet>) objectInputStream.readObject();
+		} finally {
+			objectInputStream.close();
+		}
+
+		PanelPredmeti.azurirajPrikaz();
 	}
 }
