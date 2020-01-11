@@ -96,7 +96,7 @@ public class ToolBar extends JToolBar{
 		this.add(Box.createHorizontalStrut(frame.getWidth()/8));
 		
 		JTextField txtSearch = new JTextField();
-		txtSearch.setToolTipText("TxtZaPretragu");
+		txtSearch.setToolTipText("Polje za pretragu");
 		txtSearch.setPreferredSize(new Dimension(frame.getWidth()/15,35));
 		this.add(txtSearch);
 		
