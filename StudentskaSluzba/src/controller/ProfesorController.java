@@ -4,6 +4,7 @@ import model.BazaProfesora;
 import model.Profesor;
 import model.ProfesorMethods;
 import view.PanelProfesori;
+import view.PanelStudenti;
 
 public class ProfesorController {
 
@@ -40,5 +41,14 @@ public class ProfesorController {
 		Profesor profesor = BazaProfesora.getInstance().getRow(rowSelectedIndex);
 		ProfesorMethods.izbrisiProfesora(profesor.getBrlicne());
 		PanelProfesori.azurirajPrikaz();
+	}
+	
+	public String[] izlistajPredmeteZaProfesore(int rowSelectedIndex)
+	{
+		rowSelectedIndex = PanelProfesori.tableProfesori.convertRowIndexToModel(rowSelectedIndex);
+		Profesor profesor = BazaProfesora.getInstance().getRow(rowSelectedIndex);
+		String[] podaci = ProfesorMethods.izlistajPredmeteZaProfesore(profesor.getBrlicne());
+		PanelStudenti.azurirajPrikaz();
+		return podaci;
 	}
 }

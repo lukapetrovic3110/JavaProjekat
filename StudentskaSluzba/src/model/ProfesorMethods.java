@@ -45,4 +45,27 @@ public class ProfesorMethods {
 			}
 		}
 	}
+	
+	public static String[] izlistajPredmeteZaProfesore(String brojLicneKarteProfesora)
+	{
+		String[] podaci;
+		ArrayList<Predmet> njegoviPredmeti = new ArrayList<Predmet>();
+		for(Profesor profesor : profesori)
+		{
+			if(profesor.getBrlicne().equals(brojLicneKarteProfesora)) {
+				njegoviPredmeti = profesor.getSpisakpredmeta();
+				podaci = new String[njegoviPredmeti.size()];
+				int i = 0;
+				
+				for(Predmet predmet : njegoviPredmeti) {
+					podaci[i] = predmet.toString();
+					i++;
+				}
+				
+				return podaci;
+			}
+		}
+		
+		return null;
+	}
 }

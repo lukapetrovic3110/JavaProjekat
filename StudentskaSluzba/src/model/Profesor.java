@@ -58,7 +58,7 @@ public class Profesor {
 		this.br_licne = br_licne;
 		this.titula = titula;
 		this.zvanje = zvanje;
-		this.setSpisakpredmeta(spisak_predmeta);
+		this.spisak_predmeta = spisak_predmeta;
 	}
 	
 	public String getIme() {

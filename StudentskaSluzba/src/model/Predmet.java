@@ -79,9 +79,7 @@ public class Predmet {
 
 	@Override
 	public String toString() {
-		return "Predmet [sifra_predmeta=" + sifra_predmeta + ", naziv_predmeta=" + naziv_predmeta + ", semestar="
-				+ semestar + ", godina_studija=" + godina_studija + ", predmetniProfesor=" + predmetniProfesor
-				+ ", slusajuStudenti=" + slusajuStudenti + "]";
+		return  sifra_predmeta + " " + naziv_predmeta + " semestar " + semestar + " godina studija " + godina_studija;
 	}
 
 }
