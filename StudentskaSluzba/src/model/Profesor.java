@@ -22,7 +22,7 @@ public class Profesor implements Serializable{
 	private String br_licne;
 	private titule titula;
 	private zvanja zvanje;
-	private ArrayList<Predmet> spisak_predmeta;
+	private ArrayList<Predmet> spisak_predmeta = new ArrayList<Predmet>();
 	
 	public Profesor() {}
 	

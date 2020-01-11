@@ -58,7 +58,7 @@ public class ProfesorMethods {
 				int i = 0;
 				
 				for(Predmet predmet : njegoviPredmeti) {
-					podaci[i] = predmet.getSifrapredmeta();
+					podaci[i] = predmet.toString();
 					i++;
 				}
 				
