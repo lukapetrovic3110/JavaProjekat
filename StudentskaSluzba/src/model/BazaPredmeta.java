@@ -83,6 +83,8 @@ public class BazaPredmeta {
 			return "" + predmet.getSemestar();
 		case 3:
 			return "" + predmet.getGodinastudija();
+		case 4:
+			return predmet.getSifrapredmeta();
 		default:
 			return null;
 		}

@@ -49,11 +49,6 @@ public class PrikaziButtonColumn extends AbstractCellEditor
 				}
 				else
 				{
-					if(PanelPredmeti.tablePredmeti.getSelectedColumn() == 4)
-					{
-						PrikaziPredmetnogProfesoraDialog prikaziPredmetnogProfesoraDialog = new PrikaziPredmetnogProfesoraDialog(MainWindow.getInstance(), true);
-						prikaziPredmetnogProfesoraDialog.setVisible(true);
-					}
 					if(PanelPredmeti.tablePredmeti.getSelectedColumn() == 5)
 					{
 						PrikaziStudenteKojiSlusajuDialog prikaziStudenteKojiSlusajuDialog = new PrikaziStudenteKojiSlusajuDialog(MainWindow.getInstance(), true);

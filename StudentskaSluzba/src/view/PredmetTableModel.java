@@ -50,7 +50,7 @@ public class PredmetTableModel extends AbstractTableModel {
 		case 3:
 			return Integer.class;
 		case 4:
-			return JButton.class;
+			return String.class;
 		case 5:
 			return JButton.class; 
 		default:
@@ -72,11 +72,10 @@ public class PredmetTableModel extends AbstractTableModel {
 		case 3:
 			return predmet.getGodinastudija();
 		case 4:
-			JButton btnPrikazi1 = new JButton("" + rowIndex);
-			return btnPrikazi1;
+			return predmet.getSifrapredmeta(); // nema d
 		case 5:
-			JButton btnPrikazi2 = new JButton("" + rowIndex);
-			return btnPrikazi2;
+			JButton btnPrikazi = new JButton("" + rowIndex);
+			return btnPrikazi;
 		default:
 			return "";
 		}
