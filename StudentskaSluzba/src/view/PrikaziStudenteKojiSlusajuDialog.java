@@ -23,7 +23,11 @@ import model.Student;
 public class PrikaziStudenteKojiSlusajuDialog extends JDialog {
 
 	private static final long serialVersionUID = 5001638337905015201L;
-	private JList<String> lista;
+	public static JList<String> lista;
+	public static JList<String> getLista() {
+		return lista;
+	}
+
 	private JButton btnObrisi = new JButton("Obrisi");
 	private JButton btnNazad = new JButton("Nazad");
 	
@@ -43,7 +47,7 @@ public class PrikaziStudenteKojiSlusajuDialog extends JDialog {
 		JScrollPane pan = new JScrollPane();
 		
 		DefaultListModel<String> model = new DefaultListModel<>();
-		JList<String> lista = new JList<>( model );
+		lista = new JList<>( model );
 		for ( int i = 0; i < podaci.length; i++ ){
 		  model.addElement( podaci[i]);
 		}
