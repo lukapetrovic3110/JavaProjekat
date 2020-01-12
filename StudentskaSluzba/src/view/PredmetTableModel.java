@@ -25,7 +25,7 @@ public class PredmetTableModel extends AbstractTableModel {
 
 	@Override
 	public boolean isCellEditable(int rowIndex, int columnIndex) {
-		if (columnIndex >= 4)
+		if (columnIndex > 4)
 			return true;
 		else
 			return false;
