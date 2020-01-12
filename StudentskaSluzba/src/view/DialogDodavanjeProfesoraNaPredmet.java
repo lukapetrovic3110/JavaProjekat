@@ -16,7 +16,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controller.PredmetController;
+import model.BazaPredmeta;
 import model.BazaProfesora;
+import model.Predmet;
 import model.Profesor;
 import view.documentlisteners.DodavanjeProfesoraNaPredmetDocumentListener;
 /**
@@ -36,6 +39,8 @@ public class DialogDodavanjeProfesoraNaPredmet extends JDialog implements Kompon
 	private String regexBrLicneKarte = "[0-9]{9}";
 	
 	int rowSelectedIndex;
+	Predmet predmet;
+	private String sifraPredmeta;
 	
 	public DialogDodavanjeProfesoraNaPredmet(JFrame parent, boolean modal)
 	{
@@ -79,8 +84,6 @@ public class DialogDodavanjeProfesoraNaPredmet extends JDialog implements Kompon
 		potvrdi.setEnabled(checkifAllValid());
 
 		potvrdi.setPreferredSize(dimenzijadugmica);
-		
-		brojLicneKarteProfesora = poljebrlickarteprof.getText();
 			
 		rowSelectedIndex = PanelPredmeti.tablePredmeti.getSelectedRow();
 		
@@ -91,10 +94,16 @@ public class DialogDodavanjeProfesoraNaPredmet extends JDialog implements Kompon
 			public void actionPerformed(ActionEvent e) {
 
 				rowSelectedIndex = PanelPredmeti.tablePredmeti.convertRowIndexToModel(rowSelectedIndex);
-			
-				if(postoji(brojLicneKarteProfesora))
+				
+				predmet = BazaPredmeta.getInstance().getRow(rowSelectedIndex);
+				
+				brojLicneKarteProfesora = poljebrlickarteprof.getText();
+				
+				if(postoji(brojLicneKarteProfesora) && predmet.getProfa().equals(""))
 				{
+					sifraPredmeta = predmet.getSifrapredmeta();
 					
+					PredmetController.getInstance().dodajProfesoraNaPredmet(sifraPredmeta, brojLicneKarteProfesora);
 					
 					setVisible(false);
 				}
@@ -157,14 +166,16 @@ public class DialogDodavanjeProfesoraNaPredmet extends JDialog implements Kompon
 	{
 		for(Profesor p : BazaProfesora.getInstance().getProfesori())
 		{
-			if(!(p.getBrlicne().equals(brLiceneProfesora)))
+			if(p.getBrlicne().equals(brLiceneProfesora))
 			{
-				JOptionPane.showMessageDialog(null, "Uneli ste br. licen karte profesora koji ne postoji u bazi podataka!", "Greska", JOptionPane.ERROR_MESSAGE);
-				poljebrlickarteprof.setText("");
-				return false;
+				return true;
 			}
 		}
 		
-		return true;
+		JOptionPane.showMessageDialog(null, "Uneli ste br. licen karte profesora koji ne postoji u bazi podataka!", "Greska", JOptionPane.ERROR_MESSAGE);
+		//poljebrlickarteprof.setText("");
+		return false;
+		
+	
 	}
 }
