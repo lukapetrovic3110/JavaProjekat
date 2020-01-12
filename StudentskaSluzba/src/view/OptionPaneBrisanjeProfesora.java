@@ -20,6 +20,7 @@ public class OptionPaneBrisanjeProfesora extends JOptionPane{
 		if (n == 0)
 		{
 			int rowSelected = PanelProfesori.tableProfesori.getSelectedRow();
+			rowSelected = PanelProfesori.tableProfesori.convertRowIndexToModel(rowSelected);
 			ProfesorController.getInstance().izbrisiProfesora(rowSelected);
 		}
 	}

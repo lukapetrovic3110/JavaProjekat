@@ -20,6 +20,7 @@ public class ToolBar extends JToolBar{
 	private JFrame frame;
 	private JButton btnNew2;
 	private JButton btnNew3;
+	private JButton btnObrisiProfesora;
 	
 	public ToolBar(JFrame parentFrame)
 	{
@@ -93,6 +94,20 @@ public class ToolBar extends JToolBar{
 		btnNew3.setVisible(false);
 		this.add(btnNew3);
 		
+		
+		this.addSeparator();
+		
+		btnObrisiProfesora = new JButton();  // dugme za brisanje profesora sa predmeta
+		btnObrisiProfesora.setMargin(new Insets(0, 0, 0, 0));
+		btnObrisiProfesora.setPreferredSize(new Dimension(35,35));
+		
+		btnObrisiProfesora.addActionListener(new BtnObrisiProfesoraActionListener());
+		
+		ImageIcon imgBtnObrisiProfesora = new ImageIcon("src/icons/icon_delete.png");
+		btnObrisiProfesora.setIcon(imgBtnObrisiProfesora);
+		btnObrisiProfesora.setVisible(false);
+		this.add(btnObrisiProfesora);
+		
 		this.add(Box.createHorizontalStrut(frame.getWidth()/8));
 		
 		JTextField txtSearch = new JTextField();
@@ -131,4 +146,13 @@ public class ToolBar extends JToolBar{
 	public void setBtnNew3(JButton btnNew3) {
 		this.btnNew3 = btnNew3;
 	}
+
+	public JButton getBtnObrisiProfesora() {
+		return btnObrisiProfesora;
+	}
+
+	public void setBtnObrisiProfesora(JButton btnObrisiProfesora) {
+		this.btnObrisiProfesora = btnObrisiProfesora;
+	}
+
 }

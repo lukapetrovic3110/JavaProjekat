@@ -32,6 +32,7 @@ public class BrisanjeStudenta extends JOptionPane{
 		if (n == 0)
 		{
 			int rowSelected = PanelStudenti.tableStudenti.getSelectedRow();
+			rowSelected = PanelStudenti.tableStudenti.convertRowIndexToModel(rowSelected);
 			StudentController.getInstance().izbrisiStudenta(rowSelected);
 		}	
 		

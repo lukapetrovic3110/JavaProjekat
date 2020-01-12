@@ -55,5 +55,12 @@ public class PredmetController {
 		PanelPredmeti.azurirajPrikaz();
 		
 	}
+	
+	public void obrisiProfesoraSaPredmeta(int rowSlectedIndex)
+	{
+		Predmet predmet = BazaPredmeta.getInstance().getRow(rowSlectedIndex);
+		// PredmetMethods.obrisiProfesoraSaPredmeta(predmet.getSifrapredmeta());
+		PanelPredmeti.azurirajPrikaz();
+	}
 
 }
