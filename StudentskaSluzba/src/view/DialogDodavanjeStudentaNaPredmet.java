@@ -23,7 +23,7 @@ public class DialogDodavanjeStudentaNaPredmet extends JDialog{
 	private JTextField poljeindeksstudenta;
 	private JButton potvrdi;
 	private JButton odustani;
-	
+	int rowSelectedIndex;
 	public DialogDodavanjeStudentaNaPredmet(JFrame parent, boolean modal)
 	{
 
