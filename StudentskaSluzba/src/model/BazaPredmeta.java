@@ -72,7 +72,8 @@ public class BazaPredmeta {
 		studenti4.add(new Student("Filip","Zivkovic","03.12.1997.","1300 Kaplara, Sabac","015/333-500","filip.zivkovic@mailinator.com","RA 5/2016","21.07.2016.",4,8.03,status.B));
 		studenti4.add(new Student("Tara","Dmiitrijevic","03.12.1996.","Milovana Glisica, Valjevo","014/303-007","tara.dimitrijevic@mailinator.com","RA 33/2015","23.07.2015.",4,7.0,status.S));
 		studenti4.add(new Student("Vasilije","Micic","03.12.1996.","Vuka Karadzica, Loznica","015/101-909","vasilije.micic@mailinator.com","RA 102/2015","04.07.2015.",4,8.9,status.S));
-
+		
+		
 		predmeti.add(new Predmet("OP301", "Osnove programiranja", 1, 1, p1.toString(),studenti1));
 		predmeti.add(new Predmet("DM881", "Diskretna matematika", 3, 2, p2.toString(),studenti2));
 		predmeti.add(new Predmet("PP007", "Paralelno programiranje", 5, 3, p3.toString(),studenti3));

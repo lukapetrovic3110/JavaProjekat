@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import controller.PredmetController;
+import model.Student;
 
 public class PrikaziStudenteKojiSlusajuDialog extends JDialog {
 

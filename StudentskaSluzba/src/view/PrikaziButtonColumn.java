@@ -12,6 +12,8 @@ import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 
+import model.Student;
+
 public class PrikaziButtonColumn extends AbstractCellEditor
        implements TableCellRenderer, TableCellEditor, MouseListener {
 
@@ -51,6 +53,7 @@ public class PrikaziButtonColumn extends AbstractCellEditor
 				{
 					
 					PrikaziStudenteKojiSlusajuDialog prikaziStudenteKojiSlusajuDialog = new PrikaziStudenteKojiSlusajuDialog(MainWindow.getInstance(), true);
+					Student.polje = 0;
 					prikaziStudenteKojiSlusajuDialog.setVisible(true);	
 					
 				}
