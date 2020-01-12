@@ -65,8 +65,15 @@ public class PrikaziStudenteKojiSlusajuDialog extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int selectedIndex = lista.getSelectedIndex();
+				
+				String pom = model.get(selectedIndex);
+				
+				//System.out.println(pom);
+				
 				if (selectedIndex != -1) 
 				    model.remove(selectedIndex);
+				
+				
 			}
 		});
 		

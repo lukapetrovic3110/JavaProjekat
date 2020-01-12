@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -19,10 +20,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import model.BazaPredmeta;
-import model.BazaProfesora;
 import model.BazaStudenata;
 import model.Predmet;
-import model.Profesor;
 import model.Student;
 
 public class DialogDodavanjeStudentaNaPredmet extends JDialog{
@@ -39,6 +38,10 @@ public class DialogDodavanjeStudentaNaPredmet extends JDialog{
 	public static JList<String> lista;
 	public PrikaziStudenteKojiSlusajuDialog dijalog;
 	Predmet predmet;
+	Student stud;
+	private ArrayList<Student> studenti = BazaStudenata.getInstance().getStudenti();
+	private ArrayList<Predmet> predmetiStudenta;
+	
 	public DialogDodavanjeStudentaNaPredmet(JFrame parent, boolean modal)
 	{
 
@@ -83,17 +86,34 @@ public class DialogDodavanjeStudentaNaPredmet extends JDialog{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
+				rowSelectedIndex = PanelPredmeti.tablePredmeti.getSelectedRow();
+				
 				rowSelectedIndex = PanelPredmeti.tablePredmeti.convertRowIndexToModel(rowSelectedIndex);
 				
 				predmet = BazaPredmeta.getInstance().getRow(rowSelectedIndex);
 				indeks = poljeindeksstudenta.getText();
 				
-				if(postoji(indeks) && covek.getGodinastud()==predmet.getGodinastudija())
+		
+				if(postoji(indeks)&& predmet.getGodinastudija()==covek.getGodinastud())
 				{
-					lista=dijalog.getLista();
-					model.addElement(covek.toString());
+					for(Student  ss : studenti)
+					{
+						if(ss.getBrindeksa().equals(indeks))
+						{
+							stud = ss; 
+						}
+					}
+					predmetiStudenta=stud.getLista();
+					predmetiStudenta.add(predmet);
+					predmet.getSlusajuStudenti().add(stud);
+					
+					PanelStudenti.azurirajPrikaz();
+					
+					PanelStudenti.azurirajPrikaz();
 					setVisible(false);
-				}
+				}else
+				JOptionPane.showMessageDialog(null, "Uneli ste indeks studenta koji nije ista godina kao i predmet!", "Greska", JOptionPane.ERROR_MESSAGE);
+
 			}
 		});
 		potvrdi.setPreferredSize(dimenzijadugmica);
@@ -126,7 +146,7 @@ public class DialogDodavanjeStudentaNaPredmet extends JDialog{
 	{
 		for(Student s : BazaStudenata.getInstance().getStudenti())
 		{
-			if(s.getBrindeksa().equals(indekss))
+			if(s.getBrindeksa().equals(indekss) )
 			{
 				covek=s;
 				return true;
