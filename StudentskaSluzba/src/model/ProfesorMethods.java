@@ -7,10 +7,10 @@ public class ProfesorMethods {
 	private static ArrayList<Profesor> profesori = BazaProfesora.getInstance().getProfesori();
 	
 	public static void dodajProfesora(String imeProfesora, String prezimeProfesora, String datumRodjenjaProfesora, String adresaStanovanjaProfesora, 
-			String telefonProfesora, String emailProfesora, String adresaKancelarijeProfesora, String brojLicneKarteProfesora, Profesor.titule titulaProfesora, Profesor.zvanja zvanjeProfesora)	
+			String telefonProfesora, String emailProfesora, String adresaKancelarijeProfesora, String brojLicneKarteProfesora, Profesor.titule titulaProfesora, Profesor.zvanja zvanjeProfesora, ArrayList<Predmet> predmeti)	
 	{
 		
-		profesori.add(new Profesor(imeProfesora, prezimeProfesora, datumRodjenjaProfesora, adresaStanovanjaProfesora, telefonProfesora, emailProfesora, adresaKancelarijeProfesora, brojLicneKarteProfesora, titulaProfesora, zvanjeProfesora));
+		profesori.add(new Profesor(imeProfesora, prezimeProfesora, datumRodjenjaProfesora, adresaStanovanjaProfesora, telefonProfesora, emailProfesora, adresaKancelarijeProfesora, brojLicneKarteProfesora, titulaProfesora, zvanjeProfesora, predmeti));
 	}
 	
 	public static void izbrisiProfesora(String brojLicneProfesora)

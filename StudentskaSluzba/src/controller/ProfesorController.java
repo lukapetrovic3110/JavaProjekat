@@ -1,6 +1,9 @@
 package controller;
 
+import java.util.ArrayList;
+
 import model.BazaProfesora;
+import model.Predmet;
 import model.Profesor;
 import model.ProfesorMethods;
 import view.PanelProfesori;
@@ -22,9 +25,9 @@ public class ProfesorController {
 	private ProfesorController() {}
 	
 	public void dodajProfesora(String imeProfesora, String prezimeProfesora, String datumRodjenjaProfesora, String adresaStanovanjaProfesora, 
-			String telefonProfesora, String emailProfesora, String adresaKancelarijeProfesora, String brojLicneKarteProfesora, Profesor.titule titulaProfesora, Profesor.zvanja zvanjeProfesora)
+			String telefonProfesora, String emailProfesora, String adresaKancelarijeProfesora, String brojLicneKarteProfesora, Profesor.titule titulaProfesora, Profesor.zvanja zvanjeProfesora, ArrayList<Predmet> predmeti)
 	{
-		ProfesorMethods.dodajProfesora(imeProfesora, prezimeProfesora, datumRodjenjaProfesora, adresaStanovanjaProfesora, telefonProfesora, emailProfesora, adresaKancelarijeProfesora, brojLicneKarteProfesora, titulaProfesora, zvanjeProfesora);
+		ProfesorMethods.dodajProfesora(imeProfesora, prezimeProfesora, datumRodjenjaProfesora, adresaStanovanjaProfesora, telefonProfesora, emailProfesora, adresaKancelarijeProfesora, brojLicneKarteProfesora, titulaProfesora, zvanjeProfesora, predmeti);
 		PanelProfesori.azurirajPrikaz();
 	}
 	
