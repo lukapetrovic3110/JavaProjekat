@@ -22,7 +22,7 @@ public class StudentiJTable extends JTable {
 		sorter.setSortable(3, false);
 		sorter.setSortable(4, false);
 		sorter.setSortable(5, false);
-		sorter.setSortable(10, false); //
+		//sorter.setSortable(10, false); 
 		sorter.setSortable(11, false);  
 		
 		

@@ -50,7 +50,7 @@ public class StudentTableModel extends AbstractTableModel{
 		case 9:
 			return Long.class;
 		case 10:
-			return String.class;
+			return char.class;
 		case 11:
 			return JButton.class;
 		default:
