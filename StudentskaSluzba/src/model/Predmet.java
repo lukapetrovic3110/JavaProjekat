@@ -13,7 +13,7 @@ public class Predmet implements Serializable{
 	private int semestar;
 	private int godina_studija;
 	private Profesor predmetniProfesor;
-	private ArrayList<Student> slusajuStudenti;
+	private ArrayList<Student> slusajuStudenti = new ArrayList<Student>();
 	private String profa;
 	
 	public Predmet() {}
@@ -58,7 +58,6 @@ public class Predmet implements Serializable{
 		this.naziv_predmeta = naziv_predmeta;
 		this.semestar = semestar;
 		this.godina_studija = godina_studija;
-		this.predmetniProfesor = predmetniProfesor;
 		this.slusajuStudenti = slusajuStudenti;
 		this.setProfa(profa);
 	}

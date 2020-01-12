@@ -37,6 +37,7 @@ public class PredmetMethods {
 			}
 		}
 	}
+
 	
 	public static void dodajProfesoraNaPredmet(String brojLicneKarte)
 	{
@@ -47,5 +48,23 @@ public class PredmetMethods {
 				
 			}
 		}
+	}
+	
+	public static String[] izlistajStudenteZaPredmet(String sifraPredmeta) {
+		String[] podaci;
+		ArrayList<Student> studenti = new ArrayList<Student>();
+		for (Predmet p : predmeti) {
+			if (p.getSifrapredmeta().equals(sifraPredmeta)) {
+				studenti = p.getSlusajuStudenti();
+				podaci = new String[studenti.size()];
+				int i = 0;
+				for(Student s : studenti) {
+					podaci[i] = s.toString();
+					i++;
+				}
+				return podaci;
+			}
+		}
+		return null;
 	}
 }

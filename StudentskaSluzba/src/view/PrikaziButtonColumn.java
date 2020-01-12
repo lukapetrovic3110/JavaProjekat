@@ -49,11 +49,10 @@ public class PrikaziButtonColumn extends AbstractCellEditor
 				}
 				else
 				{
-					if(PanelPredmeti.tablePredmeti.getSelectedColumn() == 5)
-					{
-						PrikaziStudenteKojiSlusajuDialog prikaziStudenteKojiSlusajuDialog = new PrikaziStudenteKojiSlusajuDialog(MainWindow.getInstance(), true);
-						prikaziStudenteKojiSlusajuDialog.setVisible(true);	
-					}
+					
+					PrikaziStudenteKojiSlusajuDialog prikaziStudenteKojiSlusajuDialog = new PrikaziStudenteKojiSlusajuDialog(MainWindow.getInstance(), true);
+					prikaziStudenteKojiSlusajuDialog.setVisible(true);	
+					
 				}
 			}
 		});
