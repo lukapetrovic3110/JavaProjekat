@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-public class BtnNew2ActionListener implements ActionListener{
+public class BtnDodavanjeStudentaNaPredmetActionListener implements ActionListener{
 	private int rowSelectedIndex;
 	@Override
 	public void actionPerformed(ActionEvent e) {

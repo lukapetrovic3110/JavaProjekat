@@ -18,7 +18,7 @@ public class ToolBar extends JToolBar{
 	private static final long serialVersionUID = 4268951943328073987L;
 	
 	private JFrame frame;
-	private JButton btnNew2;
+	private JButton btnDodavanjeStudentaNaPredmet;
 	private JButton btnDodavanjeProfesoraNaPredmet;
 	private JButton btnObrisiProfesora;
 	
@@ -70,16 +70,16 @@ public class ToolBar extends JToolBar{
 		
 		this.addSeparator();
 		
-	    btnNew2 = new JButton();
-		btnNew2.setMargin(new Insets(0, 0, 0, 0));
-		btnNew2.setPreferredSize(new Dimension(35,35));
+		btnDodavanjeStudentaNaPredmet = new JButton();
+		btnDodavanjeStudentaNaPredmet.setMargin(new Insets(0, 0, 0, 0));
+		btnDodavanjeStudentaNaPredmet.setPreferredSize(new Dimension(35,35));
 		
-		btnNew2.addActionListener(new BtnNew2ActionListener());
+		btnDodavanjeStudentaNaPredmet.addActionListener(new BtnDodavanjeStudentaNaPredmetActionListener());
 		
 		ImageIcon imgBtnNew2 = new ImageIcon("src/icons/icon_add.png");
-		btnNew2.setIcon(imgBtnNew2);
-		btnNew2.setVisible(false);
-		this.add(btnNew2);
+		btnDodavanjeStudentaNaPredmet.setIcon(imgBtnNew2);
+		btnDodavanjeStudentaNaPredmet.setVisible(false);
+		this.add(btnDodavanjeStudentaNaPredmet);
 		
 		this.addSeparator();
 		
@@ -131,12 +131,12 @@ public class ToolBar extends JToolBar{
 		frame.add(this, BorderLayout.NORTH);
 	}
 	
-	public JButton getBtnNew2() {
-		return btnNew2;
+	public JButton getBtnDodavanjeStudentaNaPredmet() {
+		return btnDodavanjeStudentaNaPredmet;
 	}
 
-	public void setBtnNew2(JButton btnNew2) {
-		this.btnNew2 = btnNew2;
+	public void setBtnDodavanjeStudentaNaPredmet(JButton btnDodavanjeStudentaNaPredmet) {
+		this.btnDodavanjeStudentaNaPredmet = btnDodavanjeStudentaNaPredmet;
 	}
 	
 	public JButton getBtnDodavanjeProfesoraNaPredmet() {
