@@ -4,6 +4,7 @@ import model.BazaPredmeta;
 import model.Predmet;
 import model.PredmetMethods;
 import view.PanelPredmeti;
+import view.PanelProfesori;
 
 public class PredmetController {
 	
