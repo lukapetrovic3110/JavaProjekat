@@ -8,12 +8,22 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import model.BazaPredmeta;
+import model.BazaProfesora;
+import model.BazaStudenata;
+import model.Predmet;
+import model.Profesor;
+import model.Student;
 
 public class DialogDodavanjeStudentaNaPredmet extends JDialog{
 	
@@ -21,9 +31,14 @@ public class DialogDodavanjeStudentaNaPredmet extends JDialog{
 	
 	private JLabel indeksstudenta;
 	private JTextField poljeindeksstudenta;
+	private String indeks;
 	private JButton potvrdi;
 	private JButton odustani;
+	Student covek;
 	int rowSelectedIndex;
+	public static JList<String> lista;
+	public PrikaziStudenteKojiSlusajuDialog dijalog;
+	Predmet predmet;
 	public DialogDodavanjeStudentaNaPredmet(JFrame parent, boolean modal)
 	{
 
@@ -59,7 +74,28 @@ public class DialogDodavanjeStudentaNaPredmet extends JDialog{
 		
 		Dimension dimenzijadugmica = new Dimension(100,35);
 		
+		DefaultListModel<String> model = new DefaultListModel<>();
+		lista = new JList<>( model );
+		
 		potvrdi = new JButton("Potvrdi");
+		potvrdi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				rowSelectedIndex = PanelPredmeti.tablePredmeti.convertRowIndexToModel(rowSelectedIndex);
+				
+				predmet = BazaPredmeta.getInstance().getRow(rowSelectedIndex);
+				indeks = poljeindeksstudenta.getText();
+				
+				if(postoji(indeks) && covek.getGodinastud()==predmet.getGodinastudija())
+				{
+					lista=dijalog.getLista();
+					model.addElement(covek.toString());
+					setVisible(false);
+				}
+			}
+		});
 		potvrdi.setPreferredSize(dimenzijadugmica);
 		
 		odustani = new JButton("Odustani");
@@ -85,5 +121,21 @@ public class DialogDodavanjeStudentaNaPredmet extends JDialog{
 		
 		this.setSize(500, 200);
 		this.setLocationRelativeTo(parent);
+	}
+	public boolean postoji(String indekss)
+	{
+		for(Student s : BazaStudenata.getInstance().getStudenti())
+		{
+			if(s.getBrindeksa().equals(indekss))
+			{
+				covek=s;
+				return true;
+			}
+		}
+		
+		JOptionPane.showMessageDialog(null, "Uneli ste indeks studenta koji ne postoji u bazi podataka!", "Greska", JOptionPane.ERROR_MESSAGE);
+		return false;
+		
+	
 	}
 }
