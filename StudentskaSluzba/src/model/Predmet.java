@@ -50,7 +50,18 @@ public class Predmet implements Serializable{
 		this.predmetniProfesor = predmetniProfesor;
 		this.slusajuStudenti = slusajuStudenti;
 	}
-	
+	public Predmet(String sifra_predmeta, String naziv_predmeta, int semestar,
+			   int godina_studija, String profa, ArrayList<Student> slusajuStudenti) {
+
+		super();
+		this.sifra_predmeta = sifra_predmeta;
+		this.naziv_predmeta = naziv_predmeta;
+		this.semestar = semestar;
+		this.godina_studija = godina_studija;
+		this.predmetniProfesor = predmetniProfesor;
+		this.slusajuStudenti = slusajuStudenti;
+		this.setProfa(profa);
+	}
 	public String getSifrapredmeta() {
 		return sifra_predmeta;
 	}

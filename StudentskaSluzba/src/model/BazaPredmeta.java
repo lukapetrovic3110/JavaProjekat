@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import model.Profesor.titule;
 import model.Profesor.zvanja;
+import model.Student.status;
 import view.PanelPredmeti;
 
 public class BazaPredmeta {
@@ -48,11 +49,17 @@ public class BazaPredmeta {
 		Profesor p3 = new Profesor("Nadja", "Aleksic", "23.03.1973.", "Gunduliceva 75, Novi Sad", "021/730-172", "nadja.aleksic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, NTP 307", "005671007", titule.MAGISTAR, zvanja.VANREDNIPROFESOR);
 		Profesor p4 = new Profesor("Djordje", "Spasojevic", "24.08.1978.", "Sekspirova 44, Novi Sad", "021/514-893", "djordje.spasojevic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, MI 118", "009999331", titule.MAGISTAR, zvanja.VANREDNIPROFESOR);
 		
-		predmeti.add(new Predmet("OP301", "Osnove programiranja", 1, 1, p1.toString()));
+		ArrayList<Student> studenti1 = new ArrayList<Student>();
+		studenti1.add(new Student("Luka","Jovanovic","01.01.2000.","Karadjordjeva 83, Novi Sad","021/333-555","luka.jovanovic@mailinator.com","RA 1/2019","01.07.2019.",1,8.0,status.B));
+		studenti1.add(new Student("Sofija","Petrovic","16.05.2000.","Milosa Pocerca 55, Sabac","015/343-356","sofija.petrovic@mailinator.com","RA 5/2019","11.07.2019.",1,9.0,status.B,predmeti));
+		studenti1.add(new Student("Stefan","Nikolic","18.03.2000.","Knez Mihajlova 16, Beograd","011/9234-857","stefan.nikolic@mailinator.com","RA 3/2019","03.07.2019.",1,6.9,status.B));
+		studenti1.add(new Student("Dunja","Ilic","11.11.2000.","Petefi Sandora 15, Novi Sad","021/433-958","dunja.ilic@mailinator.com","RA 2/2019","01.07.2019.",1,7.22,status.S));
+
+		predmeti.add(new Predmet("OP301", "Osnove programiranja", 1, 1, p1.toString(),studenti1));
 		predmeti.add(new Predmet("DM881", "Diskretna matematika", 3, 2, p2.toString()));
 		predmeti.add(new Predmet("PP007", "Paralelno programiranje", 5, 3, p3.toString()));
 		predmeti.add(new Predmet("RVP33", "Racunarstvo visokih performanasi", 7, 4, p4.toString()));
-		predmeti.add(new Predmet("JSD91", "Jezici specificni za domen", 8, 4));
+		predmeti.add(new Predmet("JSD91", "Jezici specificni za domen", 8, 4,""));
 	}
 
 	public ArrayList<Predmet> getPredmeti() {

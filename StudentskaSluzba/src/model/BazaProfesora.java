@@ -42,6 +42,7 @@ public class BazaProfesora {
 		this.profesori = new ArrayList<Profesor>();
 		ArrayList<Predmet> predmeti = new ArrayList<Predmet>();
 		predmeti.add(new Predmet("MO-RA", "Metode optimizacije", 5, 3));
+		
 		profesori.add(new Profesor("Aleksa", "Petkovic", "15.01.1965.", "Temerinska 15, Novi Sad", "021/334-990", "aleksa.petkovic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, MI 105", "007198721", titule.DOKTORNAUKA, zvanja.REDOVNIPROFESOR, predmeti));
 		profesori.add(new Profesor("Jana", "Lazarevic", "25.02.1963.", "Jovana Cvijica 26, Novi Sad", "021/435-891", "jana.lazarevic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, Nastavni Blok 206", "008431903", titule.DOKTORNAUKA, zvanja.REDOVNIPROFESOR));
 		profesori.add(new Profesor("Nadja", "Aleksic", "23.03.1973.", "Gunduliceva 75, Novi Sad", "021/730-172", "nadja.aleksic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, NTP 307", "005671007", titule.MAGISTAR, zvanja.VANREDNIPROFESOR));

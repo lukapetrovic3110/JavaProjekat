@@ -23,7 +23,7 @@ public class PrikaziDugmeStudenta extends JDialog {
 //	JButton btn2=new JButton("Potvrda");
 	
 	public PrikaziDugmeStudenta(JFrame parentFrame, boolean modal, boolean daLiJeIzmena) {
-		super(parentFrame, "Dodavanje studenta", modal);
+		super(parentFrame, "Spisak predmeta", modal);
 		
 		JPanel panCenter = new JPanel();
 		BoxLayout boxCenter = new BoxLayout(panCenter, BoxLayout.Y_AXIS);
