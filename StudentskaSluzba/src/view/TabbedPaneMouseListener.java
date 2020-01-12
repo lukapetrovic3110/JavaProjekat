@@ -11,7 +11,7 @@ public class TabbedPaneMouseListener implements MouseListener{
 	public void mousePressed(MouseEvent e) {
 		if(TabbedPane.tabbedPane.getSelectedComponent() == TabbedPane.panelPredmeti)
 		{
-			JButton btnDodajStudentaNaPredmet = TabbedPane.tBar.getBtnNew2();
+			JButton btnDodajStudentaNaPredmet = TabbedPane.tBar.getBtnDodavanjeStudentaNaPredmet();
 			btnDodajStudentaNaPredmet.setVisible(true);
 			btnDodajStudentaNaPredmet.setToolTipText("Dodaj studenta na predmet");
 			
@@ -27,7 +27,7 @@ public class TabbedPaneMouseListener implements MouseListener{
 		}
 		if(TabbedPane.tabbedPane.getSelectedComponent() == TabbedPane.panelStudenti)
 		{
-			JButton btnDodajStudentaNaPredmet = TabbedPane.tBar.getBtnNew2();
+			JButton btnDodajStudentaNaPredmet = TabbedPane.tBar.getBtnDodavanjeStudentaNaPredmet();
 			btnDodajStudentaNaPredmet.setVisible(false);
 			
 			JButton btnDodajProfesoraNaPredmet = TabbedPane.tBar.getBtnDodavanjeProfesoraNaPredmet();
@@ -40,7 +40,7 @@ public class TabbedPaneMouseListener implements MouseListener{
 		}
 		if(TabbedPane.tabbedPane.getSelectedComponent() == TabbedPane.panelProfesori)
 		{
-			JButton btnDodajStudentaNaPredmet = TabbedPane.tBar.getBtnNew2();
+			JButton btnDodajStudentaNaPredmet = TabbedPane.tBar.getBtnDodavanjeStudentaNaPredmet();
 			btnDodajStudentaNaPredmet.setVisible(false);
 		
 			JButton btnDodajProfesoraNaPredmet = TabbedPane.tBar.getBtnDodavanjeProfesoraNaPredmet();
