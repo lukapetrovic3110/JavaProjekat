@@ -193,7 +193,7 @@ public class DialogDodavanjePredmeta extends JDialog implements KomponenteInterf
 							godinaStudija = Integer.parseInt(poljegodstud.getText());
 	
 							PredmetController.getInstance().dodajPredmet(sifraPredmeta, nazivPredmeta, semestar,
-									godinaStudija);
+									godinaStudija, "");
 	
 							setVisible(false);
 						}

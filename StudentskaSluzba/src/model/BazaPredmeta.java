@@ -77,7 +77,7 @@ public class BazaPredmeta {
 		predmeti.add(new Predmet("DM881", "Diskretna matematika", 3, 2, p2.toString(),studenti2));
 		predmeti.add(new Predmet("PP007", "Paralelno programiranje", 5, 3, p3.toString(),studenti3));
 		predmeti.add(new Predmet("RVP33", "Racunarstvo visokih performanasi", 7, 4, p4.toString(),studenti4));
-		predmeti.add(new Predmet("JSD91", "Jezici specificni za domen", 8, 4));
+		predmeti.add(new Predmet("JSD91", "Jezici specificni za domen", 8, 4, ""));
 	}
 
 	public ArrayList<Predmet> getPredmeti() {

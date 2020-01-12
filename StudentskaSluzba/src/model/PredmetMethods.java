@@ -5,12 +5,11 @@ import java.util.ArrayList;
 public class PredmetMethods {
 	
 	private static ArrayList<Predmet> predmeti = BazaPredmeta.getInstance().getPredmeti();
-	private static ArrayList<Profesor> profesori = BazaProfesora.getInstance().getProfesori();
 	
-	public static void dodajPredmet(String sifraPredmeta, String nazivPredmeta, int semestar, int godinaStudija)
+	public static void dodajPredmet(String sifraPredmeta, String nazivPredmeta, int semestar, int godinaStudija, String initprofesor)
 	{
 	
-		predmeti.add(new Predmet(sifraPredmeta, nazivPredmeta, semestar, godinaStudija));
+		predmeti.add(new Predmet(sifraPredmeta, nazivPredmeta, semestar, godinaStudija, initprofesor));
 	}
 	
 	public static void izbrisiPredmet(String sifraPredmeta)
@@ -39,15 +38,16 @@ public class PredmetMethods {
 	}
 
 	
-	public static void dodajProfesoraNaPredmet(String brojLicneKarte)
+	public static void dodajProfesoraNaPredmet(String sifraPredmeta, String brojLicneKarte)
 	{
-		for(Profesor profesor : profesori)
+		for(Predmet p : predmeti)
 		{
-			if(profesor.getBrlicne().equals(brojLicneKarte))
-			{
-				
+			if(p.getSifrapredmeta().equals(sifraPredmeta)) {
+				p.setProfa(brojLicneKarte);
+				break;
 			}
 		}
+		
 	}
 	
 	public static String[] izlistajStudenteZaPredmet(String sifraPredmeta) {

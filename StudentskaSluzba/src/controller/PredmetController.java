@@ -1,13 +1,9 @@
 package controller;
 
 import model.BazaPredmeta;
-import model.BazaStudenata;
 import model.Predmet;
 import model.PredmetMethods;
-import model.Student;
-import model.StudentMethods;
 import view.PanelPredmeti;
-import view.PanelStudenti;
 
 public class PredmetController {
 	
@@ -25,9 +21,9 @@ public class PredmetController {
 	
 	private PredmetController() {}
 	
-	public void dodajPredmet(String sifraPredmeta, String nazivPredmeta, int semestar, int godinaStudija)
+	public void dodajPredmet(String sifraPredmeta, String nazivPredmeta, int semestar, int godinaStudija, String profesor)
 	{
-		PredmetMethods.dodajPredmet(sifraPredmeta, nazivPredmeta, semestar, godinaStudija);
+		PredmetMethods.dodajPredmet(sifraPredmeta, nazivPredmeta, semestar, godinaStudija, profesor);
 		PanelPredmeti.azurirajPrikaz();
 	}
 	
@@ -51,6 +47,13 @@ public class PredmetController {
 		String[] podaci = PredmetMethods.izlistajStudenteZaPredmet(predmet.getSifrapredmeta());
 		PanelPredmeti.azurirajPrikaz();
 		return podaci;
+	}
+
+	public void dodajProfesoraNaPredmet(String sifraPredmeta, String brojLicneKarteProfesora) {
+		
+		PredmetMethods.dodajProfesoraNaPredmet(sifraPredmeta, brojLicneKarteProfesora);
+		PanelPredmeti.azurirajPrikaz();
+		
 	}
 
 }
