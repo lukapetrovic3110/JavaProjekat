@@ -133,7 +133,7 @@ public class DialogDodavanjeStudentaNaPredmet extends JDialog{
 			}
 		}
 		
-		JOptionPane.showMessageDialog(null, "Uneli ste indeks studenta koji ne postoji u bazi podataka!", "Greska", JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Uneli ste indeks studenta koji ne postoji u bazi podataka ili niste uneli nista!", "Greska", JOptionPane.ERROR_MESSAGE);
 		return false;
 		
 	
