@@ -6,6 +6,15 @@ import java.util.ArrayList;
 public class Student implements Serializable{
 	
 	private static final long serialVersionUID = 2890123169437499821L;
+	public static  int polje=0;
+	
+	public static int getPolje() {
+		return polje;
+	}
+
+	public static void setPolje(int polje) {
+		Student.polje = polje;
+	}
 
 	public enum status {B,S};
 	
@@ -159,6 +168,12 @@ public class Student implements Serializable{
 
 	public void setLista(ArrayList<Predmet> lista) {
 		this.lista = lista;
+	}
+
+	@Override
+	public String toString() {
+		polje++;
+		return  polje +". "+ brindeksa +" "+ ime +" "+  prezime  ;
 	}
 
 	

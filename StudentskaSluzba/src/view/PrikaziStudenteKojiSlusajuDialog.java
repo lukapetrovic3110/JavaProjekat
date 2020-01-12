@@ -14,6 +14,8 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import controller.PredmetController;
+
 public class PrikaziStudenteKojiSlusajuDialog extends JDialog {
 
 	private static final long serialVersionUID = 5001638337905015201L;
@@ -30,12 +32,12 @@ public class PrikaziStudenteKojiSlusajuDialog extends JDialog {
 		
 		this.add(panCenter, BorderLayout.CENTER);
 
-		//int rowSelected = PanelStudenti.tableStudenti.getSelectedRow();
-		//String podaci[] = StudentController.getInstance().izlistajPredmeteZaStudente(rowSelected);
+		int rowSelected = PanelPredmeti.tablePredmeti.getSelectedRow();
+		String podaci[] = PredmetController.getInstance().izlistajStudenteZaPredmet(rowSelected);
 		
 		Dimension dim = new Dimension(160, 25);
 		JScrollPane pan = new JScrollPane();
-		lista = new JList<String>(); // podaci
+		lista = new JList<String>(podaci);
 		pan.setViewportView(lista);
 		panCenter.add(pan);
 		

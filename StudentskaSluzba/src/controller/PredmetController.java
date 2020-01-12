@@ -1,9 +1,13 @@
 package controller;
 
 import model.BazaPredmeta;
+import model.BazaStudenata;
 import model.Predmet;
 import model.PredmetMethods;
+import model.Student;
+import model.StudentMethods;
 import view.PanelPredmeti;
+import view.PanelStudenti;
 
 public class PredmetController {
 	
@@ -38,5 +42,13 @@ public class PredmetController {
 		Predmet predmet = BazaPredmeta.getInstance().getRow(rowSelectedIndex);
 		PredmetMethods.izbrisiPredmet(predmet.getSifrapredmeta());
 		PanelPredmeti.azurirajPrikaz();
+	}
+	public String[] izlistajStudenteZaPredmet(int rowSelectedIndex)
+	{
+		rowSelectedIndex = PanelPredmeti.tablePredmeti.convertRowIndexToModel(rowSelectedIndex);
+		Predmet predmet = BazaPredmeta.getInstance().getRow(rowSelectedIndex);
+		String[] podaci = PredmetMethods.izlistajStudenteZaPredmet(predmet.getSifrapredmeta());
+		PanelPredmeti.azurirajPrikaz();
+		return podaci;
 	}
 }
