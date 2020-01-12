@@ -15,7 +15,7 @@ public class MainApp {
 		// TODO Auto-generated method stub
 		MainWindow.getInstance();
 
-		
+		/*
 		try {
 			BazaPredmeta.getInstance().serijalizacijaCitanje();
 		} catch (ClassNotFoundException e) {
@@ -26,7 +26,7 @@ public class MainApp {
 			e.printStackTrace();
 		}
 		
-
+		 */
 	}
 
 }

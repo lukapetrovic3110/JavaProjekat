@@ -72,7 +72,7 @@ public class PredmetTableModel extends AbstractTableModel {
 		case 3:
 			return predmet.getGodinastudija();
 		case 4:
-			return predmet.getSifrapredmeta(); // nema d
+			return predmet.getProfa(); // nema d
 		case 5:
 			JButton btnPrikazi = new JButton("" + rowIndex);
 			return btnPrikazi;

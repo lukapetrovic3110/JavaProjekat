@@ -14,6 +14,7 @@ public class Predmet implements Serializable{
 	private int godina_studija;
 	private Profesor predmetniProfesor;
 	private ArrayList<Student> slusajuStudenti;
+	private String profa;
 	
 	public Predmet() {}
 	
@@ -25,6 +26,17 @@ public class Predmet implements Serializable{
 		this.naziv_predmeta = naziv_predmeta;
 		this.semestar = semestar;
 		this.godina_studija = godina_studija;
+	}
+	
+	public Predmet(String sifra_predmeta, String naziv_predmeta, int semestar,
+			   int godina_studija, String profa) {
+
+		super();
+		this.sifra_predmeta = sifra_predmeta;
+		this.naziv_predmeta = naziv_predmeta;
+		this.semestar = semestar;
+		this.godina_studija = godina_studija;
+		this.setProfa(profa);
 	}
 	
 	public Predmet(String sifra_predmeta, String naziv_predmeta, int semestar,
@@ -83,6 +95,14 @@ public class Predmet implements Serializable{
 	@Override
 	public String toString() {
 		return  sifra_predmeta + " " + naziv_predmeta + " semestar " + semestar + " godina studija " + godina_studija;
+	}
+
+	public String getProfa() {
+		return profa;
+	}
+
+	public void setProfa(String profa) {
+		this.profa = profa;
 	}
 
 }

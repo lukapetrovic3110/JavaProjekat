@@ -136,11 +136,6 @@ public class Profesor implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "Profesor [ime=" + ime + ", prezime=" + prezime + ", datum_rodjenja=" + datum_rodjenja
-				+ ", adresa_stanovanja=" + adresa_stanovanja + ", kontakt_telefona=" + kontakt_telefona + ", e_mail="
-				+ e_mail + ", adresa_kancelarije=" + adresa_kancelarije + ", br_licne=" + br_licne + ", titula="
-				+ titula + ", zvanje=" + zvanje + ", skisak_predmeta=" + spisak_predmeta + "]";
+		return "\"" + br_licne  + "\", " + ime + " " + prezime;
 	}
-
-	
 }

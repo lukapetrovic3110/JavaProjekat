@@ -18,12 +18,14 @@ public class ZatvaranjeAplikacijeWindowListener implements WindowListener{
 	public void windowClosing(WindowEvent e) {
 		// serijalizacija
 		
-			try {
+		/*	try {
 				BazaPredmeta.getInstance().serijalizacijaPisanje();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
-			}
+			}/
+			
+		*/
 	}
 
 	@Override

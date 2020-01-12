@@ -11,6 +11,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+import model.Profesor.titule;
+import model.Profesor.zvanja;
 import view.PanelPredmeti;
 
 public class BazaPredmeta {
@@ -41,10 +43,15 @@ public class BazaPredmeta {
 
 	private void initPred() {
 		this.predmeti = new ArrayList<Predmet>();
-		predmeti.add(new Predmet("OP301", "Osnove programiranja", 1, 1));
-		predmeti.add(new Predmet("DM881", "Diskretna matematika", 3, 2));
-		predmeti.add(new Predmet("PP007", "Paralelno programiranje", 5, 3));
-		predmeti.add(new Predmet("RVP33", "Racunarstvo visokih performanasi", 7, 4));
+		Profesor p1 = new Profesor("Aleksa", "Petkovic", "15.01.1965.", "Temerinska 15, Novi Sad", "021/334-990", "aleksa.petkovic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, MI 105", "007198721", titule.DOKTORNAUKA, zvanja.REDOVNIPROFESOR, predmeti);
+		Profesor p2 = new Profesor("Jana", "Lazarevic", "25.02.1963.", "Jovana Cvijica 26, Novi Sad", "021/435-891", "jana.lazarevic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, Nastavni Blok 206", "008431903", titule.DOKTORNAUKA, zvanja.REDOVNIPROFESOR);
+		Profesor p3 = new Profesor("Nadja", "Aleksic", "23.03.1973.", "Gunduliceva 75, Novi Sad", "021/730-172", "nadja.aleksic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, NTP 307", "005671007", titule.MAGISTAR, zvanja.VANREDNIPROFESOR);
+		Profesor p4 = new Profesor("Djordje", "Spasojevic", "24.08.1978.", "Sekspirova 44, Novi Sad", "021/514-893", "djordje.spasojevic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, MI 118", "009999331", titule.MAGISTAR, zvanja.VANREDNIPROFESOR);
+		
+		predmeti.add(new Predmet("OP301", "Osnove programiranja", 1, 1, p1.toString()));
+		predmeti.add(new Predmet("DM881", "Diskretna matematika", 3, 2, p2.toString()));
+		predmeti.add(new Predmet("PP007", "Paralelno programiranje", 5, 3, p3.toString()));
+		predmeti.add(new Predmet("RVP33", "Racunarstvo visokih performanasi", 7, 4, p4.toString()));
 		predmeti.add(new Predmet("JSD91", "Jezici specificni za domen", 8, 4));
 	}
 
@@ -84,14 +91,14 @@ public class BazaPredmeta {
 		case 3:
 			return "" + predmet.getGodinastudija();
 		case 4:
-			return predmet.getSifrapredmeta();
+			return predmet.getProfa();
 		default:
 			return null;
 		}
 	}
 
 	// serijalizacija
-
+  /*
 	public void serijalizacijaPisanje() throws FileNotFoundException, IOException {
 		File txtPredmet = new File("bazapredmeta.txt");
 
@@ -121,4 +128,5 @@ public class BazaPredmeta {
 
 		PanelPredmeti.azurirajPrikaz();
 	}
+	*/
 }

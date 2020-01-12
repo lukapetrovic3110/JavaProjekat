@@ -52,7 +52,7 @@ public class MainWindow extends JFrame
 		TabbedPane tabbedPane = new TabbedPane(this, toolBar);
 		tabbedPane.setTabbedPane();
 		
-		this.addWindowListener(new ZatvaranjeAplikacijeWindowListener());
+		// this.addWindowListener(new ZatvaranjeAplikacijeWindowListener());
 		
 		setVisible(true);
 	}
