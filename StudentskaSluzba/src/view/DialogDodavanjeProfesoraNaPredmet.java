@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -39,8 +40,11 @@ public class DialogDodavanjeProfesoraNaPredmet extends JDialog implements Kompon
 	private String regexBrLicneKarte = "[0-9]{9}";
 	
 	int rowSelectedIndex;
-	Predmet predmet;
+	private Predmet predmet;
+	private Profesor profesor;
 	private String sifraPredmeta;
+	private ArrayList<Profesor> profesori = BazaProfesora.getInstance().getProfesori();
+	private ArrayList<Predmet> predmetiProfesora;
 	
 	public DialogDodavanjeProfesoraNaPredmet(JFrame parent, boolean modal)
 	{
@@ -104,6 +108,20 @@ public class DialogDodavanjeProfesoraNaPredmet extends JDialog implements Kompon
 					sifraPredmeta = predmet.getSifrapredmeta();
 					
 					PredmetController.getInstance().dodajProfesoraNaPredmet(sifraPredmeta, brojLicneKarteProfesora);
+					
+					for(Profesor p : profesori)
+					{
+						if(p.getBrlicne().equals(brojLicneKarteProfesora))
+						{
+							profesor = p; 
+						}
+					}
+					
+					predmetiProfesora = profesor.getSpisakpredmeta();
+					
+					predmetiProfesora.add(predmet);
+					
+					PanelProfesori.azurirajPrikaz();
 					
 					setVisible(false);
 				}
@@ -173,7 +191,7 @@ public class DialogDodavanjeProfesoraNaPredmet extends JDialog implements Kompon
 		}
 		
 		JOptionPane.showMessageDialog(null, "Uneli ste br. licen karte profesora koji ne postoji u bazi podataka!", "Greska", JOptionPane.ERROR_MESSAGE);
-		//poljebrlickarteprof.setText("");
+		poljebrlickarteprof.setText("");
 		return false;
 		
 	
