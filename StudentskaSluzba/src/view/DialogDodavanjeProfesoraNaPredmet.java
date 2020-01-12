@@ -12,9 +12,12 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import model.BazaProfesora;
+import model.Profesor;
 import view.documentlisteners.DodavanjeProfesoraNaPredmetDocumentListener;
 /**
  * @author Luka ra25-2017
@@ -28,9 +31,11 @@ public class DialogDodavanjeProfesoraNaPredmet extends JDialog implements Kompon
 	private JButton potvrdi;
 	private JButton odustani;
 	
-	
+	private String brojLicneKarteProfesora;
 	private boolean dobroPopunjenoPolje;
 	private String regexBrLicneKarte = "[0-9]{9}";
+	
+	int rowSelectedIndex;
 	
 	public DialogDodavanjeProfesoraNaPredmet(JFrame parent, boolean modal)
 	{
@@ -75,7 +80,27 @@ public class DialogDodavanjeProfesoraNaPredmet extends JDialog implements Kompon
 
 		potvrdi.setPreferredSize(dimenzijadugmica);
 		
-		 // potvrdi.setActionL
+		brojLicneKarteProfesora = poljebrlickarteprof.getText();
+			
+		rowSelectedIndex = PanelPredmeti.tablePredmeti.getSelectedRow();
+		
+		
+		potvrdi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				rowSelectedIndex = PanelPredmeti.tablePredmeti.convertRowIndexToModel(rowSelectedIndex);
+			
+				if(postoji(brojLicneKarteProfesora))
+				{
+					
+					
+					setVisible(false);
+				}
+				
+			}
+		});
 		
 		odustani = new JButton("Odustanak");
 		odustani.addActionListener(new ActionListener() {
@@ -125,6 +150,21 @@ public class DialogDodavanjeProfesoraNaPredmet extends JDialog implements Kompon
 		}
 		
 		potvrdi.setEnabled(true);
+		return true;
+	}
+	
+	public boolean postoji(String brLiceneProfesora)
+	{
+		for(Profesor p : BazaProfesora.getInstance().getProfesori())
+		{
+			if(!(p.getBrlicne().equals(brLiceneProfesora)))
+			{
+				JOptionPane.showMessageDialog(null, "Uneli ste br. licen karte profesora koji ne postoji u bazi podataka!", "Greska", JOptionPane.ERROR_MESSAGE);
+				poljebrlickarteprof.setText("");
+				return false;
+			}
+		}
+		
 		return true;
 	}
 }
