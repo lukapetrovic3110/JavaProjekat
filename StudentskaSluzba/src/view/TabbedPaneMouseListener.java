@@ -18,6 +18,8 @@ public class TabbedPaneMouseListener implements MouseListener{
 			JButton btnDodajProfesoraNaPredmet = TabbedPane.tBar.getBtnNew3();
 			btnDodajProfesoraNaPredmet.setVisible(true);
 			btnDodajProfesoraNaPredmet.setToolTipText("Dodaj profesora na predmet");
+			
+			PanelPredmeti.tablePredmeti.clearSelection();
 		}
 		if(TabbedPane.tabbedPane.getSelectedComponent() == TabbedPane.panelStudenti)
 		{
@@ -28,6 +30,8 @@ public class TabbedPaneMouseListener implements MouseListener{
 			JButton btnDodajProfesoraNaPredmet = TabbedPane.tBar.getBtnNew3();
 			btnDodajProfesoraNaPredmet.setVisible(false);
 			btnDodajProfesoraNaPredmet.setToolTipText("Dodaj profesora na predmet");
+			
+			PanelStudenti.tableStudenti.clearSelection();
 		}
 		if(TabbedPane.tabbedPane.getSelectedComponent() == TabbedPane.panelProfesori)
 		{
@@ -38,6 +42,8 @@ public class TabbedPaneMouseListener implements MouseListener{
 			JButton btnDodajProfesoraNaPredmet = TabbedPane.tBar.getBtnNew3();
 			btnDodajProfesoraNaPredmet.setVisible(false);
 			btnDodajProfesoraNaPredmet.setToolTipText("Dodaj profesora na predmet");
+			
+			PanelProfesori.tableProfesori.clearSelection();
 		}
 	}
 

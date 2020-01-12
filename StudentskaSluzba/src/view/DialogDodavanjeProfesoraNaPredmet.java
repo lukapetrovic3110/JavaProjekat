@@ -12,19 +12,30 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import model.BazaProfesora;
+import model.Profesor;
+import view.documentlisteners.DodavanjeProfesoraNaPredmetDocumentListener;
 /**
  * @author Luka ra25-2017
  */
-public class DialogDodavanjeProfesoraNaPredmet extends JDialog{
+public class DialogDodavanjeProfesoraNaPredmet extends JDialog implements KomponenteInterface {
 	
 	private static final long serialVersionUID = 4428728189585177896L;
-	
+
 	private JLabel brlickarteprof;
 	private JTextField poljebrlickarteprof;
 	private JButton potvrdi;
 	private JButton odustani;
+	
+	private String brojLicneKarteProfesora;
+	private boolean dobroPopunjenoPolje;
+	private String regexBrLicneKarte = "[0-9]{9}";
+	
+	int rowSelectedIndex;
 	
 	public DialogDodavanjeProfesoraNaPredmet(JFrame parent, boolean modal)
 	{
@@ -47,6 +58,8 @@ public class DialogDodavanjeProfesoraNaPredmet extends JDialog{
 		brlickarteprof.setPreferredSize(dimenzije1);
 		
 		poljebrlickarteprof = new JTextField();
+		dobroPopunjenoPolje = false;
+		poljebrlickarteprof.getDocument().addDocumentListener(new DodavanjeProfesoraNaPredmetDocumentListener(this, poljebrlickarteprof, regexBrLicneKarte));
 		poljebrlickarteprof.setPreferredSize(dimenzije2);
 		
 		BrLicneProf.add(Box.createHorizontalStrut(15));
@@ -55,16 +68,41 @@ public class DialogDodavanjeProfesoraNaPredmet extends JDialog{
 		BrLicneProf.add(poljebrlickarteprof);
 		BrLicneProf.add(Box.createHorizontalStrut(5));
 		panel.add(BrLicneProf);
-				
+		
 		JPanel panelDugmici = new JPanel();
 		panelDugmici.setLayout(new BoxLayout(panelDugmici, BoxLayout.X_AXIS));
 		
 		Dimension dimenzijadugmica = new Dimension(100,35);
 		
-		potvrdi = new JButton("Potvrdi");
+		potvrdi = new JButton("Potvrda");
+		
+		potvrdi.setEnabled(checkifAllValid());
+
 		potvrdi.setPreferredSize(dimenzijadugmica);
 		
-		odustani = new JButton("Odustani");
+		brojLicneKarteProfesora = poljebrlickarteprof.getText();
+			
+		rowSelectedIndex = PanelPredmeti.tablePredmeti.getSelectedRow();
+		
+		
+		potvrdi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				rowSelectedIndex = PanelPredmeti.tablePredmeti.convertRowIndexToModel(rowSelectedIndex);
+			
+				if(postoji(brojLicneKarteProfesora))
+				{
+					
+					
+					setVisible(false);
+				}
+				
+			}
+		});
+		
+		odustani = new JButton("Odustanak");
 		odustani.addActionListener(new ActionListener() {
 			
 			@Override
@@ -87,5 +125,46 @@ public class DialogDodavanjeProfesoraNaPredmet extends JDialog{
 		
 		this.setSize(500, 200);
 		this.setLocationRelativeTo(parent);
+	}
+
+	@Override
+	public void setValid(JTextField komponenta) {
+		
+		dobroPopunjenoPolje = true;
+	}
+
+	@Override
+	public void setInvalid(JTextField komponenta) {
+		
+		dobroPopunjenoPolje = false;
+		
+	}
+
+	@Override
+	public boolean checkifAllValid() {
+		
+		if(dobroPopunjenoPolje == false)
+		{
+			potvrdi.setEnabled(false);
+			return false;
+		}
+		
+		potvrdi.setEnabled(true);
+		return true;
+	}
+	
+	public boolean postoji(String brLiceneProfesora)
+	{
+		for(Profesor p : BazaProfesora.getInstance().getProfesori())
+		{
+			if(!(p.getBrlicne().equals(brLiceneProfesora)))
+			{
+				JOptionPane.showMessageDialog(null, "Uneli ste br. licen karte profesora koji ne postoji u bazi podataka!", "Greska", JOptionPane.ERROR_MESSAGE);
+				poljebrlickarteprof.setText("");
+				return false;
+			}
+		}
+		
+		return true;
 	}
 }
