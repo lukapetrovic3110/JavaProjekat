@@ -1,18 +1,21 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
 
 import controller.PredmetController;
 import model.Student;
@@ -38,12 +41,32 @@ public class PrikaziStudenteKojiSlusajuDialog extends JDialog {
 		
 		Dimension dim = new Dimension(160, 25);
 		JScrollPane pan = new JScrollPane();
-		lista = new JList<String>(podaci);
+		
+		DefaultListModel<String> model = new DefaultListModel<>();
+		JList<String> lista = new JList<>( model );
+		for ( int i = 0; i < podaci.length; i++ ){
+		  model.addElement( podaci[i]);
+		}
+		
+		
 		pan.setViewportView(lista);
 		panCenter.add(pan);
 		
+		
+		
 		JPanel dugmad = new JPanel(new FlowLayout());
 		btnObrisi.setSize(dim);
+		btnObrisi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int selectedIndex = lista.getSelectedIndex();
+				if (selectedIndex != -1) 
+				    model.remove(selectedIndex);
+			}
+		});
+		
+		
 		btnNazad.setSize(dim);
 		btnNazad.addActionListener(new ActionListener() {
 			
