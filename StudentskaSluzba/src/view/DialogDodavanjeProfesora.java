@@ -21,6 +21,7 @@ import javax.swing.JTextField;
 
 import controller.ProfesorController;
 import model.BazaProfesora;
+import model.Predmet;
 import model.Profesor;
 import model.Profesor.titule;
 import model.Profesor.zvanja;
@@ -35,7 +36,8 @@ public class DialogDodavanjeProfesora extends JDialog implements KomponenteInter
 
 	private ArrayList<JTextField> listaKomponenti;
 	public ArrayList<Boolean> vrednostPopunjenostiKomponenti;
-
+	private ArrayList<Predmet> predmeti;
+	
 	private JLabel ime;
 	private JLabel prezime;
 	private JLabel datumrodjenja;
@@ -83,7 +85,7 @@ public class DialogDodavanjeProfesora extends JDialog implements KomponenteInter
 	private String regexEmail = "[a-z]{1,20}.?([a-z]{1,20})?@[a-z]{1,15}.com";
 	private String regexAdresaKancelarije = "[A-Z a-z]{3,50}[0-9]{1,2},[A-Z a-z]{1,30},[A-Z a-z]{1,30}[0-9A-Z]{1,3}";
 	private String regexBrLicneKarte = "[0-9]{9}";
-
+	
 	int rowSelectedIndex;
 	Profesor profesor;
 
@@ -370,10 +372,12 @@ public class DialogDodavanjeProfesora extends JDialog implements KomponenteInter
 							} else {
 								zvanjeProfesora = zvanja.DEKAN;
 							}
-	
+							
+							predmeti = new ArrayList<Predmet>();
+							
 							ProfesorController.getInstance().dodajProfesora(imeProfesora, prezimeProfesora,
 									datumRodjenjaProfesora, adresaStanovanjaProfesora, telefonProfesora, emailProfesora,
-									adresaKancelarijeProfesora, brojLicneKarteProfesora, titulaProfesora, zvanjeProfesora);
+									adresaKancelarijeProfesora, brojLicneKarteProfesora, titulaProfesora, zvanjeProfesora, predmeti);
 	
 							setVisible(false);
 						}

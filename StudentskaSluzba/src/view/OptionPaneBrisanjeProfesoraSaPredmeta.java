@@ -21,7 +21,8 @@ public class OptionPaneBrisanjeProfesoraSaPredmeta extends JOptionPane{
 		if (n == 0)
 		{
 			int rowSelected = PanelPredmeti.tablePredmeti.getSelectedRow();
-			PredmetController.getInstance().izbrisiPredmet(rowSelected);
+			rowSelected = PanelPredmeti.tablePredmeti.convertRowIndexToModel(rowSelected);
+			PredmetController.getInstance().obrisiProfesoraSaPredmeta(rowSelected);
 		}	
 	}
 }
