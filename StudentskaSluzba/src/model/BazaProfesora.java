@@ -40,13 +40,23 @@ public class BazaProfesora {
 
 	private void initProf() {
 		this.profesori = new ArrayList<Profesor>();
-		ArrayList<Predmet> predmeti = new ArrayList<Predmet>();
-		predmeti.add(new Predmet("MO-RA", "Metode optimizacije", 5, 3));
 		
-		profesori.add(new Profesor("Aleksa", "Petkovic", "15.01.1965.", "Temerinska 15, Novi Sad", "021/334-990", "aleksa.petkovic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, MI 105", "007198721", titule.DOKTORNAUKA, zvanja.REDOVNIPROFESOR, predmeti));
-		profesori.add(new Profesor("Jana", "Lazarevic", "25.02.1963.", "Jovana Cvijica 26, Novi Sad", "021/435-891", "jana.lazarevic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, Nastavni Blok 206", "008431903", titule.DOKTORNAUKA, zvanja.REDOVNIPROFESOR));
-		profesori.add(new Profesor("Nadja", "Aleksic", "23.03.1973.", "Gunduliceva 75, Novi Sad", "021/730-172", "nadja.aleksic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, NTP 307", "005671007", titule.MAGISTAR, zvanja.VANREDNIPROFESOR));
-		profesori.add(new Profesor("Djordje", "Spasojevic", "24.08.1978.", "Sekspirova 44, Novi Sad", "021/514-893", "djordje.spasojevic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, MI 118", "009999331", titule.MAGISTAR, zvanja.VANREDNIPROFESOR));
+		ArrayList<Predmet> predmeti1 = new ArrayList<Predmet>();
+		predmeti1.add(new Predmet("OP301", "Osnove programiranja", 1, 1));
+		
+		ArrayList<Predmet> predmeti2 = new ArrayList<Predmet>();
+		predmeti2.add(new Predmet("DM881", "Diskretna matematika", 3, 2));
+		
+		ArrayList<Predmet> predmeti3 = new ArrayList<Predmet>();
+		predmeti3.add(new Predmet("RVP33", "Racunarstvo visokih performanski", 7, 4));
+		
+		ArrayList<Predmet> predmeti4 = new ArrayList<Predmet>();
+		predmeti4.add(new Predmet("JSD91", "Jezici specificni za domen", 8, 4));
+		
+		profesori.add(new Profesor("Aleksa", "Petkovic", "15.01.1965.", "Temerinska 15, Novi Sad", "021/334-990", "aleksa.petkovic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, MI 105", "007198721", titule.DOKTORNAUKA, zvanja.REDOVNIPROFESOR, predmeti1));
+		profesori.add(new Profesor("Jana", "Lazarevic", "25.02.1963.", "Jovana Cvijica 26, Novi Sad", "021/435-891", "jana.lazarevic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, Nastavni Blok 206", "008431903", titule.DOKTORNAUKA, zvanja.REDOVNIPROFESOR, predmeti2));
+		profesori.add(new Profesor("Nadja", "Aleksic", "23.03.1973.", "Gunduliceva 75, Novi Sad", "021/730-172", "nadja.aleksic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, NTP 307", "005671007", titule.MAGISTAR, zvanja.VANREDNIPROFESOR, predmeti3));
+		profesori.add(new Profesor("Djordje", "Spasojevic", "24.08.1978.", "Sekspirova 44, Novi Sad", "021/514-893", "djordje.spasojevic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, MI 118", "009999331", titule.MAGISTAR, zvanja.VANREDNIPROFESOR, predmeti4));
 		profesori.add(new Profesor("Elena", "Milenkovic", "08.11.1985.", "Tolstojeva 52, Novi Sad", "021/834-901", "elena.milenkovic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, Nastavni blok 217", "003330976", titule.MAGISTAR, zvanja.DOCENT));
 		profesori.add(new Profesor("Teodor", "Mladenovic", "14.12.1983.", "Jovana Subotica 33, Novi Sad", "021/441-007", "teodor.mladenovic@mailinator.com", "Dositeja Obradovica 6, Novi Sad, NTP M35", "007441998", titule.DOKTORNAUKA, zvanja.DOCENT));
 	}
