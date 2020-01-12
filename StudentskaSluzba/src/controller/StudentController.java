@@ -5,7 +5,6 @@ import model.Student;
 import model.Student.status;
 import model.StudentMethods;
 import view.PanelStudenti;
-import view.StudentiJTable;
 
 public class StudentController {
 	private static StudentController instance = null;

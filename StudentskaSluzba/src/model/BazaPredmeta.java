@@ -123,8 +123,8 @@ public class BazaPredmeta {
 		}
 	}
 
-	// serijalizacija
-  /*
+	// serijalizacija predmeta
+  
 	public void serijalizacijaPisanje() throws FileNotFoundException, IOException {
 		File txtPredmet = new File("bazapredmeta.txt");
 
@@ -154,5 +154,5 @@ public class BazaPredmeta {
 
 		PanelPredmeti.azurirajPrikaz();
 	}
-	*/
+	
 }

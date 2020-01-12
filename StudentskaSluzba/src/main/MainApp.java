@@ -3,6 +3,7 @@ package main;
 import java.io.IOException;
 
 import model.BazaPredmeta;
+import model.BazaStudenata;
 import view.MainWindow;
 
 /**
@@ -15,7 +16,7 @@ public class MainApp {
 		// TODO Auto-generated method stub
 		MainWindow.getInstance();
 
-		/*
+	
 		try {
 			BazaPredmeta.getInstance().serijalizacijaCitanje();
 		} catch (ClassNotFoundException e) {
@@ -26,7 +27,15 @@ public class MainApp {
 			e.printStackTrace();
 		}
 		
-		 */
+		/*try {
+			BazaStudenata.getInstance().serijalizacijaCitanje();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}*/
 	}
 
 }
