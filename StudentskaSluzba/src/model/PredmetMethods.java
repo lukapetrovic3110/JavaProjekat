@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class PredmetMethods {
 	
 	private static ArrayList<Predmet> predmeti = BazaPredmeta.getInstance().getPredmeti();
+	private static ArrayList<Profesor> profesori = BazaProfesora.getInstance().getProfesori();
 	
 	public static void dodajPredmet(String sifraPredmeta, String nazivPredmeta, int semestar, int godinaStudija)
 	{
@@ -33,6 +34,17 @@ public class PredmetMethods {
 				p.setNazivpredmeta(nazivPredmeta);
 				p.setSemestar(semestar);
 				p.setGodinastudija(godinaStudija);
+			}
+		}
+	}
+	
+	public static void dodajProfesoraNaPredmet(String brojLicneKarte)
+	{
+		for(Profesor profesor : profesori)
+		{
+			if(profesor.getBrlicne().equals(brojLicneKarte))
+			{
+				
 			}
 		}
 	}

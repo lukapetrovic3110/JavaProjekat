@@ -39,4 +39,6 @@ public class PredmetController {
 		PredmetMethods.izbrisiPredmet(predmet.getSifrapredmeta());
 		PanelPredmeti.azurirajPrikaz();
 	}
+	
+	// public 
 }
